@@ -1,0 +1,30 @@
+@font-face {
+    font-family: "WorkSans";
+    src: url('/fonts/worksans/WorkSans-Regular.otf');
+    font-display: swap;
+}
+@font-face {
+    font-family: "WorkSans Black";
+    src: url('/fonts/worksans/WorkSans-Black.otf');
+    font-display: swap;
+}
+@font-face {
+    font-family: "WorkSans SemiBold";
+    src: url('/fonts/worksans/WorkSans-SemiBold.otf');
+    font-display: swap;
+}
+@font-face {
+    font-family: "WorkSans Light";
+    src: url('/fonts/worksans/WorkSans-Light.otf');
+    font-display: swap;
+}
+
+
+body{
+    font-family: $wregular;
+}
+
+
+h1{
+    font-size: 40px;
+}
