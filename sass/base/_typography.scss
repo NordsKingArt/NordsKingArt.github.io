@@ -19,12 +19,18 @@
     font-display: swap;
 }
 
+@include font-face("Nunito", "/fonts/nunito/Nunito-Regular.ttf");
+@include font-face("Nunito Black", "/fonts/nunito/Nunito-Black.ttf");
+@include font-face("Nunito Light", "/fonts/nunito/Nunito-Light.ttf");
+@include font-face("Nunito Semibold", "/fonts/nunito/Nunito-SemiBold.ttf");
+
 
 body{
-    font-family: $wregular;
+    font-family: $fregular;
 }
 
 
 h1{
     font-size: 40px;
 }
+

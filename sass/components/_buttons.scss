@@ -1,6 +1,8 @@
-.action-btn{
-    padding: 10px 5px;
-    min-width: 150px;
-    text-align: center;
-    background-color: $red;
+.action-btn-red{
+    @include button(15px 15px, $red, 10px);
+    min-width: 120px;
+}
+.action-btn-blue{
+    @include button(15px 15px, $blue, 10px);
+    min-width: 120px;
 }

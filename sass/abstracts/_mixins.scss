@@ -1,0 +1,127 @@
+// Screen breakpint mixins
+@mixin xs {
+    @media only screen and (max-width: 575px) {
+        @content;
+    }
+}
+
+@mixin sm {
+    @media only screen and (max-width: 768px) {
+        @content;
+    }
+}
+
+@mixin md {
+    @media only screen and (max-width: 992px) {
+        @content;
+    }
+}
+
+@mixin lg {
+    @media only screen and (max-width: 1200px) {
+        @content;
+    }
+}
+
+@mixin xl {
+    @media only screen and (max-width : 1600px) {
+        @content;
+    }
+}
+
+@mixin ownsize($breakpoint){
+    @media only screen and (max-width : $breakpoint) {
+        @content;
+    }
+}
+
+
+// @mixin xs-min {
+//     @media only screen and (min-width: 575px) {
+//         @content;
+//     }
+// }
+
+// @mixin sm-min {
+//     @media only screen and (min-width: 768px) {
+//         @content;
+//     }
+// }
+
+// @mixin md-min {
+//     @media only screen and (min-width: 992px) {
+//         @content;
+//     }
+// }
+
+// @mixin lg-min {
+//     @media only screen and (min-width: 1200px) {
+//         @content;
+//     }
+// }
+
+// @mixin xl-min {
+//     @media only screen and (min-width : 1600px) {
+//         @content;
+//     }
+// }
+
+
+/*Placeholder color*/
+@mixin placeholder-color($color) {
+    &::-webkit-input-placeholder {
+        color: $color;
+    }
+
+    &:-moz-placeholder {
+        color: $color;
+        opacity: 1;
+    }
+
+    &::-moz-placeholder {
+        color: $color;
+        opacity: 1;
+    }
+
+    &:-ms-input-placeholder {
+        color: $color;
+    }
+
+    &::placeholder {
+        color: $color;
+    }
+}
+@mixin remove-focus{
+    &:focus{
+        outline: none;
+    }
+}
+
+
+// Button Mixins
+@mixin button($padding, $background, $radius, $color: white) {
+    padding: $padding;
+    text-align: center;
+    background-color: $background;
+    border: none;
+    border-radius: 10px;
+    color: $color;
+    transition: .2s;
+    cursor: pointer;
+
+    &:hover {
+        background-color: darken($color: $background, $amount: 10);
+        color: $color;
+    }
+}
+
+
+// Font Face
+@mixin font-face($name, $url) {
+    @font-face {
+        font-family: $name;
+        src: url($url);
+        font-display: swap;
+        @content;
+    }
+}
