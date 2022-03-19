@@ -6,3 +6,16 @@
     @include button(15px 15px, $blue, 10px);
     min-width: 120px;
 }
+
+.stylized_btn{
+    @include button(15px 15px, transparent, 10px);
+    background-image: url("/img/homepage/button.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 200px;
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}

@@ -1,0 +1,58 @@
+.entry{
+    height: 100vh;
+    background-image: url("/img/homepage/entry.jpg");
+    background-position: center;
+
+    display: flex;
+
+    .inner{
+        margin-left: 120px;
+        color: white;
+
+        display: flex;
+        flex-direction: column;
+        row-gap: 20px;
+
+        position: relative;
+        top: 250px;
+
+        h1{
+            font-family: $fblack;
+            font-size: 70px;
+            max-width: 800px;
+        }
+
+        p{
+            opacity: 0.5;
+            font-size: 1.4em;
+        }
+
+        a{
+            margin-top: 20px;
+        }
+    }
+
+    img{
+        position: absolute;
+        right: 100px;
+        bottom: 50px;
+        width: 400px;
+    }
+}
+
+.flag_banner{
+    max-width: 400px;
+    margin: auto;
+    position: relative;
+    h2{
+        position: absolute;
+        @include position_center;
+        top: 30px;
+        font-family: $fblack;
+        font-size: 25px;
+        color: white;
+    }
+    img{
+        width: 100%;
+    }
+}

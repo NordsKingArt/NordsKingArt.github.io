@@ -15,3 +15,8 @@ $("header .menu-btn")[0].addEventListener("click", () => {
         $("header menu")[0].style.cssText = "visibility: visible; opacity: 1";
     }
 })
+
+$("header menu li").on("click", function (param){
+    console.log($(this));
+    $(this).children(".dropdown").slideToggle()
+})

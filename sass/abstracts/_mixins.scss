@@ -104,7 +104,7 @@
     text-align: center;
     background-color: $background;
     border: none;
-    border-radius: 10px;
+    border-radius: $radius;
     color: $color;
     transition: .2s;
     cursor: pointer;
@@ -113,6 +113,16 @@
         background-color: darken($color: $background, $amount: 10);
         color: $color;
     }
+}
+@mixin gradient-button($padding, $background, $radius, $color: white) {
+    padding: $padding;
+    text-align: center;
+    background: $background;
+    border: none;
+    border-radius: $radius;
+    color: $color;
+    transition: .2s;
+    cursor: pointer;
 }
 
 
@@ -124,4 +134,23 @@
         font-display: swap;
         @content;
     }
+}
+
+
+// Badge
+@mixin badge($color){
+    font-size: 12px;
+    border-radius: 20px;
+    padding: 5px;
+    background-color: lighten($color: $color, $amount: 30);
+    color: $color;
+    font-family: $fblack;
+}
+
+// Positioning
+@mixin position_center{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
 }

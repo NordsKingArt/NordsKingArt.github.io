@@ -1,0 +1,6 @@
+.badge-red{
+    @include badge($red)
+}
+.badge-blue{
+    @include badge($blue)
+}
