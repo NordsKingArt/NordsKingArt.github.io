@@ -108,6 +108,7 @@
     color: $color;
     transition: .2s;
     cursor: pointer;
+    display: inline-block;
 
     &:hover {
         background-color: darken($color: $background, $amount: 10);
@@ -153,4 +154,10 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
+}
+
+// Texts
+@mixin date{
+    color: $grey;
+    font-size: 14px;
 }

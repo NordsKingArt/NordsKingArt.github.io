@@ -1,0 +1,42 @@
+footer{
+    padding: 20px 60px;
+    background-color: #000422;
+    color: white;
+    nav{
+        display: flex;
+        padding: 100px 0;
+        justify-content: space-between;
+
+        &>div:first-child{
+            .logo{
+                display: flex;
+                align-items: center;
+                column-gap: 20px;
+
+                img{
+                    width: 40px;
+                }
+                h3{
+                    font-family: $fminecraft;
+                    width: 200px;
+                }
+            }
+            p{
+                margin: 10px 0;
+                font-size: 18px;
+                opacity: .6;
+            }
+        }
+    }
+    .bottom{
+        display: flex;
+        div{width: 50%;}
+        .left{
+            display: flex;
+            justify-content: space-between;
+        }
+        .right{
+            text-align: right;
+        }
+    }
+}

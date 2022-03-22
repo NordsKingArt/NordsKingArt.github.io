@@ -17,5 +17,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    
+}
+
+.cool-btn{
+    @include button(20px 15px, transparent, 10px);
+    background: $gradient_cool;
+    font-family: $fsbold;
+}
+.gradient-btn-blue{
+    @include button(20px 15px, transparent, 10px);
+    background: $bluegradient;
+    font-family: $fsbold;
 }

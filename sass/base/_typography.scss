@@ -24,6 +24,8 @@
 @include font-face("Nunito Light", "/fonts/nunito/Nunito-Light.ttf");
 @include font-face("Nunito Semibold", "/fonts/nunito/Nunito-SemiBold.ttf");
 
+@include font-face("Minecrafter", "/fonts/minecraft/Minecrafter.Alt.ttf");
+
 
 body{
     font-family: $fregular;
