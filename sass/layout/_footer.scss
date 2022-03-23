@@ -1,39 +1,117 @@
 footer{
-    padding: 20px 60px;
+    padding: 20px 120px;
     background-color: #000422;
     color: white;
+    @include md{padding: 20px;}
     nav{
         display: flex;
         padding: 100px 0;
         justify-content: space-between;
+        @include md{
+            flex-wrap: wrap;
+            column-gap: 30px;
+            row-gap: 40px;
+            padding: 50px 0;
+        }
+
+        &>div{
+            h3{
+                font-family: $fsbold;
+            }
+            ul{
+                margin-top: 20px;
+                li{
+                    margin-bottom: 20px;
+                    a{
+                        i{margin-right: 5px;}
+                        color: lighten($color: $darkblue2, $amount: 40);
+                        font-family: $fsbold;
+
+                        &:hover{
+                            color: white;
+                        }
+                    }
+                }
+            }
+        }
+
+        // Hiding second and third blocks on mobile
+        &>div:nth-child(2),&>div:nth-child(3){
+            @include sm{display: none;}
+        }
 
         &>div:first-child{
-            .logo{
-                display: flex;
-                align-items: center;
-                column-gap: 20px;
-
+            display: flex;
+            column-gap: 20px;
+            img{
+                width: 50px;
+                @include md{width: 40px;}
+            }
+            .right{
                 img{
                     width: 40px;
                 }
-                h3{
+                h2{
                     font-family: $fminecraft;
                     width: 200px;
                 }
+                p{
+                    margin: 10px 0;
+                    font-size: 18px;
+                    opacity: .6;
+                    max-width: 300px;
+                    line-height: 1.5;
+                    @include sm{max-width: 100%;}
+                }
+                .social{
+                    margin-top: 20px;
+                    i{
+                        margin-right: 10px;
+                        font-size: 18px;
+                        padding: 10px;
+                        border-radius: 50px;
+                        background-color: $darkblue;
+                        color: white;
+                        opacity: .8;
+                    }
+                }
             }
-            p{
-                margin: 10px 0;
-                font-size: 18px;
-                opacity: .6;
+        }
+
+        &>div:last-child{
+            position: relative;
+            height: 200px;
+            @include lg{display: none;}
+            img{
+                position: relative;
+                top: -300px;
+                max-width: 500px;
+                z-index: 1;
+            }
+            &::after{
+                content: " ";
+                position: absolute;
+                left: 0;
+                bottom: -50px;
+
+                width: 600px;
+                height: 300px;
+                border-radius: 50%;
+                background: radial-gradient(#213761, #000422 75%);
             }
         }
     }
     .bottom{
         display: flex;
-        div{width: 50%;}
+        justify-content: space-between;
+        a{
+            color: $grey3;
+        }
         .left{
             display: flex;
-            justify-content: space-between;
+            column-gap: 30px;
+            flex-wrap: wrap;
+            row-gap: 10px;
         }
         .right{
             text-align: right;

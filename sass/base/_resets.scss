@@ -40,8 +40,14 @@ table {
 	border-spacing: 0;
 }
 
+
+// My
 a{
 	color: $link;
 	text-decoration: none;
 	cursor: pointer;
+}
+
+body{
+	overflow-x: hidden;
 }

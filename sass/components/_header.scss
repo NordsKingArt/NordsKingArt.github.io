@@ -21,7 +21,7 @@ header {
             visibility: visible;
             opacity: 1;
             transition: .5s;
-            transition-delay: 0s;
+            transition-delay: .2s;
         }
 
         .dropdown {
@@ -38,7 +38,7 @@ header {
 
             visibility: hidden;
             transition: .2s;
-            transition-delay: .3s;
+            transition-delay: .2s;
             opacity: 0;
 
             .banner {
@@ -98,6 +98,8 @@ header {
                     font-family: $fblack;
                     margin-bottom: 15px;
                     white-space: nowrap;
+                    // word-wrap: break-word;
+                    // word-break: keep-all;
                 }
 
                 a {
@@ -140,7 +142,7 @@ header {
             margin-left: 40px;
 
             li {
-                margin-right: 40px;
+                padding-right: 40px;
 
                 &>a {
                     text-decoration: none;
@@ -388,6 +390,8 @@ header {
         transition: .2s;
         border: none !important;
         width: 100%;
+
+        @include md{padding: 20px}
         
 
         nav {
