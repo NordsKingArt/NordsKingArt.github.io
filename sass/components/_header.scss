@@ -150,7 +150,7 @@ header {
                     font-size: 18px;
                     font-family: $fblack;
 
-                    @include ownsize(1500px) {
+                    @include ownsize(1750px) {
                         display: flex;
                         flex-direction: column;
                         text-align: center;
@@ -200,7 +200,8 @@ header {
 
     .right {
         display: flex;
-        justify-content: end;
+        justify-content: flex-end;
+        align-items: center;
         width: 45%;
 
         .action-btn-blue {

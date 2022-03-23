@@ -10,11 +10,6 @@
         @include position_center;
         top: 40%;
         text-align: center;
-        
-        @include md{
-            margin: 20px;
-            top: 200px;
-        }
         color: white;
 
         display: flex;
@@ -22,20 +17,75 @@
         align-items: center;
         row-gap: 20px;
 
-
-
-        @include md{text-align: center;}
+        @include md{
+            width: 100%;
+            padding: 20px;
+        }
+        @include xl{
+            top: 50%;
+        }
 
         h1{
             font-family: $fblack;
-            font-size: 70px;
+            font-size: 60px;
             max-width: 800px;
-            @include md{font-size: 40px;}
+            min-width: 100%;
+            display: none;
+
+
+            @include xl{
+                display: block;
+            }
+            @include sm{font-size: 32px;}
+        }
+        .rotatingtext{
+            @include xl{display: none;}
+            p{
+                opacity: 1;
+                font-family: $fblack;
+                font-size: 70px;
+                @include md{font-size: 40px;}
+                line-height: 84px;
+            }
+
+            #textrotator {
+                height: 70px;
+                position: relative;
+                overflow: hidden;
+                display: inline-block;
+                transition: .4s;
+                margin-bottom: -15px;
+
+                // Default
+                width: 200px;
+              }
+              
+              #textrotator span {
+                display: block;
+                box-sizing: border-box;
+                position: absolute;
+                top: 100px;
+                opacity: 0;
+              }
+              
+              #textrotator span[data-show] {
+                transform: translateY(-130%);
+                opacity: 1;
+                transition: .5s ease-in-out;
+                // transition: .6s opacity ease-in-out;
+              }
+              #textrotator span[data-up] {
+                transform: translateY(-250%);
+                transition: .5s ease-in-out;
+              }
         }
 
-        p{
+        &>p{
             opacity: 0.5;
             font-size: 1.4em;
+            max-width: 700px;
+            line-height: 1.2;
+            font-family: $fsbold;
         }
 
         a{

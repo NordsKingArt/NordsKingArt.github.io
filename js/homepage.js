@@ -1,5 +1,18 @@
-$(".rotate").textrotator({
-    animation: "dissolve", // You can pick the way it animates when rotating through words. Options are dissolve (default), fade, flip, flipUp, flipCube, flipCubeUp and spin.
-    separator: ",", // If you don't want commas to be the separator, you can define a new separator (|, &, * etc.) by yourself using this field.
-    speed: 3000 // How many milliseconds until the next word show.
-  });
+var textrotator = $("#textrotator")[0]
+setInterval(function () {
+    const show = textrotator.querySelector('span[data-show]')
+    const next = show.nextElementSibling || textrotator.querySelector('span:first-child')
+    const up = textrotator.querySelector('span[data-up]')
+    
+    var rotateKeywords = $("#textrotator");
+    rotateKeywords.width(next.offsetWidth)
+
+    if (up) {
+      up.removeAttribute('data-up')
+    }
+    
+    show.removeAttribute('data-show')
+    show.setAttribute('data-up', '')
+    
+    next.setAttribute('data-show', '')
+  }, 2000)
