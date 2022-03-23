@@ -29,30 +29,9 @@
         h1{
             font-family: $fblack;
             font-size: 70px;
-            max-width: 900px;
+            max-width: 800px;
             @include md{font-size: 40px;}
         }
-        // .animatedtext{
-        //     font-family: $fblack;
-        //     p{
-        //         opacity: 1;
-        //         font-size: 70px;
-        //         white-space: nowrap;
-        //         @include md{font-size: 40px;}
-
-        //         &>span{
-        //             position: relative;
-        //             display: inline-block;
-        //             overflow: hidden;
-        //             margin-bottom: -12px;
-
-        //             span{
-        //                 position: relative;
-        //                 top: 15px;
-        //             }
-        //         }
-        //     }
-        // }
 
         p{
             opacity: 0.5;
