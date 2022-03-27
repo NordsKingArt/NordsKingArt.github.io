@@ -1,10 +1,13 @@
 .action-btn-red{
     @include button(15px 15px, $red, 10px);
-    min-width: 120px;
+    // min-width: 120px;
+    &:hover{
+        background-color: $red2
+    }
 }
 .action-btn-blue{
     @include button(15px 15px, $blue, 10px);
-    min-width: 120px;
+    // min-width: 120px;
 }
 
 .stylized_btn{
@@ -43,4 +46,8 @@
     @include button(20px 15px, transparent, 10px);
     background: $bluegradient;
     font-family: $fsbold;
+}
+
+.round{
+    border-radius: 50px;
 }

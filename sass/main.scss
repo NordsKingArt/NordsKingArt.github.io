@@ -5,11 +5,14 @@
 @import 'base/resets';
 @import 'base/typography';
 
-@import 'components/header';
 @import 'components/buttons';
 @import 'components/badges';
 @import 'components/cards';
+@import 'components/inputs';
 
+@import 'layout/header';
 @import 'layout/footer';
+@import 'layout/entry';
 
-@import 'pages/home';
+.home {@import 'pages/home';}
+.materials {@import 'pages/materials';}

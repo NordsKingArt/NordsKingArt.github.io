@@ -1,4 +1,4 @@
-.entry{
+.entry-home{
     height: 100vh;
     background-image: url("/img/homepage/entry.jpg");
     background-position: center;
@@ -141,14 +141,6 @@
                 }
             }
         }
-    }
-
-    img{
-        position: absolute;
-        right: 100px;
-        bottom: 50px;
-        width: 400px;
-        @include lg{ display: none; }
     }
 }
 

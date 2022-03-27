@@ -78,7 +78,7 @@ footer{
             }
         }
 
-        &>div:last-child{
+        &>div.footer_banner{
             position: relative;
             height: 200px;
             @include lg{display: none;}

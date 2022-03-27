@@ -53,3 +53,158 @@
         }
     }
 }
+
+.cards{
+    // max-width: 1400px;
+    display: flex;
+    flex-wrap: wrap;
+    // padding: 50px;
+
+    .sitecard{
+        margin: 0 25px;
+        margin-bottom: 30px;
+        border-radius: 5px;
+        overflow: hidden;
+        visibility: hidden;
+        border: none;
+        box-shadow: 0 0 100px rgba($color: black, $alpha: 0.1);
+        .imgdiv{
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+
+            &>a img{
+                width: 101%;
+                height: 250px;
+                object-fit: cover;
+                transition: 0.2s;
+                transition-timing-function: ease-out;
+                transform: scale(1);
+            }
+
+            .overlays{
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                width: 100%;
+                padding: 10px;
+
+                display: flex;
+                justify-content: space-between;
+
+                .supported{
+                    display: flex;
+                    column-gap: 5px;
+
+                    div{
+                        border-radius: 50px;
+                        background-color: rgba($color: #000000, $alpha: 0.5);
+                        padding: 8px;
+                    }
+                    svg{
+                        width: 20px;
+                        height: 20px;
+                        fill: none;
+                        
+                        stroke:white;
+                        stroke-width: 700;
+                        stroke-linecap:round;
+                        stroke-linejoin:round;
+
+
+                    }
+                }
+
+                .actions{
+                    opacity: 0;
+                    transition: .2s;
+                }
+                .actions i{
+                    font-size: 16px;
+                    color: white;
+                    background-color: rgba($color: white, $alpha: .3);
+                    box-shadow: 0 4px 20px rgba($color: black, $alpha: 0.2);
+                    padding: 10px 12px;
+                    border-radius: 50px;
+                    cursor: pointer;
+                }
+            }
+        }
+    
+        &:hover{
+            .imgdiv{
+                &>a img{
+                    transform: scale(1.04);
+                }
+
+                .actions{
+                    opacity: 1;
+                }
+            }
+        }
+
+        .text{
+            padding: 40px;
+            padding-top: 20px;
+
+            .supported{
+                display: flex;
+                column-gap: 10px;
+                align-items: center;
+                margin-bottom: 10px;
+                div{
+                    background-color: darken($background, 3);
+                    padding: 5px;
+                    border-radius: 50px;
+                }
+                svg{
+                    width: 20px;
+                    fill: $darkblue;
+                    &.fabric{ width: 16px;}
+                }
+                label{
+                    font-size: 12px;
+                    color: $darkblue;
+                    font-family: $fblack;
+                }
+            }
+
+
+            h2{
+                font-family: $fblack;
+                color: $darkblue;
+            }
+            .versions{
+                margin-bottom: 10px;
+            }
+            p{
+                font-size: 18px;
+                line-height: 1.5;
+                margin-bottom: 30px;
+                color: $grey2;
+            }
+            a{
+                font-family: $fblack;
+            }
+        }
+        .detail{
+            img{
+                width: 45px;
+                height: 45px;
+                object-fit: cover;
+                border-radius: 50px;
+            }
+            &>div{
+                margin-left: 15px;
+                a{
+                    display: block;
+                    color: $darkblue;
+                    margin-bottom: 5px;
+                }
+                label{
+                    @include date;
+                }
+            }
+        }
+    }
+}

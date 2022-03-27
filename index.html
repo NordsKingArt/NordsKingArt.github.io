@@ -10,10 +10,11 @@
     <link rel="stylesheet" href="/additionals/animate/animate.css">
     <link rel="stylesheet" href="/additionals/slick-1.8.1/slick/slick.css"/>
     <link rel="stylesheet" href="/additionals/slick-1.8.1/slick/slick-theme.css"/>
-
+    
     <link rel="stylesheet" href="/css/main.css">
 </head>
-<body>
+<body class="home">
+    
     <header class="header_transparent">
             <div class="left">
                 <nav>
@@ -206,7 +207,7 @@
 
     </header>
 
-    <div class="entry">
+    <div class="entry-home">
         <div class="inner">
             <!-- <h1>Everything you need for Minecraft</h1> -->
             <!-- <h1>Create a new Minecraft and a new experience with tons of <span class="rotate">mods., shaderpacks., texturepacks., maps</span></h1> -->
@@ -1010,7 +1011,7 @@
                     <li><a href="">Terralith</a></li>
                 </ul>
             </div>
-            <div>
+            <div class="footer_banner">
                 <img src="/img/homepage/footer.png" alt="">
             </div>
         </nav>
@@ -1046,11 +1047,6 @@ $(document).ready(function(){
         autoplay: true,
         autoplaySpeed: 3000,
         touchThreshold: 30
-    });
-
-    jQuery('.mycard').viewportChecker({
-        classToAdd: 'visible animate__animated animate__fadeInUp',
-        offset: 100
     });
 })
 </script>
