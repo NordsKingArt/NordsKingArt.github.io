@@ -60,6 +60,10 @@
     flex-wrap: wrap;
     padding: 50px;
 
+    @include xl{
+        padding: 20px;
+    }
+
     .sitecard{
         margin: 0 25px;
         margin-bottom: 30px;
