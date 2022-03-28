@@ -9,6 +9,9 @@
 
 aside{
     max-width: 350px;
+    img{
+        max-width: 100%;
+    }
     
     .trending{
         display: flex;
@@ -24,6 +27,7 @@ aside{
             overflow: hidden;
             border-radius: 10px;
             color: white;
+            background-color: transparent;
 
             img{
                 transition: .2s;
@@ -66,14 +70,14 @@ aside{
             border: none;
 
             .card-img-overlay{
-                background: linear-gradient(45deg, rgba(#3452FF, .7), rgba(#FF1053, 0.7));
+                background: linear-gradient(45deg, rgba(#3452FF, .7) 20%, rgba(#FF1053, .7));
             }
         }
 
         &>a:nth-child(n+4) .card{
             color: #363636;
             transition: .2s;
-            border: 1px solid $grey5;
+            // border: 1px solid $grey5;
 
             .card-body{
                 position: relative;
@@ -82,7 +86,7 @@ aside{
             }
 
             span{
-                border-color: $grey3;
+                border-color: $grey5;
                 transition: border-color .2s;
             }
 
