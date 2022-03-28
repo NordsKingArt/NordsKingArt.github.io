@@ -161,3 +161,8 @@
     color: $grey;
     font-size: 14px;
 }
+@mixin date_opaque{
+    font-size: 12px;
+    opacity: 0.8;
+    font-family: $flight;
+}

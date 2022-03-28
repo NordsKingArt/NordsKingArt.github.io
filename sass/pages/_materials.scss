@@ -1,3 +1,6 @@
+.wrapper{
+    display: flex;
+}
 .cards{
     position: relative;
     top: -200px;
@@ -5,69 +8,105 @@
 
 
 aside{
-    .card {
-        overflow: hidden
-    }
+    max-width: 350px;
     
-    .best {
-        color: white;
-    }
-    
-    .next {
-        color: #363636;
-        border-bottom: 3px solid #00c2ff;
-    }
-    
-    .next img {
-        position: absolute;
-        top: 0;
-        left: 0;
-        object-fit: cover;
-        opacity: 0;
-        width: 100%;
-        transition: .2s;
-    }
-    
-    .next:hover img {
-        opacity: 1;
-        width: 100%;
-    }
-    
-    .next:hover .card-body {
-        z-index: 2;
-        color: white;
-    }
-    
-    .card-img-overlay {
-        /*    background: linear-gradient(to top,rgba(0,0,0,0.4) 20%,transparent);  */
-        background: linear-gradient(45deg, rgba(0, 182, 255, .8), transparent);
-        /*    rgb(204, 0, 255,.5)*/
-        transition: background 1s ease;
-    }
-    
-    .card-img-overlay:hover {
-        background: linear-gradient(45deg, rgba(0, 182, 255, .6) 50%, transparent);
-    }
-    
-    .best img {
-        transition: .2s;
-    }
-    
-    .best:hover img {
-        transform: scale(1.1);
-    }
-    
-    .card-img-overlay span {
-        position: absolute;
-        bottom: 20px;
-    }
-    
-    
-    
-    .card-img-overlay p {
-        font-size: 13px;
-        font-family: "Halvetica Light";
-        letter-spacing: .05em;
-        color: aliceblue
+    .trending{
+        display: flex;
+        flex-direction: column;
+        row-gap: 20px;
+        h3{
+            font-family: $flight;
+            font-size: 20px;
+            color: $grey2;
+        }
+
+        .card{
+            overflow: hidden;
+            border-radius: 10px;
+            color: white;
+
+            img{
+                transition: .2s;
+            }
+            &:hover img {
+                transform: scale(1.1);
+            }
+
+            .card-img-overlay, .card-body{
+                padding-bottom: 30px;
+                padding-left: 30px;
+
+                
+
+                span{
+                    border: 2px solid white;
+                    border-radius: 50%;
+                    width: 38px;
+                    height: 38px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin-right: 15px;
+                    font-family: $fsbold;
+                }
+                div{
+                    h5{
+                        margin-bottom: 4px;
+                        font-family: $fsbold;
+                    }
+                    p{
+                        @include date_opaque;
+                    }
+                }
+            }
+
+        }
+
+        &>a:nth-child(2) .card, &>a:nth-child(3) .card{
+            border: none;
+
+            .card-img-overlay{
+                background: linear-gradient(45deg, rgba(#3452FF, .7), rgba(#FF1053, 0.7));
+            }
+        }
+
+        &>a:nth-child(n+4) .card{
+            color: #363636;
+            transition: .2s;
+            border: 1px solid $grey5;
+
+            .card-body{
+                position: relative;
+                z-index: 1;
+                padding: 25px 30px;
+            }
+
+            span{
+                border-color: $grey3;
+                transition: border-color .2s;
+            }
+
+            img{
+                position: absolute;
+                top: 0;
+                left: 0;
+                object-fit: cover;
+                opacity: 0;
+                width: 100%;
+            }
+
+            &:hover {
+                color: white;
+                .card-body{
+                    background-color: rgba($color: #000000, $alpha: 0.2);
+                }
+                span{
+                    border-color: white;
+                }
+                img{
+                    opacity: 1;
+                }
+            }
+        }
     }
 }
