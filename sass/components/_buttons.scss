@@ -2,7 +2,7 @@
     @include button(15px 15px, $red, 10px);
     // min-width: 120px;
     &:hover{
-        background-color: $red2
+        background-color: shade($red, 10)
     }
 }
 .action-btn-blue{

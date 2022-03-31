@@ -71,7 +71,7 @@
         overflow: hidden;
         visibility: hidden;
         border: none;
-        box-shadow: 0 0 100px rgba($color: black, $alpha: 0.1);
+        box-shadow: $card_shadow;
         .imgdiv{
             width: 100%;
             height: 250px;
@@ -94,7 +94,7 @@
                 padding: 10px;
 
                 display: flex;
-                justify-content: space-between;
+                justify-content: flex-end;
 
                 .supported{
                     display: flex;
@@ -209,6 +209,94 @@
                     @include date;
                 }
             }
+        }
+    }
+
+    &>div:nth-child(2n) .sitecard{
+        animation-delay: .2s;
+    }
+    &>div:nth-child(2n+1) .sitecard{
+        animation-delay: .4s;
+    }
+}
+
+
+
+
+.recommended{
+    padding: 50px;
+    margin-top: 50px;
+
+    h3{
+        font-family: $fblack;
+    }
+    p{
+        margin-top: 10px;
+        color: $grey3;
+        font-size: 18px;
+    }
+
+    .inner{
+        margin-top: 40px;
+        @include grid-five;
+    }
+}
+.card.modpack{
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: $card_shadow;
+    border: none;
+    margin-bottom: 40px;
+    
+    
+
+    .imgdiv{
+        display: flex;
+        flex-direction: column;
+        height: 200px;
+        width: 100%;
+        flex-wrap: wrap;
+
+        &>img:first-child{
+            height: 100%;
+            width: 60%;
+            object-fit: cover;
+        }
+        &>img:nth-child(2), &>div:nth-child(3){
+            height: 50%;
+            width: 40%;
+            object-fit: cover;
+        }
+
+        &>div:nth-child(3){
+            position: relative;
+            img{
+                height: 100%;
+                filter: brightness(0.5);
+            }
+            label{
+                position: absolute;
+                @include position_center;
+                color: white;
+                font-family: $fsbold;
+                font-size: 22px;
+            }
+        }
+    }
+    .text{
+        padding: 30px;
+        h3{
+            font-family: $fsbold;
+        }
+        .details{
+            margin-bottom: 10px;
+            label{ 
+                color: $grey3;
+            }
+        }
+        p{
+            font-size: 18px;
+            line-height: 1.3;
         }
     }
 }

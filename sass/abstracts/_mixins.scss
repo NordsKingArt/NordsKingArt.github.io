@@ -36,6 +36,8 @@
 }
 
 
+
+
 // @mixin xs-min {
 //     @media only screen and (min-width: 575px) {
 //         @content;
@@ -60,11 +62,11 @@
 //     }
 // }
 
-// @mixin xl-min {
-//     @media only screen and (min-width : 1600px) {
-//         @content;
-//     }
-// }
+@mixin xl-min {
+    @media only screen and (min-width : 1600px) {
+        @content;
+    }
+}
 
 
 /*Placeholder color*/
@@ -165,4 +167,50 @@
     font-size: 12px;
     opacity: 0.8;
     font-family: $flight;
+}
+
+// Layouts
+@mixin grid-five{
+    display: flex;
+    flex-wrap: wrap;
+
+    @include xl-min(){
+        &>div{
+            width: 18%;
+            margin: 0 1.25%;
+        }
+        &>div:first-child{
+            margin-left: 0;
+        }
+        &>div:last-child{
+            margin-right: 0;
+        }
+    }
+
+    @include lg(){
+        &>div{
+            width: 30%;
+        }
+        
+        &>div:nth-child(3n+1),&>div:nth-child(3n+2){
+            margin-right: 5%;
+        }
+    }
+    @include md(){
+        &>div{
+            width: 48%;
+        }
+        
+        &>div:nth-child(odd){
+            margin-right: 2%;
+        }
+    }
+    @include xs(){
+        &>div{
+            width: 100%;
+        }
+    }
+
+
+
 }
