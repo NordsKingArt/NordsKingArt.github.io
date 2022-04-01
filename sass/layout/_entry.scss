@@ -13,6 +13,8 @@
         @include md{
             width: 100%;
             padding: 20px;
+            margin-left: 0;
+            top: 100px;
         }
 
         h1{
@@ -35,6 +37,7 @@
         form{
             display: flex;
             column-gap: 10px;
+            flex-wrap: wrap;
             .selected{ // rm this
                 background-color: rgba($color: white, $alpha: 0.5);
                 color: white;

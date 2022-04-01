@@ -38,29 +38,29 @@
 
 
 
-// @mixin xs-min {
-//     @media only screen and (min-width: 575px) {
-//         @content;
-//     }
-// }
+@mixin xs-min {
+    @media only screen and (min-width: 575px) {
+        @content;
+    }
+}
 
-// @mixin sm-min {
-//     @media only screen and (min-width: 768px) {
-//         @content;
-//     }
-// }
+@mixin sm-min {
+    @media only screen and (min-width: 768px) {
+        @content;
+    }
+}
 
-// @mixin md-min {
-//     @media only screen and (min-width: 992px) {
-//         @content;
-//     }
-// }
+@mixin md-min {
+    @media only screen and (min-width: 992px) {
+        @content;
+    }
+}
 
-// @mixin lg-min {
-//     @media only screen and (min-width: 1200px) {
-//         @content;
-//     }
-// }
+@mixin lg-min {
+    @media only screen and (min-width: 1200px) {
+        @content;
+    }
+}
 
 @mixin xl-min {
     @media only screen and (min-width : 1600px) {
@@ -174,29 +174,12 @@
     display: flex;
     flex-wrap: wrap;
 
-    @include xl-min(){
+    @include xs-min(){
         &>div{
-            width: 18%;
-            margin: 0 1.25%;
-        }
-        &>div:first-child{
-            margin-left: 0;
-        }
-        &>div:last-child{
-            margin-right: 0;
+            width: 100%;
         }
     }
-
-    @include lg(){
-        &>div{
-            width: 30%;
-        }
-        
-        &>div:nth-child(3n+1),&>div:nth-child(3n+2){
-            margin-right: 5%;
-        }
-    }
-    @include md(){
+    @include sm-min(){
         &>div{
             width: 48%;
         }
@@ -205,12 +188,30 @@
             margin-right: 2%;
         }
     }
-    @include xs(){
+    @include md-min(){
         &>div{
-            width: 100%;
+            width: 30%;
+        }
+        &>div:nth-child(odd){
+            margin-right: inherit;
+        }
+        &>div:nth-child(3n+1),&>div:nth-child(3n+2){
+            margin-right: 5%;
         }
     }
-
-
-
+    @include xl-min(){
+        &>div{
+            width: 18%;
+            margin: 0 1.25%;
+        }
+        &>div:nth-child(3n+1),&>div:nth-child(3n+2){
+            margin-right: inherit
+        }
+        &>div:first-child{
+            margin-left: 0;
+        }
+        &>div:last-child{
+            margin-right: 0;
+        }
+    }
 }

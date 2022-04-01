@@ -57,6 +57,7 @@ jQuery('.mycard').viewportChecker({
 });
 
 jQuery('.sitecard').viewportChecker({
-    classToAdd: 'visible animate__animated animate__fadeInUp',
-    offset: 100
+    // classToAdd: 'visible animate__animated animate__fadeInUp',
+    classToAdd: 'animated',
+    offset: -100
 });

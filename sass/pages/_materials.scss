@@ -3,11 +3,13 @@
 }
 .cards{
     margin-top: -200px;
+    @include md{margin-top: -150px;}
 }
 
 
 aside{
     max-width: 350px;
+    @include lg{display: none;}
 
     img{
         width: 100%;

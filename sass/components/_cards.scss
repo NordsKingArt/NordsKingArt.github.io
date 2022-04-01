@@ -1,3 +1,4 @@
+// Used in homepage only
 .mycard{
     margin: 0 10px;
     margin-bottom: 30px;
@@ -54,15 +55,18 @@
     }
 }
 
+// Used everywhere
 .cards{
     max-width: 1400px;
     display: flex;
     flex-wrap: wrap;
     padding: 50px;
+    @include xl{padding: 20px;}
 
-    @include xl{
-        padding: 20px;
-    }
+    // Animation stuff
+    perspective: 2000px;
+    .preserve-3d{transform-style: preserve-3d;}
+    
 
     .sitecard{
         margin: 0 25px;
@@ -72,14 +76,36 @@
         visibility: hidden;
         border: none;
         box-shadow: $card_shadow;
+
+        // Animation stuff
+        opacity: 0;
+        visibility: visible !important;
+        transition: opacity .3s cubic-bezier(.1,.3,.2,1),transform .72s cubic-bezier(.1,.3,.27,1);
+        transform: translateY(450px) rotateX(24deg);
+        &.animated{
+            opacity: 1;
+            transform: translateY(0px) rotateX(0deg);
+        }
+        // Animation stuff END
+
+
+        @include xs{
+            margin: 10px;
+            margin-bottom: 30px;
+        }
+
         .imgdiv{
             width: 100%;
-            height: 250px;
             overflow: hidden;
 
+            &>a{
+                display: block;
+                line-height: 0;
+            }
             &>a img{
                 width: 101%;
                 height: 250px;
+                @include md{height: inherit;}
                 object-fit: cover;
                 transition: 0.2s;
                 transition-timing-function: ease-out;
@@ -212,17 +238,26 @@
         }
     }
 
-    &>div:nth-child(2n) .sitecard{
-        animation-delay: .2s;
+    @include lg-min{
+        &>div:nth-child(3n+2) .sitecard{
+            transition-delay: .2s;
+        }
+        &>div:nth-child(3n+3) .sitecard{
+            transition-delay: .4s;
+        }
     }
-    &>div:nth-child(2n+1) .sitecard{
-        animation-delay: .4s;
-    }
+
+}
+
+
+.sitecard{
+
 }
 
 
 
 
+// Recommended and Modpack Cards
 .recommended{
     padding: 50px;
     margin-top: 50px;
@@ -272,6 +307,7 @@
             position: relative;
             img{
                 height: 100%;
+                width: 100%;
                 filter: brightness(0.5);
             }
             label{
