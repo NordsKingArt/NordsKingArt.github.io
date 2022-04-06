@@ -15,6 +15,8 @@
 
 <body class="materials">
 
+    <div id="app">
+
     <header class="header_transparent">
         <div class="left">
             <nav>
@@ -337,7 +339,7 @@
                             <a href=""><img src="/img/dummy/resized/11.jpg"></a>
                             <div class="overlays">
                                 <div class="actions">
-                                    <i class="fa-light fa-bookmark save"></i>
+                                    <Save-Btn saved="false"/>
                                     <i class="fa-light fa-box-heart addtomodpack"></i>
                                 </div>
                             </div>
@@ -870,7 +872,6 @@
     </div>
 
 
-
     <footer class="mt-5">
         <nav>
             <div>
@@ -930,15 +931,16 @@
     </footer>
 
 
+    </div>
 
+    <script src="https://unpkg.com/vue@3"></script>
     <script src="/additionals/jquery/jquery-3.6.0.min.js"></script>
     <script src="/additionals/bootstrap-5.1.3/js/bootstrap.bundle.min.js"></script>
-    <script src="/additionals/viewportchecker/src/jquery.viewportchecker.js"></script>
     <script src="/additionals/viewportchecker/src/jquery.viewportchecker.js"></script>
 
     <script src="/js/functions.js"></script>
     <script src="/js/blackblock.js"></script>
-    <script src="/js/blackblock.js"></script>
+    <script src="/js/materials.js" type="module"></script>
 </body>
 
 </html>

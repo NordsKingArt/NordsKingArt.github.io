@@ -1,0 +1,12 @@
+@keyframes save_animation {
+    from{
+        transform: scale(1);
+    }
+    80%{
+        opacity: 0;
+    }
+    to{
+        transform: scale(2);
+        opacity: 0;
+    }
+}
