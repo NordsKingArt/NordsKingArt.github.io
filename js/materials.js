@@ -15,5 +15,11 @@ Vue.createApp({
     },
     components: {
         SaveBtn
+    },
+    mounted(){
+        jQuery('.sitecard').viewportChecker({
+            classToAdd: 'animated',
+            offset: -100
+        });
     }
 }).mount("#app")

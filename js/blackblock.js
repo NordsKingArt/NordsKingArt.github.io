@@ -1,13 +1,4 @@
 $( document ).ready(function() {
-        // Animation
-        jQuery('.mycard').viewportChecker({
-            classToAdd: 'visible animate__animated animate__fadeInUp',
-            offset: 100
-        });
-        jQuery('.sitecard').viewportChecker({
-            classToAdd: 'animated',
-            offset: -100
-        });
         
         
         // Header

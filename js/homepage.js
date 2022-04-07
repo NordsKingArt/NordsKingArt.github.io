@@ -16,3 +16,11 @@ setInterval(function () {
     
     next.setAttribute('data-show', '')
   }, 2000)
+
+
+
+
+jQuery('.mycard').viewportChecker({
+    classToAdd: 'visible animate__animated animate__fadeInUp',
+    offset: 100
+});
