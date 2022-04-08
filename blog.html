@@ -8,6 +8,9 @@
     <title>Document</title>
     <link rel="stylesheet" href="/additionals/bootstrap-5.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="/additionals/fontawesome-6.0.0-web/css/all.min.css">
+    <link rel="stylesheet" href="/additionals/froala/css/froala_editor.min.css"/>
+    <link rel="stylesheet" href="/additionals/froala/css/plugins.pkgd.min.css"/>
+    
     <link rel="stylesheet" href="/additionals/animate/animate.css">
 
     <link rel="stylesheet" href="/css/main.css">
@@ -217,10 +220,12 @@
         </header>
 
         <div class="blog-banner">
-            <video autoplay muted loop id="myVideo">
+            <video autoplay muted loop id="myVideo" v-if="showVideo">
                 <source src="/img/tmp/pulchra.mp4" type="video/mp4">
             </video>
-            <!-- <img src="/img/dummy/26.png" alt=""> -->
+            <Transition leave-active-class="animate__animated animate__fadeOut">
+                <img src="/img/dummy/26.png" v-if="!showVideo">
+            </Transition>
             <div class="inner">
                 <h1>Chocapic v9.1 Shader Pack</h1>
                 <div class="details">
@@ -282,7 +287,7 @@
                 </section>
 
                 <section class="download">
-                    <h2 class="heading"><i class="far fa-arrow-down-to-bracket"></i> Download</h2>
+                    <h2 class="heading"><i class="fad fa-arrow-down-to-bracket"></i> Download</h2>
                     <p>You can download the mod for the following versions</p>
 
                     <div class="slider">
@@ -335,6 +340,47 @@
                         </div>
                         <a href="" download><i class="fa-solid fa-arrow-down-to-bracket"></i></a>
                     </div>
+                </section>
+
+                <section class="credits">
+                    <h2 class="heading"><i class="fad fa-link-simple"></i>Credits</h2>
+
+                    <div class="inner">
+                        <div class="authors">
+                            <div class="author">
+                                <img src="/img/skins/1.png" alt="">
+                                <div>
+                                    <span>Creator</span>
+                                    <label>Erik</label>
+                                </div>
+                            </div>
+                            <div class="author">
+                                <img src="/img/skins/3.png" alt="">
+                                <div>
+                                    <span>Published By</span>
+                                    <label>Jake Doe</label>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="links">
+                            <h3>Source and Additional Links</h3>
+                            <a href="https://minecraftstorage.com/shaders/Complementary%2BShader%2BPack">https://minecraftstorage.com/shaders/Complementary%2BShader%2BPack</a>
+                            <a href="https://minecraftstorage.com/mods/Sky%2BVillages%2BMod">https://minecraftstorage.com/mods/Sky%2BVillages%2BMod</a>
+                        </div>
+                    </div>
+                </section>
+
+                
+                <section class="comment">
+                    <h2 class="heading"><i class="fal fa-comment-captions"></i>Leave a comment</h2>
+                    <form action="">
+                        <textarea name="comment"></textarea>
+                        <button class="action-btn-red mt-4">Comment</button>
+                    </form>
+                </section>
+                <section class="comments">
+                    .comment
                 </section>
             </main>
             <aside class="d-none">
@@ -508,6 +554,8 @@
     <script src="https://unpkg.com/vue@3"></script>
     <script src="/additionals/jquery/jquery-3.6.0.min.js"></script>
     <script src="/additionals/bootstrap-5.1.3/js/bootstrap.bundle.min.js"></script>
+    <script src="/additionals/froala/js/froala_editor.min.js"></script>
+    <script src="/additionals/froala/js/plugins.pkgd.min.js"></script>
 
     <script src="/js/plugins/complarison-slider.js"></script>
     <script src="/js/functions.js"></script>

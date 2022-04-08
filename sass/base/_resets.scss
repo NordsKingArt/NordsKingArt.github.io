@@ -55,3 +55,49 @@ body{
 input:focus{
 	outline: none;
 }
+
+
+
+// Froala Editor reset
+.fr-box{
+    .fr-toolbar, .fr-wrapper, .second-toolbar{
+        // background-color: transparent !important;
+        border-color: lighten($grey5, 5) !important;
+    }
+    &.invalid{
+        &, .fr-toolbar, .fr-wrapper, .second-toolbar{
+            animation: 1s invalid;
+            animation-delay: .5s;
+        }
+    }
+    &.secondary {
+        visibility: hidden;
+        animation-duration: .5s;
+        max-height: 0px;
+        padding: 0px;
+        overflow: hidden;
+        transition-delay: .5s;
+        transition: .5s;
+    }
+    &.secondary.toggled {
+        max-height: 1000px;
+        padding: 20px 0;
+    }
+    @keyframes invalid {
+        from, 50%, to{
+            background-color: transparent;
+        }
+        25%, 75%{
+            border-color: lightcoral;
+            background-color: transparentize($color: lightcoral, $amount: 0.95);
+        }
+    }
+}
+.fr-box.fr-basic .fr-element.fr-view {
+    font-family: $flight;
+    font-size: 18px;
+    color: $darkblue;
+}
+.fr-placeholder{
+    color: $grey3 !important;
+}

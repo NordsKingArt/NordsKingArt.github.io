@@ -22,3 +22,48 @@ $.fn.extend({
         }
     },
 });
+
+
+function renderEditor (fholder, fplaceholder, fclass=""){
+    new FroalaEditor(
+        fholder, {
+            key: "1C%kZV[IX)_SL}UJHAEFZMUJOYGYQE[\\ZJ]RAe(+%$==",
+            "fontSizeDefaultSelection": "18",
+            "fontSizeUnit": "px",
+            "linkAlwaysBlank": true,
+            "linkText": true,
+            "fontFamilyDefaultSelection": 'Rubik',
+            "heightMin": 200,
+            attribution: false,
+            quickInsertEnabled: false,
+            editorClass: fclass,
+            placeholderText: fplaceholder,
+
+            paragraphFormat: {
+              N: 'Normal',
+              H2: 'Heading 2',
+              H3: 'Heading 3',
+              H4: 'Heading 4',
+            },
+
+            "toolbarButtons": {
+                'moreText': {
+                    'buttons': ['bold', 'italic', 'underline', 'strikeThrough', 'clearFormatting'],
+                    'buttonsVisible': 5
+                },
+                'moreParagraph': {
+                    'buttons': ['formatUL', 'paragraphFormat', 'lineHeight', 'outdent', 'indent', 'quote'
+                    ]
+                },
+                'moreMisc': {
+                    'buttons': ['undo', 'redo', 'fullscreen'],
+                    'align': 'right',
+                    'buttonsVisible': 3
+                },
+                'moreRich': {
+                    'buttons': ['insertLink']
+                }
+            }
+        }
+    );
+}
