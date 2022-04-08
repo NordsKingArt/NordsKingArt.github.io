@@ -9,6 +9,21 @@
     @include button(15px 15px, $blue, 10px);
     // min-width: 120px;
 }
+.action-btn-light{
+    @include button(8px 10px, rgb(244, 244, 244), 10px);
+    color: darken($color: rgb(244, 244, 244), $amount: 40);
+    font-family: $fsbold;
+    border: 1px solid $grey5;
+
+    &:hover{
+        background-color: lighten($color: rgb(244, 244, 244), $amount: 1);
+        color: inherit;
+    }
+    &.small{
+        font-size: 14px
+    }
+}
+
 
 .stylized_btn{
     @include button(15px 15px, transparent, 10px);
