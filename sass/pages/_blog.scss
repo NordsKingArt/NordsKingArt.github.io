@@ -7,7 +7,7 @@
         justify-content: center;
         align-items: center;
         color: white;
-        img{
+        video{
             position: absolute;
             top: 0;
             left: 0;
@@ -181,12 +181,6 @@
 
 
 
-p.description{
-    font-size: 18px;
-    line-height: 1.8;
-    color: $darkblue;
-}
-
 h2.heading{
     color: $red;
     margin-bottom: 10px;
@@ -194,6 +188,13 @@ h2.heading{
     font-size: 26px;
     i{margin-right: 5px;}
 }
+p.description{
+    font-size: 18px;
+    line-height: 1.8;
+    color: $darkblue;
+}
+
+
 .installation{
     font-size: 18px;
     line-height: 1.8;
@@ -201,10 +202,14 @@ h2.heading{
     margin-top: 40px;
     // padding: 40px;
     // background-color: $background;
+    .inner{
+        margin-left: 40px;
+    }
 }
 
 .download{
-    background: #0b1d2c;
+    background: $darkblue2;
+    // background: linear-gradient(120deg, lighten($darkblue2, 10), $darkblue2 40%);
     border-radius: 20px;
     padding: 40px;
     color: white;
@@ -217,6 +222,16 @@ h2.heading{
     }
     &>p{
         opacity: .6;
+    }
+
+    .slider{
+        margin-top: 10px;
+        display: flex;
+        column-gap: 10px;
+
+        label{
+            cursor: pointer;
+        }
     }
 
     .file{
@@ -233,6 +248,7 @@ h2.heading{
             padding: 10px;
             border-radius: 10px;
             margin-right: 10px;
+            border-bottom: 3px solid darken($color: $red, $amount: 40);
         }
         .source{
             padding: 10px;
@@ -252,6 +268,10 @@ h2.heading{
             background-color: $red;
             color: white;
             border-radius: 10px;
+
+            &:hover{
+                background-color: darken($color: $red, $amount: 5);
+            }
         }
     }
 }
