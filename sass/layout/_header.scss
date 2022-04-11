@@ -175,9 +175,19 @@ header {
         position: relative;
 
         &.logo_white{
-            img{
-                width: 35px;
-                margin-top: 10px;
+            @include md-min{
+                &>img:last-child{
+                    display: none;
+                }
+                img{
+                    width: 35px;
+                    margin-top: 10px;
+                }
+            }
+            @include md{
+                &>img:first-child{
+                    display: none;
+                }
             }
         }
 
@@ -437,6 +447,7 @@ header.header_transparent {
     position: absolute;
     top: 0px;
     left: 0px;
+    z-index: 2;
 
     @include md {
         background-color: white;

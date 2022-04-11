@@ -4,3 +4,6 @@
 .badge-blue{
     @include badge($blue)
 }
+.badge-special{
+    @include badge-gradient($bluegradient, white)
+}
