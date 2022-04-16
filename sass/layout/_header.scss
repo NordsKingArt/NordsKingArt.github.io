@@ -14,6 +14,8 @@ header {
                 left: 0;
                 white-space: nowrap;
             }
+
+            &>a i{display: inline-block;}
         }
 
         // position: relative;
@@ -27,7 +29,7 @@ header {
         .dropdown {
             position: absolute;
             z-index: 1;
-            box-shadow: 0 0 50px $grey;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.25);
             top: 80px;
             left: 60px;
             border-radius: 20px;
@@ -45,6 +47,7 @@ header {
                 padding: 50px;
                 background-color: $background;
                 max-width: 400px;
+                @include xl{display: none;}
 
                 img {
                     margin-bottom: 40px;
@@ -147,21 +150,12 @@ header {
                 &>a {
                     text-decoration: none;
                     color: white;
-                    font-size: 18px;
-                    font-family: $fblack;
-
-                    @include ownsize(1750px) {
-                        display: flex;
-                        flex-direction: column;
-                        text-align: center;
-
-                        i {
-                            margin-bottom: 5px;
-                        }
-                    }
+                    font-size: 1.12rem;
+                    // font-family: $fblack;
 
                     i {
                         margin-right: 10px;
+                        @include xl{display: none;}
                     }
                 }
             }

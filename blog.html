@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Chocapic v9.1 Shader Pack</title>
     <link rel="stylesheet" href="/additionals/bootstrap-5.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="/additionals/fontawesome-6.0.0-web/css/all.min.css">
     <link rel="stylesheet" href="/additionals/froala/css/froala_editor.min.css"/>
@@ -220,7 +220,14 @@
 
         </header>
 
-        <div class="blog-banner">
+        <div class="blog-banner" :class="{watchVideo: watchVideo}">
+            <div class="videoContainer" :style="{width: videoWidth, height: videoHeight, top: videoTop}">
+                <div id="player"></div>
+                <i class="fal fa-times" @click="toggleFullScreen"></i>
+            </div>
+
+            
+            <!-- <iframe src="https://www.youtube.com/embed/J2E9luFtm1Y?enablejsapi=1" id="player" :style="{width: videoWidth, height: videoHeight, top: videoTop}" :class="{watchVideo: watchVideo}"></iframe> -->
             <video autoplay muted loop id="myVideo" v-if="showVideo">
                 <source src="/img/tmp/pulchra.mp4" type="video/mp4">
             </video>
@@ -241,7 +248,7 @@
                     <i class="fa-light fa-code-branch mr-3"></i>
                     <span>[1.17.1] [1.17] [1.16.5] [1.16.4] [1.16.3] [1.16.2] [1.16.1] [1.15.2] [1.15.1] [1.14.4] [1.14.2] [1.14.1] [1.13.2] [1.13.1] [1.12.2]</span>
                 </div> -->
-                <div class="video-btn">
+                <div class="video-btn" @click="toggleFullScreen">
                     <i class="fa-brands fa-google-play"></i>
                     Watch a video
                 </div>
@@ -627,10 +634,34 @@
     <script src="/additionals/bootstrap-5.1.3/js/bootstrap.bundle.min.js"></script>
     <script src="/additionals/froala/js/froala_editor.min.js"></script>
     <script src="/additionals/froala/js/plugins.pkgd.min.js"></script>
+    <script src="https://www.youtube.com/iframe_api"></script>
 
     <script src="/js/plugins/complarison-slider.js"></script>
     <script src="/js/functions.js"></script>
     <script src="/js/blackblock.js"></script>
+    <script>
+        var player;
+
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('player', {
+                videoId: "NehSihoHCpc",
+                playerVars: {
+                    color: 'white',
+                    // controls: 0,
+                    rel: 0,
+                },
+                events: {
+                    onReady: onPlayerReady,
+                }
+            });
+        }
+
+        // 4. The API will call this function when the video player is ready.
+        function onPlayerReady(event) {
+            event.target.playVideo();
+            player.mute()
+        }
+    </script>
     <script src="/js/blog.js" type="module"></script>
 </body>
 
