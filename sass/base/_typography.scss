@@ -1,30 +1,11 @@
-@font-face {
-    font-family: "WorkSans";
-    src: url('/fonts/worksans/WorkSans-Regular.otf');
-    font-display: swap;
-}
-@font-face {
-    font-family: "WorkSans Black";
-    src: url('/fonts/worksans/WorkSans-Black.otf');
-    font-display: swap;
-}
-@font-face {
-    font-family: "WorkSans SemiBold";
-    src: url('/fonts/worksans/WorkSans-SemiBold.otf');
-    font-display: swap;
-}
-@font-face {
-    font-family: "WorkSans Light";
-    src: url('/fonts/worksans/WorkSans-Light.otf');
-    font-display: swap;
-}
-
 @include font-face("Nunito", "/fonts/nunito/Nunito-Regular.ttf");
 @include font-face("Nunito Black", "/fonts/nunito/Nunito-Black.ttf");
 @include font-face("Nunito Light", "/fonts/nunito/Nunito-Light.ttf");
 @include font-face("Nunito Semibold", "/fonts/nunito/Nunito-SemiBold.ttf");
 
 @include font-face("Minecrafter", "/fonts/minecraft/Minecrafter.Alt.ttf");
+
+@include font-face("Raleway ExtraBold", "/fonts/raleway/Raleway-ExtraBold.ttf");
 
 
 body{

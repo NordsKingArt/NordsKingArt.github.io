@@ -6,7 +6,9 @@ export default {
             saveAnimation: this.saved
         }
     },
-    props: ['saved'],
+    props: {
+        saved: Boolean
+    },
     template: `<i class="fal fa-bookmark save" :class="{fas: mutableSaved, 'save_animation': saveAnimation}" @click="save"></i>`,
     methods: {
         save(){

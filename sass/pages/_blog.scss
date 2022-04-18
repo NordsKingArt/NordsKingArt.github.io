@@ -1,7 +1,7 @@
 &.layout_banner{
     .blog-banner{
         position: relative;
-        height: 550px;
+        min-height: 550px;
 
         display: flex;
         justify-content: center;
@@ -9,7 +9,8 @@
         color: white;
 
         overflow: hidden;
-        video, img{
+
+        &>video, &>img{
             position: absolute;
             top: 0;
             left: 0;
@@ -24,7 +25,6 @@
         }
 
 
-
         &.watchVideo{
             overflow: visible;
             background-color: black;
@@ -37,6 +37,9 @@
                 width: 100% !important;
                 top: 0% !important;
                 background-color: rgba($color: #000000, $alpha: 0.5);
+
+                iframe{border-radius: 10px;}
+                i{display: block;}
             }
         }
         .videoContainer{
@@ -53,8 +56,6 @@
             iframe{
                 width: 100%;
                 height: 100%;
-
-                border-radius: 10px;
             }
 
             i{
@@ -64,14 +65,11 @@
                 top: 0;
                 z-index: 1;
                 cursor: pointer;
+                display: none;
 
                 padding: 40px;
             }
         }
-
-
-
-
 
 
         .inner{
@@ -103,27 +101,138 @@
                     margin-right: 10px;
                 }
             }
-            .video-btn{
+            .actions{
+                display: flex;
+                column-gap: 20px;
+                align-items: center;
                 margin-top: 30px;
-                cursor: pointer;
-                border-radius: 20px;
-                opacity: 0.5;
+                .video-btn{
+                    cursor: pointer;
+                    border-radius: 20px;
+    
+                    padding: 15px 20px;
+                    border: 1px dashed;
+                    background: $bluegradient;
+                }
+                .save_btn{
+                    cursor: pointer;
+                    border-radius: 20px;
+                    opacity: 0.5;
+                    border: 1px dashed;
 
-                padding: 10px 15px;
-                border: 1px dashed;
+                    i{padding: 15px 20px;}
+                }
+            }
+
+        }
+    }
+
+    &.landscape{
+        background-color: $background;
+        .blog-banner{
+            height: 100vh;
+
+            .videoContainer{
+                top: 0 !important;
+            }
+
+            .inner{
+                align-items: flex-start;
+                h1{
+                    font-family: $frblack;
+                    margin-bottom: 0px;
+                }
+            }
+        }
+        main{
+            max-width: 1200px;
+
+            section.outlined{
+                box-shadow: $card_shadow;
+                padding: 50px;
+                border-radius: 10px;
+                background-color: white;
+            }
+
+            .description{
+                margin-top: -200px; 
+                background-color: white;
+    
+                position: relative;
+    
+                &::after{
+                    position: absolute;
+                    content: "";
+                    width: 80%;
+                    height: 500px;
+                    top: -10px;
+                    left: 0;
+                    background-color: rgba($color: white, $alpha: 0.2);
+                    border-radius: 10px;
+                    transform: rotate(2deg);
+                    z-index: -1;
+                }
+                &::before{
+                    position: absolute;
+                    content: "";
+                    width: 100%;
+                    height: 500px;
+                    top: -5px;
+                    left: 0;
+                    background-color: rgba($color: white, $alpha: 0.2);
+                    border-radius: 10px;
+                    transform: rotate(-2deg);
+                    z-index: -1;
+                }
             }
         }
     }
 
+
+
     main{
         max-width: 1000px;
-        
+    }
+}
 
+
+.authors{
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 40px;
+    margin-top: 10px;
+    .author{
+        display: flex;
+        img{
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 50px;
+        }
+        div{
+            margin-left: 10px;
+            span{color: $grey2;}
+            label{font-size: 22px; display: block; margin-top: 5px; font-family: $fsbold;}
+        }
     }
 }
 
 
 
+
+
+
+h2.heading{
+    color: $red;
+    margin-bottom: 10px;
+    font-family: $fsbold;
+    font-size: 26px;
+    i{margin-right: 5px;}
+}
+
+section{
+    @include md{padding: 0 20px;}
+}
 
 .comparison-slider-wrapper {
 	position: relative;
@@ -242,26 +351,14 @@
 	}
 }
 
-h2.heading{
-    color: $red;
-    margin-bottom: 10px;
-    font-family: $fsbold;
-    font-size: 26px;
-    i{margin-right: 5px;}
-}
-
-section{
-    @include md{padding: 0 20px;}
-}
-
 .description{
     // margin: 50px 0;
 
     p{
         // font-size: 1.1rem;
         font-size: 18px;
-        line-height: 1.8;
-        color: $darkblue;
+        line-height: 2;
+        color: $darkblue2;
     }
 }
 
@@ -362,27 +459,6 @@ section{
 
 .credits{
     margin: 60px 0;
-
-    .authors{
-        display: flex;
-        flex-wrap: wrap;
-        column-gap: 40px;
-        margin-top: 30px;
-        .author{
-            display: flex;
-            img{
-                width: 50px;
-                height: 50px;
-                object-fit: cover;
-                border-radius: 50px;
-            }
-            div{
-                margin-left: 10px;
-                span{color: $grey2;}
-                label{font-size: 22px; display: block; margin-top: 5px; font-family: $fsbold;}
-            }
-        }
-    }
     .links{
         margin-top: 30px;
         h3{
@@ -488,6 +564,7 @@ section.comment{
             border-radius: 10px;
             border-top-left-radius: 0;
             position: relative;
+            background-color: white;
 
             &::after{
                 content: " ";
@@ -499,6 +576,7 @@ section.comment{
                 border: 10px solid transparent;
                 border-right: 10px solid white;
                 border-top: 10px solid white;
+                z-index: 0;
             }
 
 

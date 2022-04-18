@@ -1,3 +1,6 @@
 .date{
     @include date;
 }
+.date_transparent{
+    @include date_opaque;
+}
