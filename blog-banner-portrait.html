@@ -266,7 +266,7 @@
                         Watch a video
                     </div>
                     <!-- <i class="fal fa-bookmark"></i> -->
-                    <div class="save_btn"><Save-Btn :saved="false"/></div>
+                    <div class="save_btn" :class="{saved: saved}"><Save-Btn :saved="saved" @saved="toggleSavePostDialog"/></div>
                 </div>
 
             </div>
@@ -577,7 +577,82 @@
             </aside>
         </div>
 
+        <div class="popups">
+            <Transition name="savepost">
+                <div class="savePost" v-if="showSavePostDialog">
+                    <div class="inner">
+                        <h4>Save a post to your collection</h4>
+                        <p>You can save a post into your favourites collection or to a specific modpack</p>
+                        <div class="collections">
+                            <div class="collection">
+                                <div class="left">
+                                    <i class="fa-solid fa-bookmark"></i>
+                                </div>
+                                <div class="right">
+                                    <label>Favourites</label>
+                                    <div class="details">
+                                        <span>15 Mods</span>
+                                        <span>54 Texture Packs</span>
+                                    </div>
+                                </div>
+                                <button class="remove"><i class="fal fa-trash"></i></button>
+                            </div>
+                            <div class="collection">
+                                <div class="left">
+                                    <div class="imgdiv">
+                                        <img src="/img/dummy/12.png">
+                                    </div>
+                                </div>
+                                <div class="right">
+                                    <label>Construction</label>
+                                    <div class="details">
+                                        <span>15 Mods</span>
+                                        <span>54 Texture Packs</span>
+                                    </div>
+                                </div>
+                                <button class="remove"><i class="fal fa-trash"></i></button>
+                            </div>
+                            <div class="collection">
+                                <div class="left">
+                                    <div class="imgdiv">
+                                        <img src="/img/dummy/16.png">
+                                    </div>
+                                </div>
+                                <div class="right">
+                                    <label>Construction</label>
+                                    <div class="details">
+                                        <span>15 Mods</span>
+                                        <span>54 Texture Packs</span>
+                                    </div>
+                                </div>
+                                <button class="remove"><i class="fal fa-trash"></i></button>
+                            </div>
+                            <div class="collection">
+                                <div class="left">
+                                    <div class="imgdiv">
+                                        <img src="/img/dummy/18.png">
+                                    </div>
+                                </div>
+                                <div class="right">
+                                    <label>Construction</label>
+                                    <div class="details">
+                                        <span>15 Mods</span>
+                                        <span>54 Texture Packs</span>
+                                    </div>
+                                </div>
+                                <button class="remove"><i class="fal fa-trash"></i></button>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between mt-4">
+                            <button class="action-btn-red" @click="toggleSavePostDialog">Done</button>
+                            <button class="action-btn-transparent">Create a new modpack</button>
+                        </div>
+                        <div class="close_btn" @click="toggleSavePostDialog"><i class="fal fa-times"></i></div>
+                    </div>
+                </div>
+            </Transition>
 
+        </div>
 
 
         <footer class="mt-5">
@@ -647,13 +722,14 @@
     <script src="/additionals/bootstrap-5.1.3/js/bootstrap.bundle.min.js"></script>
     <script src="/additionals/froala/js/froala_editor.min.js"></script>
     <script src="/additionals/froala/js/plugins.pkgd.min.js"></script>
-    <script src="https://www.youtube.com/iframe_api" async></script>
+    <script src="https://www.youtube.com/iframe_api"></script>
 
     <script src="/js/plugins/complarison-slider.js"></script>
     <script src="/js/plugins/blogvideoplayer.js"></script>
     <script src="/js/functions.js"></script>
-    <script src="/js/blackblock.js"></script>
-    <script src="/js/blog.js" type="module"></script>
+
+    <script src="/js/blog.js"></script>
+    <script src="/js/blackblock.js" type="module"></script>
 </body>
 
 </html>

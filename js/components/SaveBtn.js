@@ -1,19 +1,18 @@
 export default {
     name: 'SaveBtn',
+    props: {
+        saved: Boolean,
+    },
     data(){
         return{
-            mutableSaved : this.saved,
-            saveAnimation: this.saved
+            saveAnimation: false
         }
     },
-    props: {
-        saved: Boolean
-    },
-    template: `<i class="fal fa-bookmark save" :class="{fas: mutableSaved, 'save_animation': saveAnimation}" @click="save"></i>`,
+    emits: ['saved'],
+    template: `<i class="fa-bookmark save" :class="[this.saved ? 'fas' : 'fal', {'save_animation': saveAnimation}]" @click="save"></i>`,
     methods: {
         save(){
-            this.mutableSaved = !this.mutableSaved;
-            this.saveAnimation = !this.saveAnimation
+            this.$emit("saved")
         }
     }
 }

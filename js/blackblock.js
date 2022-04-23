@@ -1,6 +1,4 @@
 $( document ).ready(function() {
-        
-        
         // Header
         $("header.header_transparent #search_btn, header.header_transparent .searchfield .close").click(() => {
             $("header.header_transparent .searchfield").toggleApearAnimation("animate__fadeInDown", "animate__fadeOutUp", true)
@@ -51,3 +49,16 @@ $( document ).ready(function() {
             $(this).closest(".options").siblings(".selected").find("i.fa-chevron-down")[0].style.transform = "rotate(0deg)";
         });
 });
+
+
+function reinit_popups(){
+    // Popups
+    $(".collection .remove").click(function(event){
+        $(this).parents(".collection").removeClass("added")
+        event.stopPropagation()
+    })
+    $(".collection").click(function (event) {
+        $(this).addClass("added")
+    })
+}
+

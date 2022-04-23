@@ -119,8 +119,16 @@
                     border-radius: 20px;
                     opacity: 0.5;
                     border: 1px dashed;
+                    transition: .2s;
 
                     i{padding: 15px 20px;}
+                    &.saved{
+                        opacity: 1;
+
+                        background-color: white;
+                        color: $red;
+                        border: none;
+                    }
                 }
             }
 
@@ -137,6 +145,7 @@
             }
 
             .inner{
+                margin-top: -200px;
                 align-items: flex-start;
                 h1{
                     font-family: $frblack;
@@ -485,6 +494,9 @@ section{
             //     z-index: -1;
             // }
         }
+    }
+    .authors{
+        margin-top: 30px;
     }
 }
 

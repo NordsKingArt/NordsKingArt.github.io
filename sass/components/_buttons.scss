@@ -1,12 +1,11 @@
 .action-btn-red{
     @include button(15px 15px, $red, 10px);
     // min-width: 120px;
-    &:hover{
-        background-color: shade($red, 10)
-    }
+    @include hover_shade($red);
 }
 .action-btn-blue{
     @include button(15px 15px, $blue, 10px);
+    @include hover_shade($blue);
     // min-width: 120px;
 }
 .action-btn-light{
@@ -23,6 +22,12 @@
         font-size: 14px
     }
 }
+.action-btn-transparent{
+    @include button(15px 15px, transparent, 10px);
+    color: $grey;
+    border: 1px solid $grey5;
+}
+
 
 
 .stylized_btn{

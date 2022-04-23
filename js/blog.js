@@ -7,6 +7,8 @@ Vue.createApp({
             videoTop: 0,
             watchVideo: false, // This one used to toggle fullscreen behavior
             showVideo: false, // This one used to show video on background or not
+            saved: false,
+            showSavePostDialog: false,
         }
     },
     mounted() {
@@ -19,9 +21,6 @@ Vue.createApp({
             });
             setTimeout(() => {
                 if (window.innerWidth > 1200) this.showVideo = true
-                // setTimeout(() => {
-                //     $("video")[0].currentTime = 140;
-                // }, 1000);
             }, 5000);
         }
 
@@ -43,9 +42,6 @@ Vue.createApp({
         //         this.videoTop = (225-(height*factor)/2)+"px"
         //     })
         // })
-
-        
-
     },
     methods: {
         toggleFullScreen() {
@@ -63,6 +59,18 @@ Vue.createApp({
                 iframe.height(iframe.width()/1.7778)
             }
             this.watchVideo = !this.watchVideo;
+        },
+        toggleSavePostDialog(){
+            this.showSavePostDialog = !this.showSavePostDialog
+
+            this.saved = true
+        }
+    },
+    watch: {
+        showSavePostDialog(old, _new){
+            setTimeout(() => {
+                reinit_popups()                
+            }, 10);
         }
     },
     components: {
