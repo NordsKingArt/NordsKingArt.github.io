@@ -601,6 +601,9 @@ section.comment{
                     font-family: $fblack;
                     color: $darkblue2;
                     font-size: 18px;
+
+                    display: flex;
+                    align-items: center;
                     .badge-special{
                         @include xs{display: none;}
                     }

@@ -1,7 +1,5 @@
-import SaveBtn from './components/SaveBtn.js'
-Vue.createApp({
-    data() {
-        return {
+var pageSpecific = {
+    data: {
             videoWidth: 0,
             videoHeight: 0,
             videoTop: 0,
@@ -9,39 +7,53 @@ Vue.createApp({
             showVideo: false, // This one used to show video on background or not
             saved: false,
             showSavePostDialog: false,
-        }
+            showDeleteCommentDialog: false,
+
+            
+            deleteCommentId: null, // Null by default, once trash icon on comment is clicked, this field is filled up with that comment's id
+            comments: [
+                {
+                    id: 1,
+                    avatar: "/img/skins/10.png",
+                    reply : false,
+                    authorized : true,
+                    username : "Leif Haraldson",
+                    role : 0,
+                    date : "July 15, 2017",
+                    comment : "First download the link then copy the shaders file and press windows key + r enter and go to minecraft go to shaders and paste the file"
+                },
+                {
+                    id: 2,
+                    avatar: "/img/skins/5.png",
+                    reply : true,
+                    authorized : true,
+                    username : "Erik",
+                    role : 0,
+                    date : "July 18, 2017",
+                    comment : "Vue defaults Boolean props to false if no default was specified in the prop declaration. The author of Vue explains the reasoning."
+                }
+            ],
+
+            context: null
     },
-    mounted() {
+    mounted(context) {
         renderEditor("textarea[name='comment']", 'Let`s write some cool description!', 'comment'); // Rendering froala editor in comments section
 
         // Video stuff
         {
             window.addEventListener('resize', (e) => {
-                this.showVideo = window.innerWidth > 1200
+                context.showVideo = window.innerWidth > 1200
             });
             setTimeout(() => {
-                if (window.innerWidth > 1200) this.showVideo = true
+                if (window.innerWidth > 1200) context.showVideo = true
             }, 5000);
         }
 
         // I will assume that the given YouTube video aspect ratio is 16:9
         const ASRATIO = 1.77778
-        this.videoWidth = window.innerWidth;
-        this.videoHeight = (window.innerWidth/ASRATIO);
-        this.videoTop = (225-this.videoHeight/2)
-
-        // Depricated! API returns wrong dimensions
-        // fetch("https://noembed.com/embed?url=https://www.youtube.com/watch?v=NehSihoHCpc").then((response) => {
-        //     response.json().then((data)=>{
-        //         let width = data.width
-        //         let height = data.height
-        //         let factor = window.innerWidth/width
-
-        //         this.videoWidth = window.innerWidth+"px";
-        //         this.videoHeight = (height*factor)+"px";
-        //         this.videoTop = (225-(height*factor)/2)+"px"
-        //     })
-        // })
+        context.videoWidth = window.innerWidth;
+        context.videoHeight = (window.innerWidth/ASRATIO);
+        context.videoTop = (225-context.videoHeight/2)
     },
     methods: {
         toggleFullScreen() {
@@ -64,16 +76,15 @@ Vue.createApp({
             this.showSavePostDialog = !this.showSavePostDialog
 
             this.saved = true
+        },
+
+        onCommentDeleteClicked(id){
+            this.deleteCommentId = id
+            this.showDeleteCommentDialog = true;
+        },
+        deleteComment(){
+            // Send query to backend to delete comment
+            
         }
     },
-    watch: {
-        showSavePostDialog(old, _new){
-            setTimeout(() => {
-                reinit_popups()                
-            }, 10);
-        }
-    },
-    components: {
-        SaveBtn
-    }
-}).mount("#app")
+}

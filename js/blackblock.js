@@ -1,4 +1,40 @@
-$( document ).ready(function() {
+import SaveBtn from './components/SaveBtn.js'
+import Comment from './components/Comment.js'
+
+
+
+
+Vue.createApp({
+    data() {
+        return {
+            ...pageSpecific.data
+        }
+    },
+    mounted() {
+        pageSpecific.data.context = this
+        pageSpecific.mounted(this);
+        onMount();
+    },
+    methods: {
+        ...pageSpecific.methods
+    },
+    watch: {
+        ...pageSpecific.watch,
+        showSavePostDialog(old, _new){
+            setTimeout(() => {
+                reinit_popups()                
+            }, 10);
+        }
+    },
+    components: {
+        SaveBtn,
+        Comment
+    },
+    delimiters: ['${', '}']
+}).mount("#app")
+
+
+function onMount(){
         // Header
         $("header.header_transparent #search_btn, header.header_transparent .searchfield .close").click(() => {
             $("header.header_transparent .searchfield").toggleApearAnimation("animate__fadeInDown", "animate__fadeOutUp", true)
@@ -48,7 +84,7 @@ $( document ).ready(function() {
         
             $(this).closest(".options").siblings(".selected").find("i.fa-chevron-down")[0].style.transform = "rotate(0deg)";
         });
-});
+}
 
 
 function reinit_popups(){
