@@ -223,11 +223,10 @@
         <div class="blog-banner">
             <div id="videoContainer">
                 <div id="player"></div>
-                <i class="fal fa-times"></i>
+                <i class="fal fa-times" onclick="toggleFullScreen()"></i>
             </div>
             <img src="/img/dummy/30.png" id="entry_image">
             <div class="inner">
-
                 <h1>Chocapic v9.1 Shader Pack</h1>
                 <div class="details my-3">
                     <label><i class="fal fa-calendar-day"></i> September 10, 2017</label>
@@ -259,11 +258,11 @@
                     <span>[1.17.1] [1.17] [1.16.5] [1.16.4] [1.16.3] [1.16.2] [1.16.1] [1.15.2] [1.15.1] [1.14.4] [1.14.2] [1.14.1] [1.13.2] [1.13.1] [1.12.2]</span>
                 </div> -->
                 <div class="actions">
-                    <div class="video-btn" @click="toggleFullScreen">
+                    <div class="video-btn" onclick="toggleFullScreen()">
                         <i class="fa-brands fa-google-play"></i>
                         Watch a video
                     </div>
-                    <div class="save_btn"><i class="fal fa-bookmark save"></i></div>
+                    <div class="save_btn" onclick="savePost.toggle()"><i class="fal fa-bookmark save"></i></div>
                 </div>
 
             </div>
@@ -557,91 +556,88 @@
         </div>
 
         <div class="popups">
-            <Transition name="savepost">
-                <div class="savePost" v-if="showSavePostDialog">
-                    <div class="inner">
-                        <h4>Save a post to your collection</h4>
-                        <p>You can save a post into your favourites collection or to a specific modpack</p>
-                        <div class="collections">
-                            <div class="collection">
-                                <div class="left">
-                                    <i class="fa-solid fa-bookmark"></i>
-                                </div>
-                                <div class="right">
-                                    <label>Favourites</label>
-                                    <div class="details">
-                                        <span>15 Mods</span>
-                                        <span>54 Texture Packs</span>
-                                    </div>
-                                </div>
-                                <button class="remove"><i class="fal fa-trash"></i></button>
+            <div class="savePost">
+                <div class="inner">
+                    <h4>Save a post to your collection</h4>
+                    <p>You can save a post into your favourites collection or to a specific modpack</p>
+                    <div class="collections">
+                        <div class="collection">
+                            <div class="left">
+                                <i class="fa-solid fa-bookmark"></i>
                             </div>
-                            <div class="collection">
-                                <div class="left">
-                                    <div class="imgdiv">
-                                        <img src="/img/dummy/12.png">
-                                    </div>
+                            <div class="right">
+                                <label>Favourites</label>
+                                <div class="details">
+                                    <span>15 Mods</span>
+                                    <span>54 Texture Packs</span>
                                 </div>
-                                <div class="right">
-                                    <label>Construction</label>
-                                    <div class="details">
-                                        <span>15 Mods</span>
-                                        <span>54 Texture Packs</span>
-                                    </div>
-                                </div>
-                                <button class="remove"><i class="fal fa-trash"></i></button>
                             </div>
-                            <div class="collection">
-                                <div class="left">
-                                    <div class="imgdiv">
-                                        <img src="/img/dummy/16.png">
-                                    </div>
-                                </div>
-                                <div class="right">
-                                    <label>Construction</label>
-                                    <div class="details">
-                                        <span>15 Mods</span>
-                                        <span>54 Texture Packs</span>
-                                    </div>
-                                </div>
-                                <button class="remove"><i class="fal fa-trash"></i></button>
-                            </div>
-                            <div class="collection">
-                                <div class="left">
-                                    <div class="imgdiv">
-                                        <img src="/img/dummy/18.png">
-                                    </div>
-                                </div>
-                                <div class="right">
-                                    <label>Construction</label>
-                                    <div class="details">
-                                        <span>15 Mods</span>
-                                        <span>54 Texture Packs</span>
-                                    </div>
-                                </div>
-                                <button class="remove"><i class="fal fa-trash"></i></button>
-                            </div>
+                            <button class="remove"><i class="fal fa-trash"></i></button>
                         </div>
-                        <div class="d-flex justify-content-between mt-4">
-                            <button class="action-btn-red" @click="toggleSavePostDialog">Done</button>
-                            <button class="action-btn-transparent">Create a new modpack</button>
+                        <div class="collection">
+                            <div class="left">
+                                <div class="imgdiv">
+                                    <img src="/img/dummy/12.png">
+                                </div>
+                            </div>
+                            <div class="right">
+                                <label>Construction</label>
+                                <div class="details">
+                                    <span>15 Mods</span>
+                                    <span>54 Texture Packs</span>
+                                </div>
+                            </div>
+                            <button class="remove"><i class="fal fa-trash"></i></button>
                         </div>
-                        <div class="close_btn" @click="toggleSavePostDialog"><i class="fal fa-times"></i></div>
-                    </div>
-                </div>
-            </Transition>
-            <Transition enter-active-class="animate__animated animate__fadeInUp" leave-active-class="animate__animated animate__fadeOutDown">
-                <div class="dialog" v-if="showDeleteCommentDialog">
-                    <div class="inner">
-                        <h5>Are you sure to delete this comment?</h5>
-                        <p>Note that you cannot reverse this action.</p>
-                        <div class="actions">
-                            <button class="action-btn-red" @click="deleteComment">Delete</button>
-                            <button @click="showDeleteCommentDialog=!showDeleteCommentDialog">Cancel</button>
+                        <div class="collection">
+                            <div class="left">
+                                <div class="imgdiv">
+                                    <img src="/img/dummy/16.png">
+                                </div>
+                            </div>
+                            <div class="right">
+                                <label>Construction</label>
+                                <div class="details">
+                                    <span>15 Mods</span>
+                                    <span>54 Texture Packs</span>
+                                </div>
+                            </div>
+                            <button class="remove"><i class="fal fa-trash"></i></button>
+                        </div>
+                        <div class="collection">
+                            <div class="left">
+                                <div class="imgdiv">
+                                    <img src="/img/dummy/18.png">
+                                </div>
+                            </div>
+                            <div class="right">
+                                <label>Construction</label>
+                                <div class="details">
+                                    <span>15 Mods</span>
+                                    <span>54 Texture Packs</span>
+                                </div>
+                            </div>
+                            <button class="remove"><i class="fal fa-trash"></i></button>
                         </div>
                     </div>
+                    <div class="d-flex justify-content-between mt-4">
+                        <button class="action-btn-red" onclick="savePost.save()">Done</button>
+                        <button class="action-btn-transparent">Create a new modpack</button>
+                    </div>
+                    <div class="close_btn" onclick="savePost.toggle()"><i class="fal fa-times"></i></div>
                 </div>
-            </Transition>
+            </div>
+
+            <div class="dialog" id="delete-comment-dialog">
+                <div class="inner">
+                    <h5>Are you sure to delete this comment?</h5>
+                    <p>Note that you cannot reverse this action.</p>
+                    <div class="actions">
+                        <button class="action-btn-red">Delete</button>
+                        <button click="">Cancel</button>
+                    </div>
+                </div>
+            </div>
         </div>
 
 

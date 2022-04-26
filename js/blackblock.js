@@ -47,15 +47,3 @@ option.click(function (e) {
     $(this).closest(".options").siblings(".selected").find("i.fa-chevron-down")[0].style.transform = "rotate(0deg)";
 });
 
-
-function reinit_popups(){
-    // Popups
-    $(".collection .remove").click(function(event){
-        $(this).parents(".collection").removeClass("added")
-        event.stopPropagation()
-    })
-    $(".collection").click(function (event) {
-        $(this).addClass("added")
-    })
-}
-

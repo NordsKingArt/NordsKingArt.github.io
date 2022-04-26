@@ -11,19 +11,20 @@
     justify-content: center;
     align-items: flex-start;
 
-    display: none;
+    visibility: hidden;
+    animation-duration: .5s;
 
     .inner {
         margin-top: 100px;
         position: relative;
 
-        // animation: fadeInDown .8s;
-        // animation-delay: 0.5s;
-        // animation-fill-mode: forwards;
-
         background-color: white;
         padding: 50px;
         border-radius: 10px;
+
+        visibility: hidden;
+        animation-delay: .5s;
+        animation-duration: .5s;
 
         p {
             color: $grey2;
@@ -170,7 +171,7 @@
 
     animation-duration: 0.4s;
 
-    display: none;
+    visibility: hidden;
 
     .inner{
         position: absolute;
