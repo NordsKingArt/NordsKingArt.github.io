@@ -10,7 +10,7 @@
 
         overflow: hidden;
 
-        &>video, &>img{
+        &>img{
             position: absolute;
             top: 0;
             left: 0;
@@ -20,15 +20,12 @@
             z-index: -1;
             filter: brightness(0.5);
         }
-        video{
-            display: none;
-        }
 
 
         &.watchVideo{
             overflow: visible;
             background-color: black;
-            .videoContainer{
+            #videoContainer{
                 position: fixed;
                 z-index: 10;
                 filter: none;
@@ -42,7 +39,7 @@
                 i{display: block;}
             }
         }
-        .videoContainer{
+        #videoContainer{
             position: absolute;
             left: 0;
             z-index: -1;

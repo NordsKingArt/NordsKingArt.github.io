@@ -220,14 +220,12 @@
 
         </header>
 
-        <div class="blog-banner" :class="{watchVideo: watchVideo}">
-            <div class="videoContainer" :style="{width: videoWidth+'px', height: videoHeight+'px', top: videoTop+'px'}">
+        <div class="blog-banner">
+            <div id="videoContainer">
                 <div id="player"></div>
-                <i class="fal fa-times" @click="toggleFullScreen"></i>
+                <i class="fal fa-times"></i>
             </div>
-            <Transition leave-active-class="animate__animated animate__fadeOut">
-                <img src="/img/dummy/30.png" v-if="!showVideo">
-            </Transition>
+            <img src="/img/dummy/30.png" id="entry_image">
             <div class="inner">
 
                 <h1>Chocapic v9.1 Shader Pack</h1>
@@ -265,7 +263,7 @@
                         <i class="fa-brands fa-google-play"></i>
                         Watch a video
                     </div>
-                    <div class="save_btn" :class="{saved: saved}"><Save-Btn :saved="saved" @saved="toggleSavePostDialog"/></div>
+                    <div class="save_btn"><i class="fal fa-bookmark save"></i></div>
                 </div>
 
             </div>
@@ -403,35 +401,22 @@
 
                 <section class="comments">
                     <p class="alert">Please <a href="">sign in</a> or <a href="">create an account</a> to participate in this conversation.</p>
-                    <Comment v-for="comment in comments"
-                            :id="comment.id" 
-                            :avatar="comment.avatar" 
-                            :reply="comment.reply" 
-                            :authorized="comment.authorized" 
-                            :username="comment.username" 
-                            :role="comment.role" 
-                            :date="comment.date" 
-                            :comment="comment.comment"
-                            @delete-comment="onCommentDeleteClicked">
-                    </Comment>
-                    
-                    
-                    <!-- <div class="comment reply authorized">
+                    <div class="comment authorized">
                         <div class="avatar">
                             <img src="/img/skins/10.png" alt="">
                         </div>
                         <div class="body">
                             <div class="top">
                                 <div>
-                                    <label class="author">Leif Haraldson <span class="badge-special px-2">Publisher</span></label>
-                                    <label class="date"></label>
+                                    <label class="author">Leif Haraldson <span class="px-2 ms-2 badge-special">Creator</span></label>
+                                    <label class="date">July 15, 2017</label>
                                 </div>
                                 <div class="actions">
                                     <button class="action-btn-light small">Reply</button>
-                                    <button class="delete_btn" @click="deleteComment"><i class="fal fa-trash"></i></button>
+                                    <button class="delete_btn"><i class="fal fa-trash"></i></button>
                                 </div>
                             </div>
-                            <p></p>
+                            <p>First download the link then copy the shaders file and press windows key + r enter and go to minecraft go to shaders and paste the file</p>
                         </div>
                     </div>
                     <div class="comment reply">
@@ -469,7 +454,7 @@
                             </div>
                             <p>First download the link then copy the shaders file and press windows key + r enter and go to minecraft go to shaders and paste the file</p>
                         </div>
-                    </div> -->
+                    </div>
                 </section>
             </main>
             <aside class="d-none">
@@ -723,8 +708,6 @@
 
 
 
-    <script src="https://unpkg.com/vue@3"></script>
-
     <script src="/additionals/jquery/jquery-3.6.0.min.js"></script>
     <script src="/additionals/bootstrap-5.1.3/js/bootstrap.bundle.min.js"></script>
     <script src="/additionals/froala/js/froala_editor.min.js"></script>
@@ -736,7 +719,7 @@
     <script src="/js/functions.js"></script>
 
     <script src="/js/blog.js"></script>
-    <script src="/js/blackblock.js" type="module"></script>
+    <script src="/js/blackblock.js"></script>
 </body>
 
 </html>
