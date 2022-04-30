@@ -10,7 +10,12 @@
     <link rel="stylesheet" href="/additionals/fontawesome-6.0.0-web/css/all.min.css">
     <link rel="stylesheet" href="/additionals/froala/css/froala_editor.min.css"/>
     <link rel="stylesheet" href="/additionals/froala/css/plugins.pkgd.min.css"/>
+
+    <!-- Slick -->
+    <link rel="stylesheet" href="/additionals/slick-1.8.1/slick/slick-theme.css"/>
+    <link rel="stylesheet" href="/additionals/slick-1.8.1/slick/slick.css"/>
     
+    <!-- Animate.css -->
     <link rel="stylesheet" href="/additionals/animate/animate.css">
 
     <link rel="stylesheet" href="/css/main.css">
@@ -220,38 +225,31 @@
 
         </header>
 
-        <div class="blog-banner" :class="{watchVideo: watchVideo}">
-            <div class="videoContainer" :style="{width: videoWidth+'px', height: videoHeight+'px', top: videoTop+'px'}">
-                <div id="player"></div>
-                <i class="fal fa-times" @click="toggleFullScreen"></i>
-            </div>
 
-            <video autoplay muted loop id="myVideo" v-if="showVideo">
-                <source src="/img/tmp/pulchra.mp4" type="video/mp4">
-            </video>
-            <Transition leave-active-class="animate__animated animate__fadeOut">
-                <img src="/img/dummy/26.png" v-if="!showVideo">
-            </Transition>
+
+        <div class="blog-banner">
+            <div id="videoContainer">
+                <div id="player"></div>
+                <i class="fal fa-times" onclick="toggleFullScreen()"></i>
+            </div>
+            <img src="/img/dummy/30.png" id="entry_image">
             <div class="inner">
                 <h1>Chocapic v9.1 Shader Pack</h1>
-                <div class="details">
-                    <label><i class="far fa-clock"></i> September 21, 2017</label>
+                <div class="details my-3">
+                    <label><i class="fal fa-calendar-day"></i> September 10, 2017</label>
+                    <label><i class="fa-solid fa-clock-rotate-left"></i> May 22, 2018</label>
                     <label><i class="far fa-eye"></i> 16,304</label>
                     <label><i class="far fa-arrow-down-to-bracket"></i> 456</label>
                     <label><i class="far fa-bookmark"></i> 235</label>
                     <label><i class="far fa-heart"></i> 2,354</label>
                     <label><i class="far fa-thumbs-up"></i> 7,456</label>
                 </div>
-                <!-- <div class="versions mt-4">
-                    <i class="fa-light fa-code-branch mr-3"></i>
-                    <span>[1.17.1] [1.17] [1.16.5] [1.16.4] [1.16.3] [1.16.2] [1.16.1] [1.15.2] [1.15.1] [1.14.4] [1.14.2] [1.14.1] [1.13.2] [1.13.1] [1.12.2]</span>
-                </div> -->
                 <div class="actions">
-                    <div class="video-btn" @click="toggleFullScreen">
+                    <div class="video-btn" onclick="toggleFullScreen()">
                         <i class="fa-brands fa-google-play"></i>
                         Watch a video
                     </div>
-                    <div class="save_btn" :class="{saved: saved}"><Save-Btn :saved="saved" @saved="toggleSavePostDialog"/></div>
+                    <div class="save_btn" id="saveBtn"><i class="fal fa-bookmark save"></i></div>
                 </div>
             </div>
         </div>
@@ -269,22 +267,63 @@
                         This pack is compatible with both Optifine and Iris shaders.</p>
                 </section>
 
-                <div class="comparison-slider-wrapper">
-                    <!-- Comparison Slider - this div contain the slider with the individual images captions -->
-                    <div class="comparison-slider">
-                        <div class="overlay">Vanilla</div>
-                        <img src="/img/tmp/before.png"
-                            alt="marioPhoto 2">
-                        <!-- Div containing the image layed out on top from the left -->
-                        <div class="resize">
-                            <div class="overlay">Nostalgia 4.0</div>
-                            <img src="/img/tmp/after.png"
-                                alt="marioPhoto 1">
+                <section class="screenshots">
+                    <div class="screenshot-items">
+                        <div class="screenshot">
+                            <div class="comparison-slider-wrapper">
+                                <!-- Comparison Slider - this div contain the slider with the individual images captions -->
+                                <div class="comparison-slider">
+                                    <div class="overlay">Vanilla</div>
+                                    <img src="/img/tmp/before.png"
+                                        alt="marioPhoto 2">
+                                    <!-- Div containing the image layed out on top from the left -->
+                                    <div class="resize">
+                                        <div class="overlay">Nostalgia 4.0</div>
+                                        <img src="/img/tmp/after.png"
+                                            alt="marioPhoto 1">
+                                    </div>
+                                    <!-- Divider where user will interact with the slider -->
+                                    <div class="divider"></div>
+                                </div>
+                            </div>
                         </div>
-                        <!-- Divider where user will interact with the slider -->
-                        <div class="divider"></div>
+                        <div class="screenshot">
+                            <img src="./img/dummy/11.png">
+                        </div>
+                        <div class="screenshot">
+                            <img src="./img/dummy/12.png">
+                        </div>
+                        <div class="screenshot">
+                            <img src="./img/dummy/13.png">
+                        </div>
+                        <div class="screenshot">
+                            <img src="./img/dummy/14.png">
+                        </div>
+                        <div class="screenshot">
+                            <img src="./img/dummy/15.png">
+                        </div>
                     </div>
-                </div>
+                    <div class="thumbnails">
+                        <div class="screenshot active">
+                            <img src="/img/tmp/after.png">
+                        </div>
+                        <div class="screenshot">
+                            <img src="./img/dummy/11.png">
+                        </div>
+                        <div class="screenshot">
+                            <img src="./img/dummy/12.png">
+                        </div>
+                        <div class="screenshot">
+                            <img src="./img/dummy/13.png">
+                        </div>
+                        <div class="screenshot">
+                            <img src="./img/dummy/14.png">
+                        </div>
+                        <div class="screenshot">
+                            <img src="./img/dummy/15.png">
+                        </div>
+                    </div>
+                </section>
 
                 <section class="installation">
                     <h2 class="heading"><i class="fa-solid fa-gears"></i> How to install</h2>
@@ -413,7 +452,7 @@
                         <div class="body">
                             <div class="top">
                                 <div>
-                                    <label class="author">Leif Haraldson <span class="badge-special px-2">Publisher</span></label>
+                                    <label class="author">Leif Haraldson <span class="badge-special px-2 ms-2">Publisher</span></label>
                                     <label class="date">July 15, 2017</label>
                                 </div>
                                 <div class="actions">
@@ -462,181 +501,94 @@
                     </div>
                 </section>
             </main>
-            <aside class="d-none">
-                <div class="trending">
-                    <h3>Trending Posts</h3>
-                    <a href="">
-                        <div class="card">
-                            <img src="/img/dummy/21.png" class="card-img">
-                            <div class="card-img-overlay d-flex align-items-end">
-                                <span>1</span>
-                                <div>
-                                    <h5 class="card-title">Astralex</h5>
-                                    <p class="card-text">June 18, 2017</p>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="">
-                        <div class="card">
-                            <img src="/img/dummy/11.png" class="card-img">
-                            <div class="card-img-overlay d-flex align-items-end">
-                                <span>2</span>
-                                <div>
-                                    <h5 class="card-title">Chocapic</h5>
-                                    <p class="card-text">August 26, 2017</p>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-
-                    <a href="">
-                        <div class="card">
-                            <div class="card-body d-flex">
-                                <span>3</span>
-                                <div>
-                                    <h5 class="card-title">CYBOX Shaders</h5>
-                                    <p class="card-text">Jebruary 16, 2017</p>
-                                </div>
-                            </div>
-                            <img src="/img/dummy/1.png">
-                        </div>
-                    </a>
-
-                    <a href="">
-                        <div class="card">
-                            <div class="card-body d-flex">
-                                <span>4</span>
-                                <div>
-                                    <h5 class="card-title">Ancient Warfare</h5>
-                                    <p class="card-text">Jebruary 16, 2017</p>
-                                </div>
-                            </div>
-                            <img src="/img/dummy/1.png">
-                        </div>
-                    </a>
-
-                    <a href="">
-                        <div class="card">
-                            <div class="card-body d-flex">
-                                <span>5</span>
-                                <div>
-                                    <h5 class="card-title">Flan's Mod</h5>
-                                    <p class="card-text">Jebruary 16, 2017</p>
-                                </div>
-                            </div>
-                            <img src="/img/dummy/1.png">
-                        </div>
-                    </a>
-
-                    <a href="">
-                        <div class="card">
-                            <div class="card-body d-flex">
-                                <span>6</span>
-                                <div>
-                                    <h5 class="card-title">Dynamic Surroundings</h5>
-                                    <p class="card-text">Jebruary 16, 2017</p>
-                                </div>
-                            </div>
-                            <img src="/img/dummy/1.png">
-                        </div>
-                    </a>
-                </div>
-
-                <div class="recenttags mt-5">
-                    <h3 class="mb-3">Recent Tags</h3>
-                    <a href="" class="badge-light">Physics</a>
-                    <a href="" class="badge-light">Wind</a>
-                    <a href="" class="badge-light">Trees</a>
-                    <a href="" class="badge-light">Mobs</a>
-                    <a href="" class="badge-light">PBR</a>
-                    <a href="" class="badge-light">Bump Maps</a>
-                    <a href="" class="badge-light">Sand</a>
-                    <a href="" class="badge-light">Bioms</a>
-                    <a href="" class="badge-light">Terrain</a>
-                    <a href="" class="badge-light">Generation</a>
-                </div>
-
-                <a href="" class="discord d-block mt-5"><img src="/img/materials/discord.jpg"></a>
-            </aside>
         </div>
 
 
         <div class="popups">
-            <Transition name="savepost">
-                <div class="savePost" v-if="showSavePostDialog">
-                    <div class="inner">
-                        <h4>Save a post to your collection</h4>
-                        <p>You can save a post into your favourites collection or to a specific modpack</p>
-                        <div class="collections">
-                            <div class="collection">
-                                <div class="left">
-                                    <i class="fa-solid fa-bookmark"></i>
-                                </div>
-                                <div class="right">
-                                    <label>Favourites</label>
-                                    <div class="details">
-                                        <span>15 Mods</span>
-                                        <span>54 Texture Packs</span>
-                                    </div>
-                                </div>
-                                <button class="remove"><i class="fal fa-trash"></i></button>
+            <div class="savePost">
+                <div class="inner">
+                    <h4>Save a post to your collection</h4>
+                    <p>You can save a post into your favourites collection or to a specific modpack</p>
+                    <div class="collections">
+                        <div class="collection" data-id="1">
+                            <div class="left">
+                                <i class="fa-solid fa-bookmark"></i>
                             </div>
-                            <div class="collection">
-                                <div class="left">
-                                    <div class="imgdiv">
-                                        <img src="/img/dummy/12.png">
-                                    </div>
+                            <div class="right">
+                                <label>Favourites</label>
+                                <div class="details">
+                                    <span>15 Mods</span>
+                                    <span>54 Texture Packs</span>
                                 </div>
-                                <div class="right">
-                                    <label>Construction</label>
-                                    <div class="details">
-                                        <span>15 Mods</span>
-                                        <span>54 Texture Packs</span>
-                                    </div>
-                                </div>
-                                <button class="remove"><i class="fal fa-trash"></i></button>
                             </div>
-                            <div class="collection">
-                                <div class="left">
-                                    <div class="imgdiv">
-                                        <img src="/img/dummy/16.png">
-                                    </div>
-                                </div>
-                                <div class="right">
-                                    <label>Construction</label>
-                                    <div class="details">
-                                        <span>15 Mods</span>
-                                        <span>54 Texture Packs</span>
-                                    </div>
-                                </div>
-                                <button class="remove"><i class="fal fa-trash"></i></button>
-                            </div>
-                            <div class="collection">
-                                <div class="left">
-                                    <div class="imgdiv">
-                                        <img src="/img/dummy/18.png">
-                                    </div>
-                                </div>
-                                <div class="right">
-                                    <label>Construction</label>
-                                    <div class="details">
-                                        <span>15 Mods</span>
-                                        <span>54 Texture Packs</span>
-                                    </div>
-                                </div>
-                                <button class="remove"><i class="fal fa-trash"></i></button>
-                            </div>
+                            <button class="remove"><i class="fal fa-trash"></i></button>
                         </div>
-                        <div class="d-flex justify-content-between mt-4">
-                            <button class="action-btn-red" @click="toggleSavePostDialog">Done</button>
-                            <button class="action-btn-transparent">Create a new modpack</button>
+                        <div class="collection" data-id="2">
+                            <div class="left">
+                                <div class="imgdiv">
+                                    <img src="/img/dummy/12.png">
+                                </div>
+                            </div>
+                            <div class="right">
+                                <label>Construction</label>
+                                <div class="details">
+                                    <span>15 Mods</span>
+                                    <span>54 Texture Packs</span>
+                                </div>
+                            </div>
+                            <button class="remove"><i class="fal fa-trash"></i></button>
                         </div>
-                        <div class="close_btn" @click="toggleSavePostDialog"><i class="fal fa-times"></i></div>
+                        <div class="collection" data-id="3">
+                            <div class="left">
+                                <div class="imgdiv">
+                                    <img src="/img/dummy/16.png">
+                                </div>
+                            </div>
+                            <div class="right">
+                                <label>Construction</label>
+                                <div class="details">
+                                    <span>15 Mods</span>
+                                    <span>54 Texture Packs</span>
+                                </div>
+                            </div>
+                            <button class="remove"><i class="fal fa-trash"></i></button>
+                        </div>
+                        <div class="collection" data-id="4">
+                            <div class="left">
+                                <div class="imgdiv">
+                                    <img src="/img/dummy/18.png">
+                                </div>
+                            </div>
+                            <div class="right">
+                                <label>Construction</label>
+                                <div class="details">
+                                    <span>15 Mods</span>
+                                    <span>54 Texture Packs</span>
+                                </div>
+                            </div>
+                            <button class="remove"><i class="fal fa-trash"></i></button>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between mt-4">
+                        <button class="action-btn-red" onclick="savePost.save()">Done</button>
+                        <button class="action-btn-transparent">Create a new modpack</button>
+                    </div>
+                    <div class="close_btn" onclick="savePost.toggle()"><i class="fal fa-times"></i></div>
+                </div>
+            </div>
+
+            <div class="dialog" id="delete-comment-dialog">
+                <div class="inner">
+                    <h5>Are you sure to delete this comment?</h5>
+                    <p>Note that you cannot reverse this action.</p>
+                    <div class="actions">
+                        <button class="action-btn-red" onclick="deleteCommentDialog.delete()">Delete</button>
+                        <button onclick="deleteCommentDialog.toggle()">Cancel</button>
                     </div>
                 </div>
-            </Transition>
+            </div>
 
+            <div class="message message-success type2" id="postSavedMessage">Post is saved</div>
         </div>
 
 
@@ -702,17 +654,18 @@
     </div>
 
 
-    <script src="https://unpkg.com/vue@3"></script>
     <script src="/additionals/jquery/jquery-3.6.0.min.js"></script>
     <script src="/additionals/bootstrap-5.1.3/js/bootstrap.bundle.min.js"></script>
     <script src="/additionals/froala/js/froala_editor.min.js"></script>
     <script src="/additionals/froala/js/plugins.pkgd.min.js"></script>
     <script src="https://www.youtube.com/iframe_api"></script>
+    <script src="/additionals/slick-1.8.1/slick/slick.min.js"></script>
 
+    <!-- Custom scripts -->
     <script src="/js/plugins/complarison-slider.js"></script>
     <script src="/js/plugins/blogvideoplayer.js"></script>
     <script src="/js/functions.js"></script>
-    <script src="/js/blackblock.js" type="module"></script>
+    <script src="/js/blackblock.js"></script>
     <script src="/js/blog.js"></script>
 </body>
 

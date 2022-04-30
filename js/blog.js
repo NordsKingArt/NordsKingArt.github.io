@@ -2,9 +2,6 @@ var data = {
 
 }
 
-
-
-
 renderEditor("textarea[name='comment']", 'Let`s write some cool description!', 'comment'); // Rendering froala editor in comments section
 
 
@@ -21,9 +18,10 @@ renderEditor("textarea[name='comment']", 'Let`s write some cool description!', '
 // I will assume that the given YouTube video aspect ratio is 16:9
 var videoContainer = $("#videoContainer");
 
-const ASRATIO = 1.77778
-let videoWidth = window.innerWidth;
-let videoHeight = (window.innerWidth/ASRATIO);
+// const ASRATIO = 1.77778
+const ASRATIO = 2.41
+let videoHeight = window.innerHeight;
+let videoWidth = videoHeight*ASRATIO;
 let videoTop = (225-videoHeight/2)
 
 videoContainer.width(videoWidth+"px")
@@ -31,36 +29,83 @@ videoContainer.height(videoHeight+"px")
 videoContainer.css("top",videoTop+"px")
 
 
-
+// Toggling fullscreen video
+var watchVideo = false
 function toggleFullScreen(){
     $(".blog-banner").toggleClass("watchVideo")
+    let iframe = $("#player")
+    if(this.watchVideo){
+        player.mute()
+
+        iframe.width("inherit")
+        iframe.height("inherit")
+    }
+    else{
+        player.unMute()
+
+        iframe.width(window.innerWidth-(window.innerWidth*0.2)+"px")
+        iframe.height(iframe.width()/ASRATIO)
+    }
+    watchVideo = !watchVideo;
 }
 
 
-
-class SavePost{
-    constructor(div){
-        this.div = div;
-        this.inner = div.find(".inner")
-
-        $(".collection .remove").click(function(event){
-            $(this).parents(".collection").removeClass("added")
-            event.stopPropagation()
-        })
-        $(".collection").click(function (event) {
-            $(this).addClass("added")
-        })
+var savePost = new SavePost($(".savePost"));
+savePost.setOnSaved((saved)=>{
+    if(saved.size>0){
+        $("#saveBtn").toggleClass("saved")
+        $("#saveBtn i").toggleClass("fas")
+        $("#postSavedMessage").messageTrigger() // Triggering post saved message
     }
-
-    toggle(){
-        this.div.toggleApearAnimation("animate__fadeIn","animate__fadeOut")
-        this.inner.toggleApearAnimation("animate__fadeInDown","animate__fadeOutUp")
+})
+$("#saveBtn").click(function(event){
+    if(savePost.saved.size > 0){
+        $(this).removeClass("saved")
+        $(this).find("i").removeClass("fas")
+        savePost.clearSaved()
     }
-
-    save(){
-        this.toggle();
-        // Send query to backend
+    else{
+        savePost.toggle()
     }
+})
+
+
+var deleteCommentDialog = new DeleteCommentDialog($("#delete-comment-dialog"));
+$(".comment .delete_btn").click(function(params) {
+    deleteCommentDialog.commentId = $(this).data("id");
+    deleteCommentDialog.commentDiv = $(this).parents(".comment");
+    deleteCommentDialog.toggle()
+})
+
+
+// Screenshots
+var slides = $(".thumbnails .screenshot").length // This attribute helps us to fix the slick bug when number of slides less than or equal to 5
+
+$('.screenshot-items').slick({
+    slidesToShow: 1,
+    draggable: false,
+    fade: true,
+    adaptiveHeight: true,
+    autoplay: true,
+    autoplaySpeed: 5000,
+    asNavFor: slides > 5 ? '.thumbnails' : null
+});
+$('.thumbnails').slick({
+    slidesToShow: 5,
+    arrows: false,
+    asNavFor: slides > 5 ? '.screenshot-items' : null,
+    focusOnSelect: slides > 5 ? true : false,
+});
+
+$('.screenshot-items').on("beforeChange", function (event, slick, currentSlide, nextSlide) {
+    $('.thumbnails').find(".screenshot").removeClass("active")
+    $('.thumbnails').find(`[data-slick-index='${nextSlide}']`).addClass("active")
+})
+
+if(slides<=5){
+    // Navigate slider on thumbnail is clicked
+    $(".thumbnails .screenshot").on("click", function(event){
+        console.log($(this).data("slick-index"));
+        $('.screenshot-items').slick("slickGoTo", $(this).data("slick-index"))
+    })
 }
-
-var savePost = new SavePost($(".savePost"))

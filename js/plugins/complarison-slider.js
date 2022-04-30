@@ -36,7 +36,7 @@ function drags(dragElement, resizeElement, container) {
 	dragElement.on("mousedown touchstart", function(e) {
 			
 			//add classes to the emelents - good for css animations if you need it to
-			dragElement.addClass("draggable");
+			dragElement.addClass("mydraggable");
 			resizeElement.addClass("resizable");
 			//create vars
 			let startX = e.pageX ? e.pageX : e.originalEvent.touches[0].pageX;
@@ -67,22 +67,22 @@ function drags(dragElement, resizeElement, container) {
 
 				let widthValue = (leftValue + dragWidth / 2 - containerOffset) * 100 / containerWidth + "%";
 
-				$(".draggable").css("left", widthValue).on("mouseup touchend touchcancel", function() {
-					$(this).removeClass("draggable");
+				$(".mydraggable").css("left", widthValue).on("mouseup touchend touchcancel", function() {
+					$(this).removeClass("mydraggable");
 					resizeElement.removeClass("resizable");
 				});
 				
 				$(".resizable").css("width", widthValue);
 				
 			}).on("mouseup touchend touchcancel", function() {
-				dragElement.removeClass("draggable");
+				dragElement.removeClass("mydraggable");
 				resizeElement.removeClass("resizable");
 				
 			});
 		
 		}).on("mouseup touchend touchcancel", function(e) {
 			// stop clicping the image and move the slider
-			dragElement.removeClass("draggable");
+			dragElement.removeClass("mydraggable");
 			resizeElement.removeClass("resizable");
 		
 		});

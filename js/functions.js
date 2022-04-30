@@ -21,6 +21,33 @@ $.fn.extend({
             $(this).off("animationend")
         }
     },
+    messageTrigger: function() {
+
+        if ($(this).hasClass("visible")) { // Hiding
+            $(this).addClass("animate__fadeOutDown");
+            $(this).removeClass("animate__fadeInUp");
+            
+            $(this)[0].onanimationend = function (e) { 
+                $(this).removeClass("visible");
+                $(this).removeClass("animate__fadeOutDown");
+            };
+   
+        }
+        else{ // Showing
+            $(this).addClass("visible"); 
+            $(this).addClass("animate__fadeInUp");
+            $(this).removeClass("animate__fadeOutDown");
+
+            $(this)[0].onanimationend = null;
+
+            setTimeout(() => {
+                $(this).messageTrigger();
+            }, 5000);
+        }
+    },
+    exists: function () { 
+        return $(this).length;
+    },
 });
 
 

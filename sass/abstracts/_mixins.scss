@@ -111,6 +111,10 @@
     transition: .2s;
     cursor: pointer;
     display: inline-block;
+
+    &:hover{
+        color: $color;
+    }
 }
 @mixin hover_shade($background){
     &:hover {

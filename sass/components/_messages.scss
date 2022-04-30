@@ -1,0 +1,117 @@
+// Warning success messages
+.message{
+    padding: 20px 20px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    max-width: 600px;
+    font-family: $flight;
+    display: none;
+
+    &.show:not(.type2){
+        display: flex;
+        animation: shake .6s;
+        animation-delay: .5s;
+
+        &.nodelay{
+            animation-delay: 0s;
+        }
+    }
+    
+
+    &.message-error{
+        background-color: #FF8D8D;
+        color: white;
+    
+        a{
+            color: darken($red, 40);
+        }
+    
+        &.shadow{
+            box-shadow: 10px 10px 20px #FFCBCB !important;
+        }
+        i{
+            color: #D25D5D;
+            font-size: 22px;
+            margin-right: 10px;
+        }
+    }
+    &.message-success{
+        background-color: $green;
+        color: white;
+    
+        a{
+            color: darken(#10BF90, 40);
+        }
+    
+        &.shadow{
+            box-shadow: 10px 10px 20px #DBDBDB !important;
+        }
+        i{
+            color: #12AE83;
+            font-size: 22px;
+            margin-right: 10px;
+        }
+    }
+}
+.message.type2{ // Messages with absolute position
+    position: fixed;
+    bottom: 40px;
+    margin: auto;
+    z-index: 12;
+
+    &.message-error{
+        background-color: white;
+        // box-shadow: 0 10px 50px $lightgrey;
+        box-shadow: 0 10px 100px rgba(black,0.5);
+        color: $red;
+        font-family: $fsbold;
+        width: 500px;
+        max-width: 100%;
+        border-left: 3px solid $red;
+        animation-duration: .4s;
+        display: block;
+    
+        visibility: hidden;
+    }
+    
+    &.message-success{
+        background-color: white;
+        box-shadow: 0 10px 100px rgba(black,0.5);
+        color: darken($color: $green, $amount: 20);
+        font-family: $fsbold;
+        min-width: 500px;
+        max-width: 100%;
+        border-left: 3px solid darken($color: $green, $amount: 20);
+        animation-duration: .4s;
+        display: block;
+    
+        visibility: hidden;
+    }
+    &.message-info{
+        background-color: white;
+        box-shadow: 0 10px 100px rgba(black,0.5);
+        color: #12B2E5;
+        font-family: $fsbold;
+        min-width: 500px;
+        max-width: 100%;
+        border-left: 5px solid #12B2E5;
+        animation-duration: .4s;
+        display: block;
+    
+        visibility: hidden;
+    }
+
+
+
+}
+.message.type3{
+    background-color: transparent;
+
+    &.message-error{
+        color: $red;
+    }
+    &.message-success{
+        color: $green;
+    }
+}

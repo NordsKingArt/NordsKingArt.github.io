@@ -10,7 +10,12 @@
     <link rel="stylesheet" href="/additionals/fontawesome-6.0.0-web/css/all.min.css">
     <link rel="stylesheet" href="/additionals/froala/css/froala_editor.min.css"/>
     <link rel="stylesheet" href="/additionals/froala/css/plugins.pkgd.min.css"/>
+
+    <!-- Slick -->
+    <link rel="stylesheet" href="/additionals/slick-1.8.1/slick/slick-theme.css"/>
+    <link rel="stylesheet" href="/additionals/slick-1.8.1/slick/slick.css"/>
     
+    <!-- Animate.css -->
     <link rel="stylesheet" href="/additionals/animate/animate.css">
 
     <link rel="stylesheet" href="/css/main.css">
@@ -262,41 +267,74 @@
                         <i class="fa-brands fa-google-play"></i>
                         Watch a video
                     </div>
-                    <div class="save_btn" onclick="savePost.toggle()"><i class="fal fa-bookmark save"></i></div>
+                    <div class="save_btn" id="saveBtn"><i class="fal fa-bookmark save"></i></div>
                 </div>
-
             </div>
         </div>
 
         <div class="wrapper mt-5 justify-content-center">
             <main>
                 <section class="description outlined">
-                    <p>Cardcraft's Ultraplayable is an edit of the BSL shaders. The creator of this
-                        pack, Cardcraftoftwitch, edited the BSL shaders to make it give decent graphics on low end systems
-                        with good performance. And I should say, this is a job well done. The graphical enhancements are
-                        something that I would term as clean. This is because the graphics are sharp on point without any
-                        unnecessary heavy effects. The "ultraplayable" in the shaderpack's name stands for the decent
-                        performace that this pack offers you.
-                        Take a look at the screenshots to see what you can expect from this pack.
-                        This pack is compatible with both Optifine and Iris shaders.</p>
+                    <p>Travelling in Minecraft is somewhat difficult. Traversing through thick forests and mountainous terrain is a bit tiring. If you have these problems, the <strong>Hookshot</strong> mod will help you a lot. This mod adds a grappling hooks into your game. You can use these hooks to climb mountains or straight up glide above terrains that are hard to traverse.</p><p>&nbsp;The player can hold the grapple hook in his hand and right click to shoot it out. The hook will then attack to the first solid block along it&#39;s vector path. Then the chain attached to the hook will start pulling you. You can further enhance you grapple hook by upgrading it. Upgrading it with a prismarine shard will let to use the hook underwater. Upgrading with an eye of ender will let you teleport instead of pulling you. And more...</p><p>This mod offers versions for Fabric and download links are given below.</p>
                 </section>
 
-                <div class="comparison-slider-wrapper">
-                    <!-- Comparison Slider - this div contain the slider with the individual images captions -->
-                    <div class="comparison-slider">
-                        <div class="overlay">Vanilla</div>
-                        <img src="/img/tmp/before.png"
-                            alt="marioPhoto 2">
-                        <!-- Div containing the image layed out on top from the left -->
-                        <div class="resize">
-                            <div class="overlay">Nostalgia 4.0</div>
-                            <img src="/img/tmp/after.png"
-                                alt="marioPhoto 1">
+                <section class="screenshots">
+                    <div class="screenshot-items">
+                        <div class="screenshot">
+                            <div class="comparison-slider-wrapper">
+                                <!-- Comparison Slider - this div contain the slider with the individual images captions -->
+                                <div class="comparison-slider">
+                                    <div class="overlay">Vanilla</div>
+                                    <img src="/img/tmp/before.png"
+                                        alt="marioPhoto 2">
+                                    <!-- Div containing the image layed out on top from the left -->
+                                    <div class="resize">
+                                        <div class="overlay">Nostalgia 4.0</div>
+                                        <img src="/img/tmp/after.png"
+                                            alt="marioPhoto 1">
+                                    </div>
+                                    <!-- Divider where user will interact with the slider -->
+                                    <div class="divider"></div>
+                                </div>
+                            </div>
                         </div>
-                        <!-- Divider where user will interact with the slider -->
-                        <div class="divider"></div>
+                        <div class="screenshot">
+                            <img src="./img/dummy/11.png">
+                        </div>
+                        <div class="screenshot">
+                            <img src="./img/dummy/12.png">
+                        </div>
+                        <div class="screenshot">
+                            <img src="./img/dummy/13.png">
+                        </div>
+                        <div class="screenshot">
+                            <img src="./img/dummy/14.png">
+                        </div>
+                        <div class="screenshot">
+                            <img src="./img/dummy/15.png">
+                        </div>
                     </div>
-                </div>
+                    <div class="thumbnails">
+                        <div class="screenshot active">
+                            <img src="/img/tmp/after.png">
+                        </div>
+                        <div class="screenshot">
+                            <img src="./img/dummy/11.png">
+                        </div>
+                        <div class="screenshot">
+                            <img src="./img/dummy/12.png">
+                        </div>
+                        <div class="screenshot">
+                            <img src="./img/dummy/13.png">
+                        </div>
+                        <div class="screenshot">
+                            <img src="./img/dummy/14.png">
+                        </div>
+                        <div class="screenshot">
+                            <img src="./img/dummy/15.png">
+                        </div>
+                    </div>
+                </section>
 
                 <section class="installation outlined">
                     <h2 class="heading"><i class="fa-solid fa-gears"></i> How to install</h2>
@@ -412,7 +450,7 @@
                                 </div>
                                 <div class="actions">
                                     <button class="action-btn-light small">Reply</button>
-                                    <button class="delete_btn"><i class="fal fa-trash"></i></button>
+                                    <button class="delete_btn" data-id="1"><i class="fal fa-trash"></i></button>
                                 </div>
                             </div>
                             <p>First download the link then copy the shaders file and press windows key + r enter and go to minecraft go to shaders and paste the file</p>
@@ -561,7 +599,7 @@
                     <h4>Save a post to your collection</h4>
                     <p>You can save a post into your favourites collection or to a specific modpack</p>
                     <div class="collections">
-                        <div class="collection">
+                        <div class="collection" data-id="1">
                             <div class="left">
                                 <i class="fa-solid fa-bookmark"></i>
                             </div>
@@ -574,7 +612,7 @@
                             </div>
                             <button class="remove"><i class="fal fa-trash"></i></button>
                         </div>
-                        <div class="collection">
+                        <div class="collection" data-id="2">
                             <div class="left">
                                 <div class="imgdiv">
                                     <img src="/img/dummy/12.png">
@@ -589,7 +627,7 @@
                             </div>
                             <button class="remove"><i class="fal fa-trash"></i></button>
                         </div>
-                        <div class="collection">
+                        <div class="collection" data-id="3">
                             <div class="left">
                                 <div class="imgdiv">
                                     <img src="/img/dummy/16.png">
@@ -604,7 +642,7 @@
                             </div>
                             <button class="remove"><i class="fal fa-trash"></i></button>
                         </div>
-                        <div class="collection">
+                        <div class="collection" data-id="4">
                             <div class="left">
                                 <div class="imgdiv">
                                     <img src="/img/dummy/18.png">
@@ -633,13 +671,14 @@
                     <h5>Are you sure to delete this comment?</h5>
                     <p>Note that you cannot reverse this action.</p>
                     <div class="actions">
-                        <button class="action-btn-red">Delete</button>
-                        <button click="">Cancel</button>
+                        <button class="action-btn-red" onclick="deleteCommentDialog.delete()">Delete</button>
+                        <button onclick="deleteCommentDialog.toggle()">Cancel</button>
                     </div>
                 </div>
             </div>
-        </div>
 
+            <div class="message message-success type2" id="postSavedMessage">Post is saved</div>
+        </div>
 
         <footer class="mt-5">
             <nav>
@@ -709,13 +748,14 @@
     <script src="/additionals/froala/js/froala_editor.min.js"></script>
     <script src="/additionals/froala/js/plugins.pkgd.min.js"></script>
     <script src="https://www.youtube.com/iframe_api"></script>
+    <script src="/additionals/slick-1.8.1/slick/slick.min.js"></script>
 
     <script src="/js/plugins/complarison-slider.js"></script>
     <script src="/js/plugins/blogvideoplayer.js"></script>
     <script src="/js/functions.js"></script>
 
-    <script src="/js/blog.js"></script>
     <script src="/js/blackblock.js"></script>
+    <script src="/js/blog.js"></script>
 </body>
 
 </html>

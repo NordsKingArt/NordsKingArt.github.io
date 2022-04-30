@@ -23,6 +23,21 @@ $("header menu li").on("click", function (param){
 
 
 
+// Messages -> Alerts
+for (message of $(".message.type2")) {
+    $(message).css("left", window.innerWidth/2 - $(message).outerWidth()/2)
+}
+
+if ($(".message.type2.show").exists()) {
+    window.addEventListener("load", () => {
+        setTimeout(function () {
+            $(".message.type2.show").messageTrigger();
+        }, 1000);
+    });
+}
+
+
+
 // General
 //Select box
 var selected = $(".select .selected");
@@ -47,3 +62,84 @@ option.click(function (e) {
     $(this).closest(".options").siblings(".selected").find("i.fa-chevron-down")[0].style.transform = "rotate(0deg)";
 });
 
+
+class SavePost{
+
+    constructor(div){
+        this.div = div;
+        this.inner = div.find(".inner");
+        this.saved = new Set();
+
+        var that = this;
+
+        $(".collection .remove").click(function(event){
+            let collection = $(this).parents(".collection");
+            collection.removeClass("added")
+            that.saved.delete(collection.data("id"))
+            event.stopPropagation()
+        })
+        $(".collection").click(function (event) {
+            $(this).addClass("added")
+            that.saved.add($(this).data("id"))
+        })
+    }
+
+    toggle(){
+        this.div.toggleApearAnimation("animate__fadeIn","animate__fadeOut")
+        this.inner.toggleApearAnimation("animate__fadeInDown","animate__fadeOutUp")
+    }
+
+    save(){
+        this.toggle();
+        this._fun(this.saved);
+
+        // Send request to backend
+    }
+
+    setOnSaved(_fun){
+        this._fun = _fun
+    }
+
+    // Clearing data
+    clearSaved(){
+        this.saved = new Set();
+        
+        for (const object of this.inner.find(".collection")) {
+            $(object).removeClass("added")
+        }
+    }
+}
+
+class Dialog{
+    constructor(div){
+        this.div = div;
+    }
+
+    toggle(){
+        this.div.toggleApearAnimation("animate__fadeInUp","animate__fadeOutDown")
+    }
+}
+
+class DeleteCommentDialog extends Dialog{
+    toggle(){
+        this.div.toggleApearAnimation("animate__fadeInUp","animate__fadeOutDown")
+    }
+
+    delete(){
+        // Removing comment along with its replies if there is any
+        var nextElement = this.commentDiv;
+        do {
+            nextElement.toggleApearAnimation("animate__fadeInUp","animate__fadeOut")
+            nextElement.on("animationend", (event) => {
+                $(event.target).slideToggle();
+            })
+            nextElement = nextElement.next(".comment")
+        } while (nextElement.hasClass("reply"));
+    
+        this.toggle()
+
+
+        console.log(`Comment ${this.commentId} is deleted`)
+        // Delete comment by sending request to server
+    }
+}
