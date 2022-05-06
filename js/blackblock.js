@@ -37,6 +37,11 @@ if ($(".message.type2.show").exists()) {
 }
 
 
+// Dropdowns
+$(".dropdown").click(function(event) {
+    $(this).find("ul").toggleClass("active")
+})
+
 
 // General
 //Select box
@@ -61,6 +66,25 @@ option.click(function (e) {
 
     $(this).closest(".options").siblings(".selected").find("i.fa-chevron-down")[0].style.transform = "rotate(0deg)";
 });
+
+
+// Lazy Load
+// Lazy load of images using gradient animation
+$(".imgdiv.lazyload img").on("load",function(e){
+    $(this).parents(".imgdiv").addClass("loaded")
+}).each(function() {
+    if(this.complete) $(this).trigger('load');
+});
+
+// Lazy load of images using small images
+$("img").each(function (index) {
+    if($(this).data("src")){
+        $(this).attr('src', $(this).data("src"));
+    }
+})
+
+
+
 
 
 class SavePost{

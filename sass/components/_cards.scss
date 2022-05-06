@@ -60,7 +60,8 @@
     max-width: 1400px;
     display: flex;
     flex-wrap: wrap;
-    padding: 50px;
+    padding-top: 50px;
+    padding-left: 50px;
     @include xl{padding: 20px;}
 
     // Animation stuff

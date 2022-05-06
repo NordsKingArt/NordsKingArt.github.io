@@ -29,10 +29,11 @@ videoContainer.height(videoHeight+"px")
 videoContainer.css("top",videoTop+"px")
 
 
-// Toggling fullscreen video
+// Toggling fullscreen video for blog banner
 var watchVideo = false
 function toggleFullScreen(){
-    $(".blog-banner").toggleClass("watchVideo")
+    $(".blog-banner").toggleClass("watchVideo") // Used for banner layots
+    $("#videoContainer").toggleClass("show") // Used for classic layout
     let iframe = $("#player")
     if(this.watchVideo){
         player.mute()
@@ -48,6 +49,16 @@ function toggleFullScreen(){
     }
     watchVideo = !watchVideo;
 }
+
+
+var layout = $(".layout_banner").exists() ? "banner" : "classic"
+if(layout == "classic"){
+    let iframe = $("#player")
+
+    iframe.width(window.innerWidth-(window.innerWidth*0.2)+"px")
+    iframe.height(iframe.width()/ASRATIO)
+}
+
 
 
 var savePost = new SavePost($(".savePost"));

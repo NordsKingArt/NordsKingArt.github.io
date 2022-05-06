@@ -46,6 +46,7 @@
             }
         }
 
+        // Banner watch video
         #videoContainer {
             @include position_center_x;
             z-index: -1;
@@ -212,52 +213,77 @@
             }
         }
     }
+}
+&.layout_classic{
+    .post-details{
+        margin-bottom: 30px;
 
+        .dates{
+            display: flex;
+            align-items: center;
+            column-gap: 20px;
+            margin-bottom: 20px;
+            color: $grey3;
+            font-family: $flight;
 
+            span{
+                margin-bottom: 4px;
+                color: black;
+            }
+        }
+        h1{
+            font-family: $frblack;
+            letter-spacing: -0.5px;
+            font-size: 3.5rem;
+            color: $darkblue;
+        }
+        .actions{
+            .save_btn{
+                padding: 15px 18px;
+                font-size: 1.1rem;
+                box-shadow: 0 0 30px $grey5;
+                border-radius: 10px;
+                cursor: pointer;
 
-    main {
-        max-width: 1000px;
+                display: flex;
+                align-items: center;
+
+                i.fas{color: $red;}
+                span{
+                    margin-left: 10px;
+                    font-size: 0.85rem;
+                    font-weight: 900;
+                }
+            }
+        }
+        .details {
+            display: flex;
+            column-gap: 30px;
+            opacity: .8;
+            flex-wrap: wrap;
+            row-gap: 20px;
+
+            i {
+                margin-right: 5px;
+            }
+        }
+    }
+
+    .wrapper{
+        margin-top: 50px;
     }
 }
 
 
-.authors {
-    display: flex;
-    flex-wrap: wrap;
-    column-gap: 40px;
-    margin-top: 10px;
-
-    .author {
-        display: flex;
-
-        img {
-            width: 50px;
-            height: 50px;
-            object-fit: cover;
-            border-radius: 50px;
-        }
-
-        div {
-            margin-left: 10px;
-
-            span {
-                color: $grey2;
-            }
-
-            label {
-                font-size: 22px;
-                display: block;
-                margin-top: 5px;
-                font-family: $fsbold;
-            }
-        }
-    }
+main {
+    max-width: 1000px;
 }
 
 
 
-
-
+hr{
+    opacity: 0.1 !important;
+}
 
 h2.heading {
     color: $red;
@@ -270,12 +296,98 @@ h2.heading {
     }
 }
 
-section {
+section {   
     @include md {
         padding: 0 20px;
     }
 }
 
+.mainphoto{
+    position: relative;
+    margin-bottom: 40px;
+    .imgdiv{
+        border-radius: 10px;
+        overflow: hidden;
+        line-height: 0;
+    }
+    img{
+        width: 100%;
+    }
+
+
+    &:hover{
+        .playOverlay{
+            opacity: 1;
+
+            i{
+                transform: scale(1.1)
+            }
+        }
+    }
+    .playOverlay{
+        @include overlay;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        transition: .2s;
+        cursor: pointer;
+
+        border-radius: 10px;
+
+        background: rgba($color: #000000, $alpha: 0.5);
+
+        i{
+            color: white;
+            font-size: 7rem;
+            transition: .2s;
+            
+            background: linear-gradient(120deg, #FF0144, #F55B80 40%, #0038FF 80%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    }
+
+    #videoContainer {
+        position: fixed;
+        z-index: 10;
+        filter: none;
+        backdrop-filter: blur(10px);
+        height: 100% !important;
+        width: 100% !important;
+        top: 0% !important;
+        left: 0;
+        background-color: rgba($color: #000000, $alpha: 0.5);
+
+        visibility: hidden;
+        &.show{visibility: visible;}
+
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+        }
+
+        i {
+            display: block;
+            font-size: 2rem;
+            position: absolute;
+            right: 0;
+            top: 0;
+            z-index: 1;
+            cursor: pointer;
+            color: white;
+
+            padding: 40px;
+        }
+    }
+}
 
 .screenshots {
     margin: 30px 0;
@@ -462,13 +574,14 @@ section {
 }
 
 .description {
-    // margin: 50px 0;
-
     p {
-        // font-size: 1.1rem;
         font-size: 18px;
         line-height: 2;
         color: $darkblue2;
+
+        // color: #282828;
+        // font-family: $fmont;
+        // font-weight: 400;
     }
 }
 
@@ -491,7 +604,7 @@ section {
     padding: 40px;
     color: white;
     margin-top: 50px;
-    box-shadow: 0 30px 40px -20px rgba($color: #0b1d2c, $alpha: 0.4);
+    // box-shadow: 0 30px 40px -20px rgba($color: #0b1d2c, $alpha: 0.4);
 
     @include md {
         border-radius: 0px;
@@ -587,7 +700,7 @@ section {
 }
 
 .credits {
-    margin: 60px 0;
+    margin: 100px 0;
 
     .links {
         margin-top: 30px;
@@ -619,8 +732,20 @@ section {
         }
     }
 
-    .authors {
-        margin-top: 30px;
+    // .authors {
+    //     margin-top: 30px;
+    // }
+
+    .actions{
+        display: flex;
+        align-items: center;
+        column-gap: 15px;
+        
+        i{font-size: 20px;}
+
+        .report{
+            color: $grey2;
+        }
     }
 }
 
@@ -628,7 +753,7 @@ section.comment {
     margin-top: 80px;
 
     h2 {
-        margin-bottom: 20px;
+        margin-bottom: 30px;
 
         i {
             margin-right: 10px;
@@ -784,5 +909,56 @@ section.comment {
             }
         }
 
+    }
+}
+
+
+
+// Components
+.authors {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 40px;
+    margin-top: 10px;
+
+    &.special{
+        column-gap: 60px;
+        .author{
+            label{
+                font-size: 1.1rem;
+                color: $darkblue;
+                margin-bottom: 5px;
+            }
+        }
+        .author span{
+            color: white;
+        }
+    }
+
+    .author {
+        display: flex;
+        align-items: center;
+
+        img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 50px;
+        }
+
+        div {
+            margin-left: 15px;
+
+            span {
+                color: $grey2;
+            }
+
+            label {
+                font-size: 22px;
+                display: block;
+                margin-top: 5px;
+                font-family: $fsbold;
+            }
+        }
     }
 }

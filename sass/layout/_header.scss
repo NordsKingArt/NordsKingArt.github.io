@@ -4,198 +4,23 @@ header {
     width: 100%;
     justify-content: space-between;
     align-items: center;
+    background-color: white;
 
-    .left nav li {
-        &.other_li {
-            position: relative;
-
-            .dropdown {
-                top: 40px;
-                left: 0;
-                white-space: nowrap;
-            }
-
-            &>a i{display: inline-block;}
-        }
-
-        // position: relative;
-        &:hover .dropdown {
-            visibility: visible;
-            opacity: 1;
-            transition: .5s;
-            transition-delay: .2s;
-        }
-
-        .dropdown {
-            position: absolute;
-            z-index: 1;
-            box-shadow: 0 0 50px rgba(0, 0, 0, 0.25);
-            top: 80px;
-            left: 60px;
-            border-radius: 20px;
-            background-color: white;
-            overflow: hidden;
-            display: flex;
-            max-height: 580px;
-
-            visibility: hidden;
-            transition: .2s;
-            transition-delay: .2s;
-            opacity: 0;
-
-            .banner {
-                padding: 50px;
-                background-color: $background;
-                max-width: 400px;
-                @include xl{display: none;}
-
-                img {
-                    margin-bottom: 40px;
-                    width: 300px;
-                }
-
-                label {
-                    font-size: 26px;
-                    margin-bottom: 15px;
-                    color: $darkblue;
-                }
-
-                p {
-                    font-size: 18px;
-                    margin-bottom: 50px;
-                    line-height: 1.5;
-                    color: $grey;
-                }
-
-                a {
-                    position: relative;
-                    @include gradient-button(20px, $bluegradient2, 10px);
-                    display: block;
-                    width: 200px;
-                    margin: auto;
-                    font-family: $fregular;
-
-                    &>* {
-                        position: relative;
-                        z-index: 2;
-                    }
-
-                    &::before {
-                        content: "";
-                        display: inline-block;
-                        position: absolute;
-                        left: 0;
-                        top: 0;
-                        width: 100%;
-                        height: 100%;
-                        @include gradient-button(20px, $bluegradient2, 10px);
-                        filter: blur(50px);
-                    }
-                }
-            }
-
-            .list {
-                padding: 50px;
-
-                h5 {
-                    font-family: $fblack;
-                    margin-bottom: 15px;
-                    white-space: nowrap;
-                    // word-wrap: break-word;
-                    // word-break: keep-all;
-                }
-
-                a {
-                    display: flex;
-                    align-items: center;
-                    margin-bottom: 20px;
-
-                    i {
-                        margin-right: 5px;
-                    }
-
-                    &.cool {
-                        color: $red;
-                        font-family: $fblack;
-                    }
-
-                    span {
-                        margin-left: 10px;
-                    }
-                }
-            }
-        }
-
-        a {
-            color: $darkblue;
-        }
-    }
-
+    border-bottom: 1px solid rgba($color: #000000, $alpha: .1);
 
     .left {
         width: 45%;
-
-        @include md {
-            display: none;
-        }
-
-        nav {
-            display: flex;
-            list-style: none;
-            margin-left: 40px;
-
-            li {
-                padding-right: 40px;
-
-                &>a {
-                    text-decoration: none;
-                    color: white;
-                    font-size: 1.12rem;
-                    // font-family: $fblack;
-
-                    i {
-                        margin-right: 10px;
-                        @include xl{display: none;}
-                    }
-                }
-            }
-        }
     }
 
+    &.shadowed{
+        box-shadow: $card_shadow;
+    }
+
+
     .middle {
-        width: 10%;
         flex-shrink: 1;
         text-align: center;
         position: relative;
-
-        &.logo_white{
-            @include md-min{
-                &>img:last-child{
-                    display: none;
-                }
-                img{
-                    width: 35px;
-                    margin-top: 10px;
-                }
-            }
-            @include md{
-                &>img:first-child{
-                    display: none;
-                }
-            }
-        }
-
-        img {
-            position: relative;
-            z-index: 2;
-            width: 44px;
-            padding: 8px;
-            box-sizing: content-box;
-
-            @include md {
-                width: 30px;
-            }
-        }
 
         svg {
             position: absolute;
@@ -312,14 +137,190 @@ header {
             }
         }
 
-        a {
-            font-family: $fsbold;
+        .actions{
+            a {
+                font-family: $fsbold;
+                color: black;
+            }
+            a.action-btn-red{
+                color: white;
+            }
         }
+ 
     }
 
 
 
+    // Components
+    nav {
+        display: flex;
+        list-style: none;
+        margin-left: 40px;
 
+        @include md {display: none;}
+
+        li {
+            padding-right: 40px;
+
+            &:hover .dropdown {
+                visibility: visible;
+                opacity: 1;
+                transition: .5s;
+                transition-delay: .2s;
+            }
+    
+            .dropdown {
+                position: absolute;
+                z-index: 1;
+                box-shadow: 0 0 50px rgba(0, 0, 0, 0.25);
+                top: 80px;
+                left: 60px;
+                border-radius: 20px;
+                background-color: white;
+                overflow: hidden;
+                display: flex;
+                max-height: 580px;
+    
+                visibility: hidden;
+                transition: .2s;
+                transition-delay: .2s;
+                opacity: 0;
+    
+                .banner {
+                    padding: 50px;
+                    background-color: $background;
+                    max-width: 400px;
+                    @include xl{display: none;}
+    
+                    img {
+                        margin-bottom: 40px;
+                        width: 300px;
+                    }
+    
+                    label {
+                        font-size: 26px;
+                        margin-bottom: 15px;
+                        color: $darkblue;
+                    }
+    
+                    p {
+                        font-size: 18px;
+                        margin-bottom: 50px;
+                        line-height: 1.5;
+                        color: $grey;
+                    }
+    
+                    a {
+                        position: relative;
+                        @include gradient-button(20px, $bluegradient2, 10px);
+                        display: block;
+                        width: 200px;
+                        margin: auto;
+                        font-family: $fregular;
+    
+                        &>* {
+                            position: relative;
+                            z-index: 2;
+                        }
+    
+                        &::before {
+                            content: "";
+                            display: inline-block;
+                            position: absolute;
+                            left: 0;
+                            top: 0;
+                            width: 100%;
+                            height: 100%;
+                            @include gradient-button(20px, $bluegradient2, 10px);
+                            filter: blur(50px);
+                        }
+                    }
+                }
+    
+                .list {
+                    padding: 50px;
+    
+                    h5 {
+                        font-family: $fblack;
+                        margin-bottom: 15px;
+                        white-space: nowrap;
+                        // word-wrap: break-word;
+                        // word-break: keep-all;
+                    }
+    
+                    a {
+                        display: flex;
+                        align-items: center;
+                        margin-bottom: 20px;
+    
+                        i {
+                            margin-right: 5px;
+                        }
+    
+                        &.cool {
+                            color: $red;
+                            font-family: $fblack;
+                        }
+    
+                        span {
+                            margin-left: 10px;
+                        }
+                    }
+                }
+            }
+    
+            a { // For nested links
+                color: $darkblue;
+            }
+
+            &>a { // Main links
+                text-decoration: none;
+                color: $darkblue2;
+                font-size: 1.1rem;
+                font-family: $fsbold;
+                letter-spacing: -0.5px;
+
+                white-space: nowrap;
+
+
+                &:hover{
+                    color: $red;
+                }
+
+                i {
+                    margin-right: 10px;
+                    font-size: .9rem;
+                    @include xl{display: none;}
+                }
+            }
+
+            &.other_li {
+                position: relative;
+    
+                .dropdown {
+                    top: 40px;
+                    left: 0;
+                    white-space: nowrap;
+                }
+    
+                &>a i{display: inline-block;}
+            }
+        }
+    }
+
+    .logo{
+        img {
+            position: relative;
+            z-index: 2;
+            width: 35px;
+            padding: 8px;
+            box-sizing: content-box;
+
+            @include md {
+                width: 30px !important;
+            }
+        }
+    }
 
 
 
@@ -442,8 +443,34 @@ header.header_transparent {
     top: 0px;
     left: 0px;
     z-index: 2;
+    background: transparent;
+    border: none;
 
     @include md {
         background-color: white;
+    }
+
+    .left{
+        nav>li>a{color: white;}
+    }
+    .middle{
+        .logo.logo_white{
+            @include md-min{
+                &>img:last-child{
+                    display: none;
+                }
+                img{
+                    margin-top: 10px;
+                }
+            }
+            @include md{
+                &>img:first-child{
+                    display: none;
+                }
+            }
+        }
+        .logo:not(.logo_white) img{
+            width: 44px;
+        }
     }
 }

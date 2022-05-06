@@ -1,0 +1,43 @@
+.dropdown{
+    position: relative;
+    cursor: pointer;
+
+    ul{
+        position: relative;
+        visibility: hidden;
+        transition-delay: .2s;
+
+        @include position_center_x;
+        top: 35px;
+
+        border: 1px solid $grey5;
+        border-radius: 5px;
+
+
+        &.active{visibility: visible;}
+
+        li{
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        li>a{
+            display: block;
+            padding: 10px;
+            background-color: white;
+        }
+
+        &::after {
+            content: " ";
+            @include position_center_x;
+            transform: rotate(45deg) translate(-50%, 0);
+            background-color: white;
+            top: -3px;
+
+            width: 15px;
+            height: 15px;
+            border-top: 1px solid $grey5;
+            border-left: 1px solid $grey5;
+        }
+
+    }
+}

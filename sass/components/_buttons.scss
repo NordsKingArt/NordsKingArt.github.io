@@ -1,7 +1,7 @@
 .action-btn-red{
     @include button(15px 15px, $red, 10px);
-    // min-width: 120px;
     @include hover_shade($red);
+    color: white;
 }
 .action-btn-blue{
     @include button(15px 15px, $blue, 10px);
