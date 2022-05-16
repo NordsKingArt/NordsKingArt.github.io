@@ -120,3 +120,61 @@ if(slides<=5){
         $('.screenshot-items').slick("slickGoTo", $(this).data("slick-index"))
     })
 }
+
+
+
+
+// Rating system
+var allStars = $(".stars i")
+
+var rating = {
+    rated: false,
+    rate: null
+}
+
+
+$(".stars i").hover(
+function(e){ // Hover in
+    var previousStars = $(this).prevAll();
+
+    unRateStars(allStars)
+    rateStars($(this))
+    rateStars(previousStars)
+},
+function(e){ // Hover out
+    if(!rating.rated){ // If user didnt rate then remove effect of Hover event
+        var previousStars = $(this).prevAll();
+        unRateStars($(this))
+        unRateStars(previousStars)
+    }
+    else{ // If rating already existed prior to hovering then we return that state of stars
+        unRateStars(allStars)
+        for (let i = 0; i < rating.rate; i++) {
+            rateStars(allStars.eq(i))
+        }
+    }
+}
+).click(function(params) {
+    var previousStars = $(this).prevAll();
+
+    previousStars.addClass("starred")
+    $(this).addClass("starred")
+    $(this).on("animationend", function(){
+        $(this).removeClass("starred")
+    })
+    previousStars.on("animationend", function(){
+        $(this).removeClass("starred")
+    })
+
+    rating.rated = true
+    rating.rate = previousStars.length+1
+})
+
+function rateStars(stars){
+    stars.removeClass("fal")
+    stars.addClass("fas")
+}
+function unRateStars(stars){
+    stars.removeClass("fas")
+    stars.addClass("fal")
+}

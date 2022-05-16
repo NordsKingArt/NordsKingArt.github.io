@@ -1,15 +1,31 @@
 .lazyColor {
     opacity: 0.5;
-    background: linear-gradient(135deg, rgba(211, 223, 232, 1) 30%, rgba(169, 184, 197, 1) 38%, rgba(168, 182, 193, 1) 41%, rgba(168, 182, 193, 1) 50%, rgba(168, 182, 193, 1) 50%, rgba(169, 184, 197, 1) 51%, rgba(211, 223, 232, 1) 57%, rgba(211, 223, 232, 1) 80%, rgba(211, 223, 232, 1) 80%);
+    background: linear-gradient(135deg, rgba(211, 223, 232, 1) 30%, 
+                                        rgba(169, 184, 197, 1) 38%, 
+                                        rgba(168, 182, 193, 1) 41%, 
+                                        rgba(168, 182, 193, 1) 50%, 
+                                        rgba(169, 184, 197, 1) 51%, 
+                                        rgba(211, 223, 232, 1) 57%, 
+                                        rgba(211, 223, 232, 1) 80%
+                                );
     background-size: 1200% 1200%;
-    animation: LazyLoad 1.5s ease infinite reverse;
+    animation: LazyLoad 2s ease infinite;
+    background-position: 100% 100%;
 }
 
 .imgdiv.lazyload{
     opacity: 0.5;
-    background: linear-gradient(135deg, rgba(211, 223, 232, 1) 30%, rgba(169, 184, 197, 1) 38%, rgba(168, 182, 193, 1) 41%, rgba(168, 182, 193, 1) 50%, rgba(168, 182, 193, 1) 50%, rgba(169, 184, 197, 1) 51%, rgba(211, 223, 232, 1) 57%, rgba(211, 223, 232, 1) 80%, rgba(211, 223, 232, 1) 80%);
+    background: linear-gradient(135deg, rgba(211, 223, 232, 1) 30%, 
+                                        rgba(169, 184, 197, 1) 38%, 
+                                        rgba(168, 182, 193, 1) 41%, 
+                                        rgba(168, 182, 193, 1) 50%, 
+                                        rgba(169, 184, 197, 1) 51%, 
+                                        rgba(211, 223, 232, 1) 57%, 
+                                        rgba(211, 223, 232, 1) 80%
+                                );
     background-size: 1200% 1200%;
-    animation: LazyLoad 1.5s ease infinite reverse;
+    animation: LazyLoad 2s ease infinite;
+    background-position: 100% 100%;
 
     img{
         transform: scale(1.1);
@@ -29,10 +45,10 @@
 
 @keyframes LazyLoad {
     0% {
-        background-position: 0% 92%
+        background-position: 100% 100%;
     }
 
     100% {
-        background-position: 150% 9%
+        background-position: 0% 0%;
     }
 }

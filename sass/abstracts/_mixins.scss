@@ -132,6 +132,12 @@
     cursor: pointer;
 }
 
+@mixin gradient-text($gradient){
+    background: $gradient;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 
 // Font Face
 @mixin font-face($name, $url) {

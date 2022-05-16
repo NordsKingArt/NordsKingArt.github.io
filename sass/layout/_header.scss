@@ -20,7 +20,7 @@ header {
     .middle {
         flex-shrink: 1;
         text-align: center;
-        position: relative;
+        // position: relative; // For svg
 
         svg {
             position: absolute;
@@ -175,15 +175,15 @@ header {
                 box-shadow: 0 0 50px rgba(0, 0, 0, 0.25);
                 top: 80px;
                 left: 60px;
-                border-radius: 20px;
+                border-radius: 10px;
                 background-color: white;
                 overflow: hidden;
                 display: flex;
                 max-height: 580px;
     
-                visibility: hidden;
                 transition: .2s;
                 transition-delay: .2s;
+                visibility: hidden;
                 opacity: 0;
     
                 .banner {
@@ -216,6 +216,7 @@ header {
                         display: block;
                         width: 200px;
                         margin: auto;
+                        margin-bottom: 20px; // For blurred shadow to be visible
                         font-family: $fregular;
     
                         &>* {
@@ -244,6 +245,7 @@ header {
                         font-family: $fblack;
                         margin-bottom: 15px;
                         white-space: nowrap;
+                        text-align: left;
                         // word-wrap: break-word;
                         // word-break: keep-all;
                     }

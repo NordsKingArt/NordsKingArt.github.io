@@ -1,0 +1,14 @@
+.tags.tags-simple{
+    p{
+        color: $darkblue;
+        margin-bottom: 15px;
+    }
+
+    a{
+        display: inline-block;
+        color: $grey;
+        border-radius: 10px;
+        padding: 10px;
+        border: 1px solid $grey5;
+    }
+}

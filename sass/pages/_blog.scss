@@ -291,6 +291,11 @@ h2.heading {
     font-family: $fsbold;
     font-size: 26px;
 
+    &.heading-small{
+        font-size: 1.3rem;
+        color: $darkblue;
+    }
+
     i {
         margin-right: 5px;
     }
@@ -390,7 +395,7 @@ section {
 }
 
 .screenshots {
-    margin: 30px 0;
+    margin: 40px 0;
 
     .screenshot-items {
         margin: 20px 0;
@@ -702,40 +707,6 @@ section {
 .credits {
     margin: 100px 0;
 
-    .links {
-        margin-top: 30px;
-
-        h3 {
-            font-size: 20px;
-            background-color: white;
-        }
-
-        a {
-            margin: 20px 0;
-            display: block;
-            font-family: $flight;
-            position: relative;
-            word-break: break-all;
-
-            // &::before{
-            //     content: "";
-            //     position: absolute;
-            //     top: -28px;
-            //     left: -15px;
-            //     width: 10px;
-            //     height: 36px;
-            //     border-left: 1px solid $grey5;
-            //     border-bottom: 1px solid $grey5;
-            //     border-bottom-left-radius: 5px;
-            //     z-index: -1;
-            // }
-        }
-    }
-
-    // .authors {
-    //     margin-top: 30px;
-    // }
-
     .actions{
         display: flex;
         align-items: center;
@@ -747,17 +718,118 @@ section {
             color: $grey2;
         }
     }
+
+    .otherdetails{
+        display: flex;
+
+        h4{
+            color: $darkblue;
+            margin-bottom: 10px;
+            font-family: $fsbold;
+        }
+
+        &>div{
+            padding: 20px 0;
+        }
+
+        &>div:not(:last-child){
+            border-right: 1px solid $grey6;
+        }
+
+        .rating{
+            p{
+                margin-bottom: 20px;
+                font-family: $flight;
+                color: $grey3;
+                max-width: 300px;
+                line-height: 1.4;
+            }
+            .inner{
+                display: inline-flex;
+                flex-direction: column;
+                align-items: flex-end;
+
+                span{
+                    font-size: 0.85rem;
+                    padding-right: 5px;
+                    color: $grey4;
+                }
+            }
+            .stars{
+                margin-bottom: 10px;
+                i{
+                    font-size: 2rem;
+                    cursor: pointer;
+                    color: $grey5;
+                    padding-right: 5px;
+
+                    &.fas{
+                        color: $red2;
+                        @include gradient-text(linear-gradient(315deg, #f39f86 0%, #f9d976 74%));
+                        text-shadow: 0 0 30px rgba($color: #f39f86, $alpha: 0.3);
+                    }
+
+                    &.starred{
+                        animation: zoomIn .4s;
+                    }
+                }
+            }
+        }
+
+        .links{
+            padding: 20px 30px;
+
+            .inner-grid{
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+
+                margin-top: 20px;
+            }
+            .link{
+                display: flex;
+                column-gap: 10px;
+                .icon img{
+                    width: 30px;
+                    height: 30px;
+
+                    border-radius: 5px;
+                }
+                .info{
+                    label{
+                        font-size: 1.1rem;
+                        font-family: $fsbold;
+                    }
+                    span{
+                        display: block;
+                        color: $grey2;
+                    }
+                }
+            }
+        }
+
+        .other{
+            padding-left: 30px;
+            padding-top: 30px;
+
+            .report_btn{
+                color: $grey2;
+                padding: 0;
+            }
+            &>a{
+                display: block;
+                margin: 20px 0;
+                color: $grey;
+            }
+        }
+    }
 }
 
 section.comment {
     margin-top: 80px;
 
     h2 {
-        margin-bottom: 30px;
-
-        i {
-            margin-right: 10px;
-        }
+        margin-bottom: 20px;
     }
 }
 
