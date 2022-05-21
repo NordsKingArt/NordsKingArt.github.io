@@ -1,6 +1,12 @@
 // Select box
 .select{
     display: inline-block;
+
+
+    // With border
+    &.select-border .selected{
+        border: 1px solid $grey5;
+    }
     .selected{
         display: inline-flex;
         justify-content: space-between;
@@ -82,5 +88,64 @@
 
     &.round{
         border-radius: 50px;
+    }
+}
+
+
+.inputgroup{
+    box-shadow: 0 20px 50px $grey6;
+    width: 400px;
+    &.inputgroup-vertical .special-input:not(:last-child){
+        border-bottom: 0;
+    }
+}
+.special-input{
+    position: relative;
+
+    border: 1px solid $grey5;
+    padding: 20px 25px;
+    padding-top: 30px;
+    
+
+    display: flex;
+    justify-content: space-between;
+    span{
+        @include position_center_y;
+        background-color: white;
+        transition: .2s;
+        color: $grey3;
+        font-size: 0.85rem;
+    }
+
+    input{
+        border: none;
+        flex-grow: 1;
+    }
+
+    .append{
+        i{
+            font-size: 1.4rem;
+
+            &.fa-circle-check{
+                color: $green;
+            }
+        }
+    }
+
+    &:focus-within span{
+        top: 20px !important;
+    }
+}
+
+textarea{
+    display: block;
+    border: 1px solid $grey5;
+    border-radius: 10px;
+    width: 100%;
+    min-height: 100px;
+    padding: 20px;
+
+    &:focus{
+        outline: none;
     }
 }

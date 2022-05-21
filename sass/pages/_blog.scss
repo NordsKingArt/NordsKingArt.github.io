@@ -10,7 +10,7 @@
 
         overflow: hidden;
 
-        &>img {
+        #entry_image {
             position: absolute;
             top: 0;
             left: 0;
@@ -160,7 +160,7 @@
             }
 
             .inner {
-                margin-top: -200px;
+                @include lg-min{margin-top: -200px;}
                 align-items: flex-start;
 
                 h1 {
@@ -180,7 +180,7 @@
             }
 
             .description {
-                margin-top: -200px;
+                @include lg-min{margin-top: -200px;}
                 background-color: white;
 
                 position: relative;
@@ -217,6 +217,9 @@
 &.layout_classic{
     .post-details{
         margin-bottom: 30px;
+        @include md{
+            padding: 0 20px;
+        }
 
         .dates{
             display: flex;
@@ -276,7 +279,13 @@
 
 
 main {
+    width: 100%;
     max-width: 1000px;
+
+    margin-right: 24px;
+    @include lg{
+        margin: 0;
+    }
 }
 
 
@@ -421,7 +430,6 @@ section {
         }
 
         img{
-            height: 120px;
             object-fit: cover;
             border-radius: 10px;
         }
@@ -721,6 +729,7 @@ section {
 
     .otherdetails{
         display: flex;
+        flex-wrap: wrap;
 
         h4{
             color: $darkblue;
@@ -734,9 +743,11 @@ section {
 
         &>div:not(:last-child){
             border-right: 1px solid $grey6;
+            @include md{border: none;}
         }
 
         .rating{
+            @include md{width: 100%;}
             p{
                 margin-bottom: 20px;
                 font-family: $flight;
@@ -778,6 +789,11 @@ section {
 
         .links{
             padding: 20px 30px;
+            @include md{
+                width: 100%;
+                padding: 0;
+                margin-top: 30px;
+            }
 
             .inner-grid{
                 display: grid;
@@ -812,6 +828,12 @@ section {
             padding-left: 30px;
             padding-top: 30px;
 
+            @include md{
+                width: 100%;
+                padding: 0;
+                margin-top: 30px;
+            }
+
             .report_btn{
                 color: $grey2;
                 padding: 0;
@@ -823,10 +845,26 @@ section {
             }
         }
     }
+
+    .links-simple{
+        margin-top: 30px;
+        h3{
+            font-size: 20px;
+            background-color: white;
+        }
+        a{
+            margin: 20px 0;
+            display: block;
+            font-family: $flight;
+            position: relative;
+            word-break: break-all;
+        }
+    }
 }
 
 section.comment {
     margin-top: 80px;
+    position: relative;
 
     h2 {
         margin-bottom: 20px;
@@ -990,6 +1028,7 @@ section.comment {
 .authors {
     display: flex;
     flex-wrap: wrap;
+    row-gap: 10px;
     column-gap: 40px;
     margin-top: 10px;
 
@@ -1016,6 +1055,11 @@ section.comment {
             height: 50px;
             object-fit: cover;
             border-radius: 50px;
+
+            @include md{
+                width: 40px;
+                height: 40px;
+            }
         }
 
         div {

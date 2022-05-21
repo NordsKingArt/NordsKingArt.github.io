@@ -173,6 +173,16 @@
     animation-duration: 0.4s;
     visibility: hidden;
 
+    // Dialog appears at the center of the window
+    &.dialog-center{
+        height: 100vh;
+
+        .inner{
+            @include position_center;
+            bottom: auto;
+        }
+    }
+
     .inner{
         position: absolute;
         left: 50%;
@@ -198,5 +208,12 @@
             button{margin-right: 15px;}
         }
     }
+}
 
+#report-dialog{
+    textarea{
+        width: 600px;
+        max-width: 100%;
+        margin-top: 20px;
+    }
 }

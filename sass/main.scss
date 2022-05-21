@@ -16,6 +16,7 @@
 @import 'components/dropdown';
 @import 'components/lazyload';
 @import 'components/tags';
+@import 'components/loaders';
 
 @import 'layout/header';
 @import 'layout/footer';
@@ -26,3 +27,4 @@
 .home {@import 'pages/home';}
 .materials {@import 'pages/materials';}
 .blog {@import 'pages/blog';}
+.login {@import 'pages/login';}

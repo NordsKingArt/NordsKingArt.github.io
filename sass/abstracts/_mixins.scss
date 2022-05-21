@@ -112,8 +112,21 @@
     cursor: pointer;
     display: inline-block;
 
+    .spinner-grow{
+        display: none; // Hiding spinner
+    }
+
     &:hover{
         color: $color;
+    }
+
+    &:disabled{
+        opacity: 0.5;
+        pointer-events: none;
+
+        .spinner-grow{
+            display: inline-block;
+        }
     }
 }
 @mixin hover_shade($background){
@@ -181,6 +194,11 @@
     position: absolute;
     left: 50%;
     transform: translate(-50%);
+}
+@mixin position_center_y{
+    position: absolute;
+    top: 50%;
+    transform: translate(0,-50%);
 }
 @mixin position_right_x{
     position: absolute;

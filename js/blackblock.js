@@ -167,3 +167,15 @@ class DeleteCommentDialog extends Dialog{
         // Delete comment by sending request to server
     }
 }
+class ReportDialog extends Dialog{
+    toggle(){
+        this.div.toggleApearAnimation("animate__fadeInUp","animate__fadeOutDown")
+    }
+
+    report(){
+        // Report the issue
+
+        this.toggle()
+        $("#reportedMessage").messageTrigger()
+    }
+}

@@ -1,5 +1,5 @@
 var data = {
-
+    SCREEN_WIDTH : window.innerWidth
 }
 
 renderEditor("textarea[name='comment']", 'Let`s write some cool description!', 'comment'); // Rendering froala editor in comments section
@@ -60,7 +60,7 @@ if(layout == "classic"){
 }
 
 
-
+// Save post dialog
 var savePost = new SavePost($(".savePost"));
 savePost.setOnSaved((saved)=>{
     if(saved.size>0){
@@ -81,12 +81,15 @@ $("#saveBtn").click(function(event){
 })
 
 
+// Delete comment
 var deleteCommentDialog = new DeleteCommentDialog($("#delete-comment-dialog"));
 $(".comment .delete_btn").click(function(params) {
     deleteCommentDialog.commentId = $(this).data("id");
     deleteCommentDialog.commentDiv = $(this).parents(".comment");
     deleteCommentDialog.toggle()
 })
+
+var reportDialog = new ReportDialog($("#report-dialog"));
 
 
 // Screenshots
@@ -102,7 +105,7 @@ $('.screenshot-items').slick({
     asNavFor: slides > 5 ? '.thumbnails' : null
 });
 $('.thumbnails').slick({
-    slidesToShow: 5,
+    slidesToShow: data.SCREEN_WIDTH>768 ? 5 : 3,
     arrows: false,
     asNavFor: slides > 5 ? '.screenshot-items' : null,
     focusOnSelect: slides > 5 ? true : false,
@@ -113,10 +116,14 @@ $('.screenshot-items').on("beforeChange", function (event, slick, currentSlide, 
     $('.thumbnails').find(`[data-slick-index='${nextSlide}']`).addClass("active")
 })
 
+for (const image of $(".thumbnails .screenshot img")) {
+    $(image).height($(image).width()/1.5)
+}
+
+
 if(slides<=5){
     // Navigate slider on thumbnail is clicked
     $(".thumbnails .screenshot").on("click", function(event){
-        console.log($(this).data("slick-index"));
         $('.screenshot-items').slick("slickGoTo", $(this).data("slick-index"))
     })
 }
@@ -178,3 +185,12 @@ function unRateStars(stars){
     stars.removeClass("fas")
     stars.addClass("fal")
 }
+
+
+// Commenting
+$("#commentBtn").click(function (e) {
+    e.preventDefault();
+    $(this).prop("disabled", true);
+
+    // Send request to server and add a comment
+})

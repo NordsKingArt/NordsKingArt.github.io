@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="loading">
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+    </div>
+
+    <div class="spinner-box">
+        <div class="circle-border">
+          <div class="circle-core"></div>
+        </div>  
+    </div>
+
+    <div class="spinning-loading">
+        <div class="spinner"></div>
+        <div class="spinner"></div>
+        <div class="spinner"></div>
+
+        <img src="/img/logo/logo.png">
+    </div>
+</body>
+<style>
+.spinning-loading{
+    width: 100px;
+    height: 100px;
+
+    display: grid;
+    place-items: center;
+
+    position: relative;
+
+    animation: opacity 1.5s infinite;
+}
+.spinner{
+    width: 100%;
+    height: 100%;
+
+    grid-column: 1/2;
+    grid-row: 1/2;
+
+    border: 2px solid #0084ff;
+    border-left: 2px solid transparent;
+    border-radius: 100px;
+    
+    animation: spin 1s linear infinite;
+}
+.spinner:nth-of-type(2){
+    width: 85px;
+    height: 85px;
+    animation-delay: .2s;
+    animation-direction: reverse;
+    border-color: #5a01ff;
+    border-left-color: transparent;
+}
+.spinner:nth-of-type(3){
+    width: 70px;
+    height: 70px;
+    animation-delay: .6s;
+
+    border-color: #aa01ff;
+    border-left-color: transparent;
+}
+.spinning-loading img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 30px;
+}
+
+@keyframes opacity {
+    from, to{
+        opacity: 1;
+    }
+    50%{
+        opacity: 50%;
+        transform: scale(0.9);
+    }
+}
+
+
+
+.spinner-box {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+}
+.circle-border {
+  width: 90px;
+  height: 90px;
+  padding: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background: linear-gradient(120deg, #FF0144,#F55B80 40%, #0038FF);
+  animation: spin .8s linear infinite;
+}
+
+.circle-core {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  border-radius: 50%;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0);
+  }
+  to{
+    transform: rotate(360deg);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+.loading {
+    display: grid;
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    margin-top: 10%;
+    gap: 5px;
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
+}
+.item {
+    background-color: #3fd1ff;
+    opacity: 0.1;
+    /* border-radius: 5px; */
+    animation: 1s loading infinite;
+}
+.item:nth-of-type(1) {
+    animation-delay: 0s;
+}
+.item:nth-of-type(2) {
+    animation-delay: 250ms
+}
+.item:nth-of-type(4) {
+    animation-delay: 500ms;
+}
+.item:nth-of-type(3) {
+    animation-delay: 750ms
+}
+@keyframes loading {
+    from,
+    25% {
+        transform: scale(1);
+    }
+    12% {
+        transform: scale(1.05);
+        opacity: 1;
+    }
+}
+</style>
+
+</html>

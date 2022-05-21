@@ -25,8 +25,6 @@
 </head>
 
 <body class="blog layout_classic">
-    <div id="app">
-
         <header class="">
             <div class="left">
                 <div class="logo">
@@ -231,7 +229,7 @@
 
 
         <div class="wrapper justify-content-center">
-            <main class="me-4">
+            <main>
                 <div class="post-details">
                     <div class="dates">
                         <label>Created in March 21, 2017</label>
@@ -241,17 +239,17 @@
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="authors special">
                             <div class="author">
-                                <img src="/img/skins/1.png">
-                                <div>
-                                    <label>Erik</label>
-                                    <span class="badge badge-special">Publisher</span>
-                                </div>
-                            </div>
-                            <div class="author">
                                 <img src="/img/skins/3.png" alt="">
                                 <div>
                                     <label>Jake Doe</label>
                                     <span class="badge badge-creator">Creator</span>
+                                </div>
+                            </div>
+                            <div class="author">
+                                <img src="/img/skins/1.png">
+                                <div>
+                                    <label>Erik</label>
+                                    <span class="badge badge-special">Publisher</span>
                                 </div>
                             </div>
                         </div>
@@ -408,31 +406,6 @@
                 </section>
 
                 <section class="credits">
-                    <div class="d-none">
-                        <h2 class="heading"><i class="fad fa-link-simple"></i>Credits</h2>
-                        <div class="authors">
-                                <div class="author">
-                                    <img src="/img/skins/1.png" alt="">
-                                    <div>
-                                        <span>Creator</span>
-                                        <label>Erik</label>
-                                    </div>
-                                </div>
-                                <div class="author">
-                                    <img src="/img/skins/3.png" alt="">
-                                    <div>
-                                        <span>Published By</span>
-                                        <label>Jake Doe</label>
-                                    </div>
-                                </div>
-                        </div>
-                        <div class="links">
-                            <h3>Source and Additional Links</h3>
-                            <a href="https://minecraftstorage.com/shaders/Complementary%2BShader%2BPack">https://minecraftstorage.com/shaders/Complementary%2BShader%2BPack</a>
-                            <a href="https://minecraftstorage.com/mods/Sky%2BVillages%2BMod">https://minecraftstorage.com/mods/Sky%2BVillages%2BMod</a>
-                        </div>
-                    </div>
-                    
                     <div class="tags tags-simple">
                         <p>Tags</p>
                         <a href="">Mountains</a>
@@ -445,7 +418,6 @@
                         <a href="">truck</a>
                         <a href="">snow</a>
                     </div>
-
                     <hr>
                     <div class="otherdetails">
                         <div class="rating">
@@ -513,20 +485,17 @@
                             </div>
                         </div>
                         <div class="other">
-                            <button class="report_btn">Report an issue</button>
+                            <button class="report_btn" onclick="reportDialog.toggle()">Report an issue</button>
                             <a href=""><i class="fal fa-comments"></i> 124</a>
                         </div>
                     </div>
-
-
-
                 </section>
                 
                 <section class="comment">
                     <h2 class="heading heading-small"><i class="fal fa-comment"></i> Leave a comment</h2>
                     <form action="">
                         <textarea name="comment"></textarea>
-                        <button class="action-btn-red mt-4">Comment</button>
+                        <button class="action-btn-red mt-4" id="commentBtn"><span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span> Comment</button>
                     </form>
                 </section>
 
@@ -771,7 +740,34 @@
                 </div>
             </div>
 
+            <div class="dialog dialog-center" id="report-dialog">
+                <div class="inner">
+                    <h5>Report an issue</h5>
+                    <p>Note that you cannot reverse this action.</p>
+                    <div class="select select-border  mt-4" id="report_select">
+                        <input name="" class="d-none"></input>
+                        <div class="selected">
+                            <label>Choose report type</label>
+                            <i class="fal fa-chevron-down"></i>
+                        </div>
+                        <div class="options">
+                            <div class="option" data-value="1">Date</div>
+                            <div class="option" data-value="2">Popularity</div>
+                            <div class="option" data-value="3">Views</div>
+                            <div class="option" data-value="4">Downloads</div>
+                        </div>
+                    </div>
+                    <textarea name="report" class="" placeholder="Type your issue..."></textarea>
+                    <div class="actions">
+                        <button class="action-btn-blue" onclick="reportDialog.report()">Report</button>
+                        <button onclick="reportDialog.toggle()">Cancel</button>
+                    </div>
+                </div>
+            </div>
+
+
             <div class="message message-success type2" id="postSavedMessage">Post is saved</div>
+            <div class="message message-success type2" id="reportedMessage">Report is sent!</div>
         </div>
 
         <footer class="mt-5">
@@ -832,8 +828,6 @@
                 </div>
             </div>
         </footer>
-
-    </div>
 
 
 
