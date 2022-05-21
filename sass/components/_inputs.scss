@@ -132,8 +132,8 @@
         }
     }
 
-    &:focus-within span{
-        top: 20px !important;
+    &:focus-within span, &.filled span{
+        top: 20px;
     }
 }
 

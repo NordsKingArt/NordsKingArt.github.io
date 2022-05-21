@@ -68,6 +68,17 @@ option.click(function (e) {
 });
 
 
+// Special Input
+$(".special-input input").focusout(function(){
+    if($(this).val().length > 0){
+        $(this).parents(".special-input").addClass("filled")
+    }
+    else{
+        $(this).parents(".special-input").removeClass("filled")
+    }
+})
+
+
 // Lazy Load
 // Lazy load of images using gradient animation
 $(".imgdiv.lazyload img").on("load",function(e){
