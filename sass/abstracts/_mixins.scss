@@ -153,11 +153,12 @@
 
 
 // Font Face
-@mixin font-face($name, $url) {
+@mixin font-face($name, $url, $weight: 400) {
     @font-face {
         font-family: $name;
         src: url($url);
         font-display: swap;
+        font-weight: $weight;
         @content;
     }
 }

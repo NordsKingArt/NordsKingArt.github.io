@@ -1,3 +1,6 @@
+&{
+    background-color: $background;
+}
 .banner{
     img{
         filter: brightness(0.8);
@@ -11,4 +14,96 @@
 
 main{
     min-height: 100vh;
+
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: stretch;
+    gap: 50px;
+
+
+    &>div{
+        background-color: white;
+        width: 100%;
+        border-radius: 10px;
+
+        box-shadow: 0 0px 70px rgba($color: #ACB5C9, $alpha: 0.25);
+    }
+
+
+    .profile_card{
+        padding: 50px 30px;
+        max-width: 350px;
+        text-align: center;
+
+        position: relative;
+
+
+        .level-name{
+            display: grid;
+            place-items: center;
+
+            position: absolute;
+            top: 0px;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            label{
+                grid-column: 1/1;
+                grid-row: 1/1;
+                color: white;
+                font-weight: 600;
+            }
+            img{
+                grid-column: 1/1;
+                grid-row: 1/1;
+            }
+        }
+
+        .imgdiv{
+            img{
+                width: 150px;
+                height: 150px;
+                border-radius: 50%;
+            }
+        }
+
+        h3{
+            
+            font-weight: 600;
+        }
+
+
+
+        .social a i{
+            border-radius: 50%;
+            color: white;
+            width: 50px;
+            height: 50px;
+            padding: 12px;
+            font-size: 26px;
+            margin: 20px;
+            transition: .2s;
+
+            display: inline-grid;
+            place-items: center;
+        }
+        .social a i:hover{
+            transform: scale(1.2);
+        }
+        .social a:first-child i{
+            background: linear-gradient(45deg, #3b5998, #0078d7);
+            box-shadow: 0px 4px 30px rgba(43, 98, 169, 0.5);
+        }
+        .social a:nth-child(2) i{
+            background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
+            box-shadow: 0px 4px 30px rgba(120, 64, 190, 0.6);
+        }
+        .social a:nth-child(3) i{
+            background: linear-gradient(45deg, #1da1f2,#0e71c8);
+            box-shadow: 0px 4px 30px rgba(19, 127, 212, 0.7);
+        }
+        .social a:nth-child(4) i{
+            background: linear-gradient(45deg, #222,#0e71c8);
+            box-shadow: 0px 4px 30px rgba(34, 34, 34, 0.7);
+        }
+    }
 }
