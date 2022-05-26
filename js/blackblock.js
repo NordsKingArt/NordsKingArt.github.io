@@ -1,3 +1,11 @@
+// Inits
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+})
+
+
+
+
 // Header
 $("header.header_transparent #search_btn, header.header_transparent .searchfield .close").click(() => {
     $("header.header_transparent .searchfield").toggleApearAnimation("animate__fadeInDown", "animate__fadeOutUp", true)

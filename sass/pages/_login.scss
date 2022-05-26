@@ -13,9 +13,13 @@ main{
         flex-direction: column;
         align-items: center;
 
+        .inner{
+            width: min-content;
+        }
 
         h1{
-            font-size: 3rem;
+            font-family: $fblack;
+            color: $darkblue;
             margin-bottom: 5px;
         }
         p.haveaccount{
@@ -34,7 +38,7 @@ main{
 
             &>div{
                 border: 1px solid $grey5;
-                border-radius: 5px;
+                border-radius: 50px;
                 padding: 10px 15px;
 
                 display: grid;
@@ -61,14 +65,39 @@ main{
                 align-items: center;
                 column-gap: 15px;
 
+                flex-grow: 1;
+
                 span{
                     color: $grey3;
                     font-size: 14px;
+                    @include md{font-size: 12px;}
                 }
 
                 img{
                     width: 22px;
                 }
+            }
+        }
+
+        .separator{
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+            margin-top: 20px;
+
+            span{
+                padding: 0 10px;
+                font-style: italic;
+                color: $grey2;
+            }
+
+            &::before, &::after{
+                position: relative;
+                content: "";
+
+                flex-grow: 1;
+                height: 1px;
+                background-color: $grey5;
             }
         }
 

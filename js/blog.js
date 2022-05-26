@@ -18,10 +18,16 @@ renderEditor("textarea[name='comment']", 'Let`s write some cool description!', '
 // I will assume that the given YouTube video aspect ratio is 16:9
 var videoContainer = $("#videoContainer");
 
-// const ASRATIO = 1.77778
-const ASRATIO = 2.41
-let videoHeight = window.innerHeight;
-let videoWidth = videoHeight*ASRATIO;
+const ASRATIO = 1.77778
+// const ASRATIO = 2.41
+let videoWidth = window.innerWidth;
+let videoHeight = videoWidth/ASRATIO;
+
+
+// if(data.SCREEN_WIDTH > videoWidth){ // Frame gets cropped on the width
+//     videoWidth = window.innerWidth;
+//     videoHeight = 
+// }
 let videoTop = (225-videoHeight/2)
 
 videoContainer.width(videoWidth+"px")

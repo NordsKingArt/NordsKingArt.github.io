@@ -1,0 +1,14 @@
+.banner{
+    img{
+        filter: brightness(0.8);
+
+        height: 50vh;
+        width: 100%;
+        object-fit: cover;
+    }
+}
+
+
+main{
+    min-height: 100vh;
+}

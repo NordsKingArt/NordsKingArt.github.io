@@ -8,25 +8,78 @@ header {
 
     border-bottom: 1px solid rgba($color: #000000, $alpha: .1);
 
-    .left {
-        width: 45%;
-    }
-
     &.shadowed{
         box-shadow: $card_shadow;
     }
 
+    // For profile page and admin page
+    &.header-sided{
+        padding-left: 70px;
+
+        .side{
+            background-color: #fff;
+            position: fixed;
+            top: 0;
+            left: 0;
+        
+            width: 70px;
+            height: 100vh;
+        
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            box-shadow: 0 0 40px rgba($color: #000000, $alpha: 0.2);
+        
+            .toggle-btn{
+                font-size: 24px;
+                background-color: $background;
+        
+                width: 100%;
+                height: 75px;
+        
+                display: grid;
+                place-items: center;
+            }
+
+
+            .side-nav{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                li{
+                    list-style: none;
+                    margin-top: 40px;
+
+                    a{
+                        font-size: 1.2rem;
+                        color: $darkblue;
+                    }
+                }
+            }
+        }
+    }
+
+
+    // For header where nav is with logo on the left
+    .left{
+        display: flex;
+        align-items: center;
+    }
 
     .middle {
-        flex-shrink: 1;
+        flex-grow: 1;
         text-align: center;
-        // position: relative; // For svg
+
+        display: grid;
+        place-content: center;
 
         svg {
-            position: absolute;
-            left: 50%;
-            transform: translate(-50%);
             filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.25));
+
+            grid-column: 1/1;
+            grid-row: 1/1;
 
             @include md {
                 display: none;
@@ -38,12 +91,16 @@ header {
         display: flex;
         justify-content: flex-end;
         align-items: center;
-        width: 45%;
 
-        .action-btn-blue {
-            border-bottom: 4px solid $darkblue;
+        // .action-btn-blue {
+        //     border-bottom: 4px solid $darkblue;
+        //     display: inline-block;
+        //     min-width: 120px;
+        // }
+        .action-btn-red {
+            border-bottom: 4px solid shade($red , 30);
             display: inline-block;
-            min-width: 120px;
+            min-width: 100px;
         }
 
 
@@ -152,7 +209,7 @@ header {
 
 
     // Components
-    nav {
+    &>div nav {
         display: flex;
         list-style: none;
         margin-left: 40px;
@@ -277,8 +334,8 @@ header {
 
             &>a { // Main links
                 text-decoration: none;
-                color: $darkblue2;
-                font-size: 1.1rem;
+                color: $grey2;
+                // font-size: 1.1rem;
                 font-family: $fsbold;
                 letter-spacing: -0.5px;
 
@@ -290,6 +347,7 @@ header {
                 }
 
                 i {
+                    display: none !important; // Tmp
                     margin-right: 10px;
                     font-size: .9rem;
                     @include xl{display: none;}
@@ -311,6 +369,8 @@ header {
     }
 
     .logo{
+        grid-column: 1/1;
+        grid-row: 1/1;
         img {
             position: relative;
             z-index: 2;
@@ -327,6 +387,46 @@ header {
 
 
 
+    //Menu itself
+    menu {
+        visibility: hidden;
+        opacity: 0;
+        z-index: 10;
+        position: absolute;
+        right: 0;
+        padding: 40px;
+        top: 64px;
+        background-color: #FDFDFD;
+        height: calc(100vh - 65px);
+        transition: .2s;
+        border: none !important;
+        width: 100%;
+
+        @include md{padding: 20px}
+        
+
+        nav {
+            li {
+                list-style: none;
+
+                a {
+                    display: block;
+                    padding: 20px 40px;
+                    color: black;
+                    font-family: $fsbold;
+
+                    &.special {
+                        color: $link;
+                    }
+                }
+                .dropdown{
+                    margin-left: 20px;
+                    display: none;
+                }
+            }
+        }
+    }
+    
     // Menu button
     .menu-btn {
         width: 30px;
@@ -392,50 +492,6 @@ header {
         }
     }
 
-    //Menu itself
-    menu {
-        visibility: hidden;
-        opacity: 0;
-        z-index: 10;
-        position: absolute;
-        right: 0;
-        padding: 40px;
-        top: 64px;
-        background-color: #FDFDFD;
-        height: calc(100vh - 65px);
-        transition: .2s;
-        border: none !important;
-        width: 100%;
-
-        @include md{padding: 20px}
-        
-
-        nav {
-            li {
-                list-style: none;
-
-                a {
-                    display: block;
-                    padding: 20px 40px;
-                    color: black;
-                    font-family: $fsbold;
-
-                    &.special {
-                        color: $link;
-                    }
-                }
-                .dropdown{
-                    margin-left: 20px;
-                    display: none;
-                }
-            }
-        }
-    }
-
-
-
-
-
 }
 
 
@@ -452,8 +508,17 @@ header.header_transparent {
         background-color: white;
     }
 
+    .left, .right{
+        width: 45%;
+    }
+
     .left{
-        nav>li>a{color: white;}
+        nav>li>a{
+            color: white;
+            // font-size: 1.1rem;
+
+            i{display: inherit !important;}
+        }
     }
     .middle{
         .logo.logo_white{
@@ -475,4 +540,6 @@ header.header_transparent {
             width: 44px;
         }
     }
+
+
 }
