@@ -116,7 +116,7 @@
                     label {
                         margin-bottom: 10px;
                         font-size: 1.1rem;
-                        font-family: $fsbold;
+                        font-weight: 600;
                         color: $darkblue;
                         cursor: pointer;
                     }
@@ -125,7 +125,7 @@
                         font-size: 0.875rem;
                         display: flex;
                         column-gap: 10px;
-                        font-family: $fsbold;
+                        font-weight: 600;
                         color: $grey2
                     }
                 }
@@ -195,7 +195,7 @@
         box-shadow: 0 12px 60px -20px rgba($color: #000000, $alpha: 0.3);
     
         h5{
-            font-family: $fsbold;
+            font-weight: 600;
             font-size: 1.3rem;
         }
         p{

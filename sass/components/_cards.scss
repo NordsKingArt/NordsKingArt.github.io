@@ -27,7 +27,7 @@
             @include date;
         }
         h2{
-            font-family: $fblack;
+            font-weight: 900;
             margin-bottom: 10px;
             color: $darkblue;
         }
@@ -38,7 +38,7 @@
             color: $grey2;
         }
         a{
-            font-family: $fblack;
+            font-weight: 900;
         }
     }
     .list-group{
@@ -199,13 +199,13 @@
                 label{
                     font-size: 12px;
                     color: $darkblue;
-                    font-family: $fblack;
+                    font-weight: 900;
                 }
             }
 
 
             h2{
-                font-family: $fblack;
+                font-weight: 900;
                 color: $darkblue;
             }
             .versions{
@@ -218,7 +218,7 @@
                 color: $grey2;
             }
             a{
-                font-family: $fblack;
+                font-weight: 900;
             }
         }
         .detail{
@@ -263,7 +263,7 @@
     margin-top: 50px;
 
     h3{
-        font-family: $fblack;
+        font-weight: 900;
     }
     p{
         margin-top: 10px;
@@ -314,7 +314,7 @@
                 position: absolute;
                 @include position_center;
                 color: white;
-                font-family: $fsbold;
+                font-weight: 600;
                 font-size: 22px;
             }
         }
@@ -322,7 +322,7 @@
     .text{
         padding: 30px;
         h3{
-            font-family: $fsbold;
+            font-weight: 600;
         }
         .details{
             margin-bottom: 10px;

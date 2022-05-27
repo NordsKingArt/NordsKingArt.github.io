@@ -171,7 +171,7 @@
     padding: 5px;
     background: lighten($color: $color, $amount: 30);
     color: $color;
-    font-family: $fblack;
+    font-weight: 900;
 }
 @mixin badge-gradient($gradient, $color){
     font-size: 12px;
@@ -179,7 +179,7 @@
     padding: 5px;
     background: $gradient;
     color: $color;
-    font-family: $fregular;
+    font-weight: 400;
 }
 
 
@@ -232,7 +232,7 @@
 @mixin date_opaque{
     // font-size: 12px;
     opacity: 0.8;
-    font-family: $flight;
+    font-weight: 300;
 }
 
 // Layouts

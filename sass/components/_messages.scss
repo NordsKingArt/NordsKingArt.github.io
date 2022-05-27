@@ -5,7 +5,7 @@
     display: flex;
     align-items: center;
     max-width: 600px;
-    font-family: $flight;
+    font-weight: 300;
     display: none;
 
     &.show:not(.type2){
@@ -65,7 +65,7 @@
         // box-shadow: 0 10px 50px $lightgrey;
         box-shadow: 0 10px 100px rgba(black,0.5);
         color: $red;
-        font-family: $fsbold;
+        font-weight: 600;
         width: 500px;
         max-width: 100%;
         border-left: 3px solid $red;
@@ -79,7 +79,7 @@
         background-color: white;
         box-shadow: 0 10px 100px rgba(black,0.5);
         color: darken($color: $green, $amount: 20);
-        font-family: $fsbold;
+        font-weight: 600;
         min-width: 500px;
         max-width: 100%;
         border-left: 3px solid darken($color: $green, $amount: 20);
@@ -92,7 +92,7 @@
         background-color: white;
         box-shadow: 0 10px 100px rgba(black,0.5);
         color: #12B2E5;
-        font-family: $fsbold;
+        font-weight: 600;
         min-width: 500px;
         max-width: 100%;
         border-left: 5px solid #12B2E5;

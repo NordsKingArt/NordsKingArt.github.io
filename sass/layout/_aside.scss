@@ -7,7 +7,7 @@ aside{
         width: 100%;
     }
     h3{
-        font-family: $flight;
+        font-weight: 300;
         font-size: 20px;
         color: $grey2;
     }
@@ -45,12 +45,12 @@ aside{
                     justify-content: center;
                     align-items: center;
                     margin-right: 15px;
-                    font-family: $fsbold;
+                    font-weight: 600;
                 }
                 div{
                     h5{
                         margin-bottom: 4px;
-                        font-family: $fsbold;
+                        font-weight: 600;
                     }
                     p{
                         @include date_opaque;

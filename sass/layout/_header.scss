@@ -51,6 +51,13 @@ header {
                 li{
                     list-style: none;
                     margin-top: 40px;
+                    padding: 15px;
+                    border-radius: 10px;
+
+                    &.active{
+                        background-color: $blue;
+                        a{color: white;}
+                    }
 
                     a{
                         font-size: 1.2rem;
@@ -196,7 +203,7 @@ header {
 
         .actions{
             a {
-                font-family: $fsbold;
+                font-weight: 600;
                 color: black;
             }
             a.action-btn-red{
@@ -274,7 +281,7 @@ header {
                         width: 200px;
                         margin: auto;
                         margin-bottom: 20px; // For blurred shadow to be visible
-                        font-family: $fregular;
+                        font-weight: 400;
     
                         &>* {
                             position: relative;
@@ -299,7 +306,7 @@ header {
                     padding: 50px;
     
                     h5 {
-                        font-family: $fblack;
+                        font-weight: 900;
                         margin-bottom: 15px;
                         white-space: nowrap;
                         text-align: left;
@@ -318,7 +325,7 @@ header {
     
                         &.cool {
                             color: $red;
-                            font-family: $fblack;
+                            font-weight: 900;
                         }
     
                         span {
@@ -336,7 +343,7 @@ header {
                 text-decoration: none;
                 color: $grey2;
                 // font-size: 1.1rem;
-                font-family: $fsbold;
+                font-weight: 600;
                 letter-spacing: -0.5px;
 
                 white-space: nowrap;
@@ -413,7 +420,7 @@ header {
                     display: block;
                     padding: 20px 40px;
                     color: black;
-                    font-family: $fsbold;
+                    font-weight: 600;
 
                     &.special {
                         color: $link;

@@ -13,15 +13,19 @@
 
 
 main{
-    min-height: 100vh;
+    // min-height: 100vh;
 
     display: grid;
-    grid-template-columns: 1fr 2fr;
-    align-items: stretch;
+    // grid-template-columns: 1fr 3fr;
+    // grid-template-rows: auto auto auto;
+    align-items: start;
     gap: 50px;
 
+    margin-top: -200px;
+    z-index: 2;
 
-    &>div{
+
+    .profile_card, .subscribers, .level{
         background-color: white;
         width: 100%;
         border-radius: 10px;
@@ -34,6 +38,7 @@ main{
         padding: 50px 30px;
         max-width: 350px;
         text-align: center;
+        grid-row: 1/4;
 
         position: relative;
 
@@ -67,20 +72,55 @@ main{
         }
 
         h3{
-            
-            font-weight: 600;
+            font-weight: 700;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            column-gap: 10px;
+            margin-top: 20px;
+            margin-bottom: 5px;
+
+            span{
+                font-weight: 600;
+                padding-left: 10px;
+                padding-right: 10px;
+            }
         }
 
+        p.subscribers-count{
+            color: $blgrey;
+            margin-bottom: 20px;
+        }
+
+        p.bio{
+            font-size: 1.1rem;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        a.website{
+            color: black;
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+
+        .actions{
+            margin: 30px 0;
+            button.follow{
+                @include gradient-button(15px 30px, $bluegradient, 20px);
+                margin-right: 10px;
+            }
+        }
 
 
         .social a i{
             border-radius: 50%;
             color: white;
-            width: 50px;
-            height: 50px;
-            padding: 12px;
-            font-size: 26px;
-            margin: 20px;
+            width: 45px;
+            height: 45px;
+            font-size: 1.1rem;
+            margin: 10px;
             transition: .2s;
 
             display: inline-grid;
@@ -104,6 +144,150 @@ main{
         .social a:nth-child(4) i{
             background: linear-gradient(45deg, #222,#0e71c8);
             box-shadow: 0px 4px 30px rgba(34, 34, 34, 0.7);
+        }
+    }
+
+    .stats{
+        display: flex;
+        grid-column: 2/4;
+        grid-row: 1;
+        min-width: 1000px;
+
+        .stat{
+            background-color: white;
+            padding: 20px 0;
+            margin-right: 1px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            width: 16.6%;
+
+            span{
+                font-size: 1.5rem;
+            }
+            label{
+                margin-top: 10px;
+                font-size: 0.75rem;
+                color: $blgrey;
+
+                i{
+                    margin-right: 2px;
+                }
+            }
+        }
+
+        .stat:nth-of-type(1){
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+        }
+        .stat:nth-last-of-type(1){
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+    }
+
+    &>.actions{
+        grid-column: 2/4;
+        grid-row: 2;
+
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+
+        a.action{
+            display: flex;
+            align-items: center;
+            column-gap: 20px;
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0px 70px rgba($color: #ACB5C9, $alpha: 0.25);
+
+            .left{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                border-radius: 50%;
+                width: 50px;
+                height: 50px;
+
+                i{
+                    font-size: 1.5rem;
+                    color: $red;
+                }
+
+                // background-color: lighten($color: $red, $amount: 36);
+                // color: shade($red, 10);
+                // border: 1px solid shade($red, 10);
+            }
+            .right{
+                color: $darkblue2;
+                label{
+                    font-size: 1.1rem;
+                    font-weight: 600;
+                }
+                p{
+                    margin-top: 5px;
+                    color: $blgrey;
+                }
+            }
+        }
+    }
+
+    .subscribers{
+        padding: 30px;
+        max-width: 400px;
+
+        grid-column: 2;
+        grid-row: 3;
+
+
+        h5{
+            font-weight: bold;
+        }
+        a#showallbtn{
+            color: $blue3;
+            font-weight: 700;
+            font-size: 0.87rem;
+        }
+        p{
+            font-size: 0.87rem;
+        }
+        .user{
+            margin-bottom: 30px;
+            span{
+                margin-right: 5px;
+                font-size: 0.75rem;
+            }
+        }
+    }
+
+    .level{
+        padding: 40px;
+
+        grid-column: 3;
+        grid-row: 3;
+
+        .level-bar{
+            margin-top: 20px;
+            background-color: $grey6;
+            height: 12px;
+            width: 100%;
+            border-radius: 50px;
+
+
+            .inner{
+                width: 75%;
+                height: 100%;
+                border-radius: 50px;
+                
+                background: $gradientExtra;
+                // animation: LazyLoad 2s ease infinite;
+                // background-size: 1000% 1000%;
+            }
         }
     }
 }

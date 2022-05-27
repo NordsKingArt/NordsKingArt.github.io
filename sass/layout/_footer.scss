@@ -16,7 +16,7 @@ footer{
 
         &>div{
             h3{
-                font-family: $fsbold;
+                font-weight: 600;
             }
             ul{
                 margin-top: 20px;
@@ -25,7 +25,7 @@ footer{
                     a{
                         i{margin-right: 5px;}
                         color: lighten($color: $darkblue2, $amount: 40);
-                        font-family: $fsbold;
+                        font-weight: 600;
 
                         &:hover{
                             color: white;

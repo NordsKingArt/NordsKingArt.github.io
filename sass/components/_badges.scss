@@ -11,5 +11,5 @@
 
 .badge-creator{
     @include badge-gradient($gradient_cool2, white);
-    font-family: $flight;
+    font-weight: 300;
 }

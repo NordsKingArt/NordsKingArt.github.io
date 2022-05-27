@@ -11,7 +11,7 @@
 .action-btn-light{
     @include button(8px 10px, rgb(244, 244, 244), 10px);
     color: darken($color: rgb(244, 244, 244), $amount: 40);
-    font-family: $fsbold;
+    font-weight: 600;
     border: 1px solid $grey5;
 
     &:hover{
@@ -45,7 +45,7 @@
 .cool-btn{
     @include button(20px 30px, transparent, 10px);
     background: $gradient_cool;
-    font-family: $fsbold;
+    font-weight: 600;
     border-radius: 100px;
 
     &.shadowed::after{
@@ -65,7 +65,7 @@
 .gradient-btn-blue{
     @include button(20px 15px, transparent, 10px);
     background: $bluegradient;
-    font-family: $fsbold;
+    font-weight: 600;
 }
 
 .round{

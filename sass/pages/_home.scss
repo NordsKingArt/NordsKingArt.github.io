@@ -26,7 +26,7 @@
         }
 
         h1{
-            font-family: $fblack;
+            font-weight: 900;
             font-size: 60px;
             max-width: 800px;
             min-width: 100%;
@@ -42,7 +42,7 @@
             @include xl{display: none;}
             p{
                 opacity: 1;
-                font-family: $fblack;
+                font-weight: 900;
                 font-size: 70px;
                 @include md{font-size: 40px;}
                 line-height: 84px;
@@ -85,7 +85,7 @@
             font-size: 1.4em;
             max-width: 700px;
             line-height: 1.2;
-            font-family: $fsbold;
+            font-weight: 600;
         }
 
         a{
@@ -152,7 +152,7 @@
     h2{
         position: absolute;
         @include position_center;
-        font-family: $fblack;
+        font-weight: 900;
         font-size: 25px;
         color: white;
         width: 100%;
@@ -229,7 +229,7 @@
             }
         }
         label{
-            font-family: $fblack;
+            font-weight: 900;
             color: $red;
             padding: 5px;
             border: 1px solid $red;
@@ -237,7 +237,7 @@
             margin-top: 20px;
         }
         h4{
-            font-family: $fblack;
+            font-weight: 900;
             color: $darkblue;
         }
         p{
@@ -274,7 +274,7 @@
         opacity: 0.8;
     }
     a{
-        font-family: $fsbold;
+        font-weight: 600;
     }
 }
 
@@ -307,18 +307,18 @@
     row-gap: 10px;
 
     h1{
-        font-family: $fblack;
+        font-weight: 900;
         font-size: 50px;
         text-align: center;
     }
     p{
-        font-family: $fsbold;
+        font-weight: 600;
         opacity: 0.7;
     }
     a{
         margin-top: 20px;
         width: 150px;
-        font-family: $fblack;
+        font-weight: 900;
     }
 }
 
@@ -335,12 +335,12 @@
     @include md{display: none;}
     h1{
         text-align: center;
-        font-family: $fblack;
+        font-weight: 900;
         color: $darkblue;
     }
     &>p{
         text-align: center;
-        font-family: $fsbold;
+        font-weight: 600;
         margin-top: 10px;
         font-size: 20px;
         color: $grey2;
@@ -380,7 +380,7 @@
             background: linear-gradient(to top, black, transparent);
 
             h2{
-                font-family: $fsbold;
+                font-weight: 600;
             }
             &>label{
                 opacity: .6;
@@ -410,7 +410,7 @@
                     }
                     h4{
                         font-size: 20px;
-                        font-family: $fsbold;
+                        font-weight: 600;
                     }
                     img{
                         border-radius: 40px;
@@ -420,7 +420,7 @@
                 }
                 a{
                     color: white;
-                    font-family: $fblack;
+                    font-weight: 900;
                     padding: 10px 20px;
                     border: 1px solid rgba(white,.5);
                     display: block;

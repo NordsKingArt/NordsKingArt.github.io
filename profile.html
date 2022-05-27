@@ -32,7 +32,7 @@
             </div>
 
             <div class="side-nav">
-                <li data-toggle="tooltip" data-placement="right" title="My Account"><a href=""><i class="fal fa-user"></i></a></li>
+                <li data-toggle="tooltip" data-placement="right" title="My Account" class="active"><a href=""><i class="fal fa-user"></i></a></li>
                 <li data-toggle="tooltip" data-placement="right" title="Settings"><a href=""><i class="fal fa-gears"></i></a></li>
                 <li data-toggle="tooltip" data-placement="right" title="My Posts"><a href=""><i class="fal fa-file"></i></a></li>
                 <li data-toggle="tooltip" data-placement="right" title="Modpacks"><a href=""><i class="fal fa-box-taped"></i></a></li>
@@ -255,14 +255,14 @@
                         <img src="/img/svgs/level-background.svg">
                         <label>Herobine</label>
                     </div>
-                    <div class="imgdiv"><img src="/img/skins/1.png"></div>
-                    <h3>Jaker <label class="badge-creator">Creator</label></h3>
+                    <div class="imgdiv"><img src="/img/skins/11.png"></div>
+                    <h3>Jaker <span class="badge-creator"><i class="fas fa-check"></i> Creator</span></h3>
                     <p class="subscribers-count">15 subscribers</p>
                     <p class="bio">Hello, My name is Jaker. I am a minecraft player with 5 years of experience</p>
-                    <a href=""><i class="fal fa-globe"></i> Website</a>
+                    <a href="" class="website"><i class="fal fa-globe me-1"></i> Website</a>
                     <div class="actions">
-                        <button class="follow">Follow</button>
-                        <button class="award"><i class="fal fa-award"></i> Award</button>
+                        <button class="follow" id="followBtn">Follow</button>
+                        <button class="action-btn-transparent round" id="awardBtn"><i class="fal fa-award"></i> Award</button>
                     </div>
                     <div class="social">
                         <a href=""><i class="fab fa-facebook-f"></i></a>
@@ -270,11 +270,179 @@
                         <a href=""><i class="fab fa-twitter"></i></a>
                         <a href=""><i class="fab fa-github"></i></a>
                     </div>
+
+                    <hr class="hr-light my-4">
+
+                    <p class="text-grey4">Member since Nov 15, 2017</p>
                 </div>
-                <div class="stats"></div>
-                <div class="actions"></div>
-                <div class="subscribers"></div>
-                <div class="level"></div>
+                <div class="stats">
+                    <div class="stat">
+                        <span>15k</span>
+                        <label><i class="fal fa-eye"></i> Views</label>
+                    </div>
+                    <div class="stat">
+                        <span>234</span>
+                        <label><i class="fal fa-arrow-down"></i> Downloads</label>
+                    </div>
+                    <div class="stat">
+                        <span>523</span>
+                        <label><i class="fal fa-stars"></i> Rating</label>
+                    </div>
+                    <div class="stat">
+                        <span>567</span>
+                        <label><i class="fal fa-comments"></i> Comments</label>
+                    </div>
+                    <div class="stat">
+                        <span>423</span>
+                        <label><i class="fal fa-pen"></i> Posts</label>
+                    </div>
+                    <div class="stat">
+                        <span>123</span>
+                        <label><i class="fal fa-heart"></i> Subscribers</label>
+                    </div>
+                </div>
+                <div class="actions">
+                    <a href="" class="action">
+                        <div class="left">
+                            <i class="fa-solid fa-clipboard-list"></i>
+                        </div>
+                        <div class="right">
+                            <label>Posts</label>
+                            <p>Browse your posts</p>
+                        </div>
+                    </a>
+                    <a href="" class="action">
+                        <div class="left">
+                            <i class="fa-solid fa-box-taped"></i>
+                        </div>
+                        <div class="right">
+                            <label>Modpacks</label>
+                            <p>Browse your posts</p>
+                        </div>
+                    </a>
+                    <a href="" class="action">
+                        <div class="left">
+                            <i class="fas fa-bookmark"></i>
+                        </div>
+                        <div class="right">
+                            <label>Favourites</label>
+                            <p>Browse your posts</p>
+                        </div>
+                    </a>
+                    <a href="" class="action">
+                        <div class="left">
+                            <i class="fas fa-bell"></i>
+                        </div>
+                        <div class="right">
+                            <label>Notifications</label>
+                            <p>Browse your posts</p>
+                        </div>
+                    </a>
+                    <a href="" class="action">
+                        <div class="left">
+                            <i class="fas fa-crown"></i>
+                        </div>
+                        <div class="right">
+                            <label>Kingspage</label>
+                            <p>Browse your posts</p>
+                        </div>
+                    </a>
+                    <a href="" class="action">
+                        <div class="left">
+                            <i class="fas fa-file"></i>
+                        </div>
+                        <div class="right">
+                            <label>Chat</label>
+                            <p>Browse your posts</p>
+                        </div>
+                    </a>
+                    <a href="" class="action">
+                        <div class="left">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div class="right">
+                            <label>Subscriptions</label>
+                            <p>Browse your posts</p>
+                        </div>
+                    </a>
+                    <a href="" class="action">
+                        <div class="left">
+                            <i class="fas fa-gears"></i>
+                        </div>
+                        <div class="right">
+                            <label>Settings</label>
+                            <p>Browse your posts</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="subscribers">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <h5>Subsribers</h5>
+                        <a href="" id="showallbtn">Show all <i class="far fa-angle-right"></i></a>
+                    </div>
+                    <p>List of users who subscribed you</p>
+                    <hr class="hr-light">
+
+                    <div class="user d-flex justify-content-between">
+                        <div class="d-flex align-items-center">
+                            <img src="/img/skins/10.png" class="avatar-default">
+                            <div class="details ms-3">
+                                <h6 class="fw-bold mb-1">Mine Shafter</h6>
+                                <p><span>10xp</span><span>&bull;</span><span>24 posts</span></p>
+                            </div>
+                        </div>
+                        <button class="subscibe_btn text-red fw-bold">Subscibe</button>
+                    </div>
+                    <div class="user d-flex justify-content-between">
+                        <div class="d-flex align-items-center">
+                            <img src="/img/skins/3.png" class="avatar-default">
+                            <div class="details ms-3">
+                                <h6 class="fw-bold mb-1">Mine Shafter</h6>
+                                <p><span>10xp</span><span>&bull;</span><span>24 posts</span></p>
+                            </div>
+                        </div>
+                        <button class="subscibe_btn text-red fw-bold">Subscibe</button>
+                    </div>
+                    <div class="user d-flex justify-content-between">
+                        <div class="d-flex align-items-center">
+                            <img src="/img/skins/5.png" class="avatar-default">
+                            <div class="details ms-3">
+                                <h6 class="fw-bold mb-1">Mine Shafter</h6>
+                                <p><span>10xp</span><span>&bull;</span><span>24 posts</span></p>
+                            </div>
+                        </div>
+                        <button class="subscibe_btn text-red fw-bold">Subscibe</button>
+                    </div>
+                    <div class="user d-flex justify-content-between">
+                        <div class="d-flex align-items-center">
+                            <img src="/img/skins/6.png" class="avatar-default">
+                            <div class="details ms-3">
+                                <h6 class="fw-bold mb-1">Mine Shafter</h6>
+                                <p><span>10xp</span><span>&bull;</span><span>24 posts</span></p>
+                            </div>
+                        </div>
+                        <button class="subscibe_btn text-red fw-bold">Subscibe</button>
+                    </div>
+                    <div class="user d-flex justify-content-between">
+                        <div class="d-flex align-items-center">
+                            <img src="/img/skins/2.png" class="avatar-default">
+                            <div class="details ms-3">
+                                <h6 class="fw-bold mb-1">Mine Shafter</h6>
+                                <p><span>10xp</span><span>&bull;</span><span>24 posts</span></p>
+                            </div>
+                        </div>
+                        <button class="subscibe_btn text-red fw-bold">Subscibe</button>
+                    </div>
+                </div>
+                <div class="level">
+                    <div class="d-flex justify-content-between">
+                        <label>Current level: <span class="text-red fw-bold">Herobine</span></label>
+                        <label>Next level: Allmighty</label>
+                    </div>
+                    <div class="level-bar">
+                        <div class="inner"></div>
+                    </div>
+                </div>
             </main>
         </div>
 
