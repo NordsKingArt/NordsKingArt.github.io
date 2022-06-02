@@ -1,3 +1,4 @@
+// For anything
 .lazyColor {
     opacity: 0.5;
     background: linear-gradient(135deg, rgba(211, 223, 232, 1) 30%, 
@@ -13,6 +14,8 @@
     background-position: 100% 100%;
 }
 
+
+// For images
 .imgdiv.lazyload{
     opacity: 0.5;
     background: linear-gradient(135deg, rgba(211, 223, 232, 1) 30%, 
@@ -39,6 +42,31 @@
             opacity: 1;
             transition: 0.5s;
         }
+    }
+}
+
+.overlay-animation{
+    position: relative;
+    &::after{
+        content: " ";
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: 100%;
+        border-radius: inherit;
+
+        background: linear-gradient(135deg, rgb(211,223,232) 30%,rgb(169,184,197) 38%,rgb(168,182,193) 41%,rgb(168,182,193) 50%,rgb(168,182,193) 50%,rgb(169,184,197) 51%,rgb(211,223,232) 57%,rgb(211,223,232) 80%,rgb(211,223,232) 80%);
+        background-size: 1200% 1200%;
+        animation: LazyLoad 1s ease;
+        animation-iteration-count: 4;
+        background-position: 100% 100%;
+    }
+
+    &.overlay-animation-finished::after{
+        opacity: 0;
+        transition: .4s;
     }
 }
 

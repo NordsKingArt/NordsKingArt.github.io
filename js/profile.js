@@ -17,4 +17,41 @@ $(window).on("load", function(){
             }
         });
     }
-})
+
+
+
+
+    $(".level-bar .inner").width($(".level-bar .inner").data("progress"));
+
+
+
+    $('#baseform').submit(function(event){
+        event.preventDefault();
+
+        if($("input[name='username']").val().length == 0){
+            _scrollTo($("input[name='username']"))
+            $("input[name='username']").parents(".input-prepend").addClass("warning")
+            $(".message#nousername").messageTrigger()
+
+            $("input[name='username']").parents(".input-prepend").on("animationend",function(params) {
+                $(this).removeClass("warning")
+            })
+        }
+        
+    
+        // $(".input-prepend input").each(function(index, input) {
+        //     if($(input).val().length == 0){
+        //         $(input).parents(".input-prepend").addClass("warning")
+
+        //         $(input).parents(".input-prepend").on("animationend",function(params) {
+        //             $(this).removeClass("warning")
+        //         })
+        //     }
+        // })
+    });
+
+
+
+    
+});
+

@@ -1,5 +1,9 @@
 .date{
     @include date;
+
+    &.date-bluish{
+        color: $blgrey;
+    }
 }
 .date_transparent{
     @include date_opaque;

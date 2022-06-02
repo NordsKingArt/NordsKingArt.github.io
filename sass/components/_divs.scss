@@ -1,0 +1,8 @@
+.overlay{
+    @include overlay;
+
+    &.overlay-center-content{
+        display: grid;
+        place-content: center;
+    }
+}

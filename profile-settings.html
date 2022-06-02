@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="/css/main.css">
 </head>
 
-<body class="profile">
+<body class="settings">
     <header class="header_transparent header-sided">
         <div class="side">
             <div class="toggle-btn">
@@ -245,204 +245,103 @@
 
         <div class="banner">
             <img src="/img/dummy/30.png">
+            <div class="overlay overlay-center-content">
+                <label>
+                    <input type="file" name="" id="">
+                    <span class="text-white">Click to change your banner</span>
+                </label>
+            </div>
+
         </div>
 
 
         <div class="wrapper justify-content-center">
             <main>
-                <div class="profile_card">
-                    <div class="level-name">
-                        <img src="/img/svgs/level-background.svg">
-                        <label>Herobine</label>
+                <form action="#" method="post" id="baseform">
+                    <div class="d-flex align-items-start flex-wrap">
+                        <div class="c_picture">
+                            <h5 class="text-center">Profile picture</h5>
+                            <div class="imgdiv">
+                                <label>
+                                    <input type="file">
+                                    <img src="/img/skins/1.png">
+                                    <div class="overlay overlay-center-content">
+                                        <span class="text-white fw-bold">Change</span>
+                                    </div>
+                                    <i class="fal fa-pen"></i>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="c_socials">
+                            <h5 class="mb-2">Social information</h5>
+                            <p class="mb-4">You can link your other social media accounts so your subscribers will be able to follow you</p>
+                            <div class="input-prepend input-prepend-inline my-2 me-3">
+                                <div class="icon">
+                                    <img src="/img/icons/instagram.png" alt="">
+                                </div>
+                                <input type="text" placeholder="Instagram">
+                            </div>
+                            <div class="input-prepend input-prepend-inline my-2 me-3">
+                                <div class="icon">
+                                    <i class="fab fa-facebook-f"></i>
+                                </div>
+                                <input type="text" placeholder="Facebook">
+                            </div>
+                            <div class="input-prepend input-prepend-inline my-2 me-3">
+                                <div class="icon">
+                                    <i class="fab fa-github"></i>
+                                </div>
+                                <input type="text" placeholder="Github">
+                            </div>
+                            <div class="input-prepend input-prepend-inline my-2 me-3">
+                                <div class="icon">
+                                    <i class="fab fa-twitter"></i>
+                                </div>
+                                <input type="text" placeholder="Twitter">
+                            </div>
+                        </div>
                     </div>
-                    <div class="imgdiv"><img src="/img/skins/11.png"></div>
-                    <h3>Jaker <span class="badge-creator"><i class="fas fa-check"></i> Creator</span></h3>
-                    <p class="subscribers-count">15 subscribers</p>
-                    <p class="bio">Hello, My name is Jaker. I am a minecraft player with 5 years of experience</p>
-                    <a href="" class="website"><i class="fal fa-globe me-1"></i> Website</a>
-                    <div class="actions">
-                        <button class="follow" id="followBtn">Follow</button>
-                        <button class="action-btn-transparent round" id="awardBtn"><i class="fal fa-award"></i> Award</button>
+                    <div class="c_credentials">
+                        <h5>Credentials</h5>
+                        <div class="input-prepend input-prepend-colored input-prepend-inline me-2">
+                            <div class="icon">
+                                <i class="isax isax-user"></i>
+                            </div>
+                            <input type="text" placeholder="Username" name="username" value="">
+                        </div>
+                        <div class="input-prepend input-prepend-colored input-prepend-inline me-2">
+                            <div class="icon">
+                                <i class="isax isax-sms"></i>
+                            </div>
+                            <input type="text" placeholder="Email" value="jaker.raimov@gmail.com">
+                        </div>
+                        <br>
+                        
                     </div>
-                    <div class="social">
-                        <a href=""><i class="fab fa-facebook-f"></i></a>
-                        <a href=""><i class="fab fa-instagram"></i></a>
-                        <a href=""><i class="fab fa-twitter"></i></a>
-                        <a href=""><i class="fab fa-github"></i></a>
+                    <div class="c_bio">
+                        <h5 class="mb-2">Bio</h5>
+                        <p class="mb-4">Tell people about yourself</p>
+                        <textarea placeholder="Type..." rows="10" class="colored"></textarea>
                     </div>
+                    <div class="c_password">
+                        <h5>Password</h5>
+                        <div class="input-prepend input-prepend-colored input-prepend-inline me-2">
+                            <div class="icon">
+                                <i class="isax isax-lock-1"></i>
+                            </div>
+                            <input type="text" placeholder="Current Password">
+                        </div>
+                        <div class="input-prepend input-prepend-colored input-prepend-inline me-2">
+                            <div class="icon">
+                                <i class="isax isax-lock-1"></i>
+                            </div>
+                            <input type="text" placeholder="New Password">
+                        </div>
+                    </div>
+                    <button class="action-btn-blue" id="saveBtn">Apply changes</button>
+                </form>
 
-                    <hr class="hr-light my-4">
-
-                    <p class="text-grey4">Member since Nov 15, 2017</p>
-                </div>
-                <div class="stats">
-                    <div class="stat">
-                        <span>23450</span>
-                        <label><i class="fal fa-eye"></i> Views</label>
-                    </div>
-                    <div class="stat">
-                        <span>234</span>
-                        <label><i class="fal fa-arrow-down"></i> Downloads</label>
-                    </div>
-                    <div class="stat">
-                        <span>523</span>
-                        <label><i class="fal fa-stars"></i> Rating</label>
-                    </div>
-                    <div class="stat">
-                        <span>567</span>
-                        <label><i class="fal fa-comments"></i> Comments</label>
-                    </div>
-                    <div class="stat">
-                        <span>423</span>
-                        <label><i class="fal fa-pen"></i> Posts</label>
-                    </div>
-                    <div class="stat">
-                        <span>123</span>
-                        <label><i class="fal fa-heart"></i> Subscribers</label>
-                    </div>
-                </div>
-                <div class="actions">
-                    <a href="" class="action">
-                        <div class="left">
-                            <i class="fal fa-clipboard-list"></i>
-                        </div>
-                        <div class="right">
-                            <label>Posts</label>
-                            <p>Browse your posts</p>
-                        </div>
-                    </a>
-                    <a href="" class="action">
-                        <div class="left">
-                            <i class="fal fa-box-taped"></i>
-                        </div>
-                        <div class="right">
-                            <label>Modpacks</label>
-                            <p>Browse your posts</p>
-                        </div>
-                    </a>
-                    <a href="" class="action">
-                        <div class="left">
-                            <i class="fal fa-bookmark"></i>
-                        </div>
-                        <div class="right">
-                            <label>Favourites</label>
-                            <p>Browse your posts</p>
-                        </div>
-                    </a>
-                    <a href="" class="action">
-                        <div class="left">
-                            <i class="fal fa-bell"></i>
-                        </div>
-                        <div class="right">
-                            <label>Notifications</label>
-                            <p>Browse your posts</p>
-                        </div>
-                    </a>
-                    <a href="" class="action">
-                        <div class="left">
-                            <i class="fal fa-crown"></i>
-                        </div>
-                        <div class="right">
-                            <label>Kingspage</label>
-                            <p>Browse your posts</p>
-                        </div>
-                    </a>
-                    <a href="" class="action">
-                        <div class="left">
-                            <i class="fal fa-file"></i>
-                        </div>
-                        <div class="right">
-                            <label>Chat</label>
-                            <p>Browse your posts</p>
-                        </div>
-                    </a>
-                    <a href="" class="action">
-                        <div class="left">
-                            <i class="fal fa-heart"></i>
-                        </div>
-                        <div class="right">
-                            <label>Subscriptions</label>
-                            <p>Browse your posts</p>
-                        </div>
-                    </a>
-                    <a href="" class="action">
-                        <div class="left">
-                            <i class="fal fa-gears"></i>
-                        </div>
-                        <div class="right">
-                            <label>Settings</label>
-                            <p>Browse your posts</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="subscribers">
-                    <div class="d-flex justify-content-between align-items-center mb-2">
-                        <h5>Subsribers</h5>
-                        <a href="" id="showallbtn">Show all <i class="far fa-angle-right"></i></a>
-                    </div>
-                    <p>List of users who subscribed you</p>
-                    <hr class="hr-light">
-
-                    <div class="user d-flex justify-content-between">
-                        <div class="d-flex align-items-center">
-                            <img src="/img/skins/10.png" class="avatar-default">
-                            <div class="details ms-3">
-                                <h6 class="fw-bold mb-1">Mine Shafter</h6>
-                                <p><span>10xp</span><span>&bull;</span><span>24 posts</span></p>
-                            </div>
-                        </div>
-                        <button class="subscibe_btn text-red fw-bold">Subscibe</button>
-                    </div>
-                    <div class="user d-flex justify-content-between">
-                        <div class="d-flex align-items-center">
-                            <img src="/img/skins/3.png" class="avatar-default">
-                            <div class="details ms-3">
-                                <h6 class="fw-bold mb-1">Mine Shafter</h6>
-                                <p><span>10xp</span><span>&bull;</span><span>24 posts</span></p>
-                            </div>
-                        </div>
-                        <button class="subscibe_btn text-red fw-bold">Subscibe</button>
-                    </div>
-                    <div class="user d-flex justify-content-between">
-                        <div class="d-flex align-items-center">
-                            <img src="/img/skins/5.png" class="avatar-default">
-                            <div class="details ms-3">
-                                <h6 class="fw-bold mb-1">Mine Shafter</h6>
-                                <p><span>10xp</span><span>&bull;</span><span>24 posts</span></p>
-                            </div>
-                        </div>
-                        <button class="subscibe_btn text-red fw-bold">Subscibe</button>
-                    </div>
-                    <div class="user d-flex justify-content-between">
-                        <div class="d-flex align-items-center">
-                            <img src="/img/skins/6.png" class="avatar-default">
-                            <div class="details ms-3">
-                                <h6 class="fw-bold mb-1">Mine Shafter</h6>
-                                <p><span>10xp</span><span>&bull;</span><span>24 posts</span></p>
-                            </div>
-                        </div>
-                        <button class="subscibe_btn text-red fw-bold">Subscibe</button>
-                    </div>
-                    <div class="user d-flex justify-content-between">
-                        <div class="d-flex align-items-center">
-                            <img src="/img/skins/2.png" class="avatar-default">
-                            <div class="details ms-3">
-                                <h6 class="fw-bold mb-1">Mine Shafter</h6>
-                                <p><span>10xp</span><span>&bull;</span><span>24 posts</span></p>
-                            </div>
-                        </div>
-                        <button class="subscibe_btn text-red fw-bold">Subscibe</button>
-                    </div>
-                </div>
-                <div class="level">
-                    <div class="d-flex justify-content-between">
-                        <label>Current level: <span class="text-red fw-bold">Herobine</span></label>
-                        <label>Next level: Allmighty</label>
-                    </div>
-                    <div class="level-bar">
-                        <div class="inner" data-progress="75%"></div>
-                    </div>
-                </div>
+                <div class="message message-error type2" id="nousername">Please do not leave Username empty</div>
             </main>
         </div>
 
@@ -510,13 +409,7 @@
 
     <script src="/additionals/jquery/jquery-3.6.0.min.js"></script>
     <script src="/additionals/bootstrap-5.2.0/js/bootstrap.bundle.min.js"></script>
-    <script src="/additionals/froala/js/froala_editor.min.js"></script>
-    <script src="/additionals/froala/js/plugins.pkgd.min.js"></script>
-    <script src="https://www.youtube.com/iframe_api"></script>
-    <script src="/additionals/slick-1.8.1/slick/slick.min.js"></script>
 
-    <script src="/js/plugins/complarison-slider.js"></script>
-    <script src="/js/plugins/blogvideoplayer.js"></script>
     <script src="/js/functions.js"></script>
 
     <script src="/js/blackblock.js"></script>

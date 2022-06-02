@@ -15,6 +15,7 @@ header {
     // For profile page and admin page
     &.header-sided{
         padding-left: 70px;
+        @include md{padding-left: 0;}
 
         .side{
             background-color: #fff;
@@ -26,6 +27,7 @@ header {
             height: 100vh;
         
             display: flex;
+            @include md{display: none;}
             flex-direction: column;
             align-items: center;
 
@@ -402,7 +404,7 @@ header {
         position: absolute;
         right: 0;
         padding: 40px;
-        top: 64px;
+        top: 62px;
         background-color: #FDFDFD;
         height: calc(100vh - 65px);
         transition: .2s;

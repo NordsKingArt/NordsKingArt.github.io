@@ -20,6 +20,7 @@
 @import 'components/hrs';
 @import 'components/texts';
 @import 'components/images';
+@import 'components/divs';
 
 @import 'layout/header';
 @import 'layout/footer';
@@ -31,4 +32,7 @@
 .materials {@import 'pages/materials';}
 .blog {@import 'pages/blog';}
 .login {@import 'pages/login';}
-.profile {@import 'pages/profile';}
+
+.profile {@import 'pages/profile/profile';}
+.notifications {@import 'pages/profile/notifications';}
+.settings {@import 'pages/profile/settings';}

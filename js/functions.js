@@ -94,3 +94,14 @@ function renderEditor (fholder, fplaceholder, fclass=""){
         }
     );
 }
+
+
+
+function _scrollTo(element){
+    var scrollPos = element[0].offsetTop - 200;
+
+    $('html').stop().animate({
+        scrollTop: scrollPos,
+        easing: "linear"
+    });
+}

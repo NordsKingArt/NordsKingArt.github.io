@@ -102,6 +102,12 @@ $("img").each(function (index) {
     }
 })
 
+$(".overlay-animation").each(function(index){
+    setTimeout(() => {
+        $(this).addClass("overlay-animation-finished")
+    }, 4000);
+})
+
 
 
 
