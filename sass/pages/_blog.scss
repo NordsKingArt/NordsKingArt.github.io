@@ -358,7 +358,7 @@ section {
             transition: .2s;
             
             background: linear-gradient(120deg, #FF0144, #F55B80 40%, #0038FF 80%);
-            -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
         }
     }
