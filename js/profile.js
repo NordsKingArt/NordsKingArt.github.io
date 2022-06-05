@@ -49,9 +49,26 @@ $(window).on("load", function(){
         //     }
         // })
     });
-
-
-
-    
 });
 
+
+
+class DeleteModpackDialog extends Dialog{
+
+    delete(){
+        this.toggle()
+        this.modpack_div.toggleApearAnimation("animate__fadeInUp", "animate__fadeOutDown")
+
+        this.modpack_div.on("animationend", () => {
+            this.modpack_div.css("display", "none")
+        })
+    }
+}
+var deleteModpackDialog = new DeleteModpackDialog($("#delete-modpack-dialog"));
+
+$(".modpack .delete-btn").click(function(e) {
+    deleteModpackDialog.toggle()
+    
+    deleteModpackDialog.id = $(this).data("id");
+    deleteModpackDialog.modpack_div = $(this).parents(".modpack");
+})

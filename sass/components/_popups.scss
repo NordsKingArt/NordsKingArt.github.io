@@ -217,3 +217,125 @@
         margin-top: 20px;
     }
 }
+
+
+.packing_progress{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba($color: $darkblue, $alpha: 0.5);
+    backdrop-filter: blur(10px);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 0;
+    visibility: hidden;
+    animation-duration: .4s;
+
+
+    >.inner{
+        position: relative;
+        background-color: white;
+        padding: 40px;
+        border-radius: 10px;
+
+        visibility: hidden;
+        animation-duration: .6s;
+
+        width: 500px;
+        box-shadow: $card_shadow;
+
+        display: grid;
+
+        p{
+            color: $blgrey;
+            margin-bottom: 15px;
+        }
+        label{
+            font-size: 3rem;
+            font-weight: bold;
+            color: $blue;
+
+            @include gradient-text($bluegradient2);
+            span{font-size: 1.5rem;}
+        }
+
+
+        .progress-message{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            grid-row: 1;
+            grid-column: 1;
+        }
+        .done-message{
+            display: flex;
+            flex-direction: column;
+
+            grid-row: 1;
+            grid-column: 1;
+
+            align-items: center;
+            opacity: 0;
+
+            h5{
+                margin-bottom: 10px;
+                font-weight: bold;
+                color: $darkblue
+            }
+
+            label{margin-bottom: 15px;}
+        }
+
+        .close-btn{
+            @include position_top_right;
+            z-index: 50;
+
+            padding: 10px;
+            border-radius: 50%;
+
+            transform: translate(10px, -10px);
+
+            width: 40px;
+            height: 40px;
+
+            display: grid;
+            place-items: center;
+
+            box-shadow: 0 0 20px rgba($color: #000000, $alpha: 0.4);
+            background-color: white;
+        }
+
+
+
+
+        .progress_bar{
+            position: absolute;
+            bottom: 0;
+            left: 0;
+
+            height: 10px;
+            width: 100%;
+            background-color: $grey5;
+
+            border-bottom-right-radius: 10px;
+            border-bottom-left-radius: 10px;
+            overflow: hidden;
+
+            .active{
+                width: 0%;
+                height: 100%;
+                background: $bluegradient2;
+                transition: .2s;
+            }
+        }
+    }
+}

@@ -1,0 +1,311 @@
+.mytable{
+    // width: 100%;
+    width: min-content;
+
+    .th{
+        font-weight: bold;
+
+        i.fa-sort{
+            font-size: 0.75rem;
+            opacity: 0.5;
+
+            &.active{
+                opacity: 1;
+            }
+        }
+    }
+    .tr, .th{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        min-height: 60px;
+
+        position: relative;
+        transition: .2s;
+        color: $darkgrey;
+        
+        background-color: white;
+        padding: 15px;
+        border: none;
+
+        // Gradiented th
+        &.th-gradient{
+            background: $bluegradient;
+            color: white;
+        }
+
+        // Border dashed for classic tables
+        border-bottom: 1px dashed $grey5;
+        &:nth-last-child(1){
+            border-bottom: 0;
+        }
+
+
+
+        .td{
+            flex: 1 1;
+            padding: 0 20px;
+            white-space: nowrap;
+
+            &.col-big{
+                // flex-grow: 2;
+                min-width: 300px;
+            }
+            &.col-small{
+                flex-grow: 0;
+            }
+        }
+
+        .td.title{
+            display: flex;
+            align-items: center;
+
+            img{
+                width: 35px;
+                height: 35px;
+                object-fit: cover;
+                border-radius: 50%;
+                margin-right: 10px;
+            }
+
+            label{
+                display: block;
+                max-width: 200px;
+
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+            }
+            span{
+                color: $blgrey;
+                font-size: 0.75rem;
+                padding-left: 2px;
+            }
+        }
+        .td.language{
+            display: flex;
+            img{
+                width: 25px;
+                height: 25px;
+                border-radius: 50%;
+
+                border: 2px solid white;
+            }
+            img:not(img:nth-of-type(1)){
+                margin-left: -8px;
+            }
+        }
+        .td.actions{
+            display: flex;
+            gap: 10px;
+
+            .icon-btn{
+                padding: 5px;
+                border-radius: 10px;
+                
+                width: 40px;
+                height: 40px;
+
+                display: grid;
+                place-items: center;
+            }
+
+            .delete-btn{
+                background-color: lighten($red, 35);
+                color: $red;
+            }
+
+            .edit-btn{
+                background-color: lighten($blue, 45);
+                color: $blue;
+            }
+        }
+
+
+
+        // .inner{
+        //     flex-grow: 1;
+        //     display: flex;
+        //     justify-content: space-between;
+        //     align-items: center;
+        //     padding: 15px 20px;
+        //     border-radius: 10px;
+
+        //     div{
+        //         // width: 12.5%;
+        //         flex: 1 1;
+        //         text-align: center;
+    
+        //         &.b_info{
+        //             display: flex;
+        //             align-items: center;
+        //             overflow: hidden;
+        //             img{
+        //                 width: 30px;
+        //                 height: 30px;
+        //                 object-fit: cover;
+        //                 border-radius: 50%;
+        //             }
+        //             label{
+        //                 text-align: left;
+        //                 margin-bottom: 0;
+        //                 margin-left: 10px;
+        //                 // word-break: break-all;
+
+        //                 text-overflow: ellipsis;
+        //                 white-space: nowrap;
+        //                 overflow: hidden;
+        //             }
+        //         }
+
+        //         &.col_big{
+        //             flex-grow: 2;
+        //         }
+
+        //         &.caption_exists i{
+        //             background-color: $blue;
+        //             color: white;
+        //             padding: 10px;
+        //             border-radius: 10px;
+        //         }
+        //         &.caption_noexists i{
+        //             background-color: $red;
+        //             color: white;
+        //             padding: 10px 12px;
+        //             border-radius: 10px;
+        //         }
+
+        //         @include md{font-size: 14px;}
+    
+        //     }
+        // }
+        // & .inner{
+        //     border: 1px solid $grey5;
+        // }
+
+
+        // &.captions .inner{
+        //     background-color: transparent;
+        //     color: $darkblue;
+        //     padding: 0 20px;
+        //     font-weight: bold;
+
+        //     a:not(.active){
+        //         color: $darkblue;
+        //     }
+        // }
+
+        // .outer{
+        //     display: flex;
+
+        //     &>div{
+        //         margin: 0 5px;
+        //         border: 1px solid $grey5;
+        //         padding: 15px 20px;
+        //         font-size: 20px;
+        //         border-radius: 10px;
+        //         cursor: pointer;
+        //         transition: .2s;
+        //         color: $red;
+
+        //         display: flex;
+        //         align-items: center;
+
+        //         @include md{ 
+        //             padding: 12px;
+        //             font-size: 14px;
+        //         }
+        //         &.delete_btn,&.block_btn{
+        //             &.active{
+        //                 background-color: $red;
+        //                 color: white;
+        //             }
+        //         }
+        //         &.edit_btn{
+        //             background-color: #00c2ff;
+        //             color: white;
+        //             border: none;
+        
+        //             &:hover{
+        //                 background-color: darken(#00c2ff, 5);
+        //             }
+        //         }
+        //         &.approve_btn{
+        //             background-color: $blue;
+        //             color: white;
+
+        //             &:hover{
+        //                 background-color: darken($blue, 5);
+        //             }
+        //         }
+        //         &.caption_btn{
+        //             font-size: 16px;
+        //             background-color: $blue;
+        //             color: lighten($color: $blue2, $amount: 50);
+        //             font-family: "Halvetica Bold";
+
+        //             &:hover{
+        //                 background-color: darken($blue, 5);
+        //             }
+        //         }
+        //     }
+        //     &>div:first-child{
+        //         margin-left: 10px;
+        //     }
+
+        // }
+
+
+
+
+
+        // .md-none{
+        //     @include md{display: none;}
+        // }
+
+
+
+    }
+
+
+    // Customization
+    &.mytable-tiles{
+        .tr, .th{
+            margin-bottom: 20px;
+            box-shadow: 0 0 66px #EBEDF2;
+            border-radius: 10px;
+
+            border-bottom: 0;
+        }
+    }
+
+}
+
+
+
+ // Special
+ .badge{
+    background-color: $blue;
+    padding: 5px;
+
+    &.badge_mods{
+        background-color: $blue;
+        color: lighten($color: $blue, $amount: 40);
+    }
+    &.badge_textures{
+        background-color: $red;
+        color: lighten($color: $red, $amount: 40);
+    }
+    &.badge_shaders{
+        background-color: $green;
+        color: lighten($color: $green, $amount: 40);
+    }
+    &.badge_maps{
+        background-color: $grey;
+        color: lighten($color: $grey, $amount: 40);
+    }
+    &.badge_blogs{
+        background-color: $darkblue;
+        color: lighten($color: $darkblue, $amount: 40);
+    }
+}

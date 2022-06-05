@@ -42,10 +42,14 @@
 }
 
 .cool-btn{
+    position: relative;
     @include button(20px 30px, transparent, 10px);
     background: $gradient_cool;
     font-weight: 600;
     border-radius: 100px;
+
+    transform-style: preserve-3d; // Under test
+
 
     &.shadowed::after{
         display: block;
@@ -57,14 +61,28 @@
         height: 100%;
         border-radius: 100px;
         background: $gradient_cool;
-        z-index: -1;
+        transform: translateZ(-1px); // Under test
+        // z-index: -1;
         filter: blur(40px)
     }
 }
 .gradient-btn-blue{
-    @include button(20px 15px, transparent, 10px);
+    // @include button(20px 15px, transparent, 10px);
+    @include button(15px 15px, transparent, 10px);
     background: $bluegradient;
     font-weight: 600;
+
+
+    &.shadowed{
+        position: relative;
+        bottom: 0;
+        transition: .2s;
+        box-shadow: 0 20px 30px -20px lighten($color: $blue, $amount: 5);
+
+        &:hover{
+            bottom: 5px;
+        }
+    }
 }
 
 .round{

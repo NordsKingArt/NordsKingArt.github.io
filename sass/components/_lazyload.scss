@@ -57,16 +57,18 @@
         height: 100%;
         border-radius: inherit;
 
-        background: linear-gradient(135deg, rgb(211,223,232) 30%,rgb(169,184,197) 38%,rgb(168,182,193) 41%,rgb(168,182,193) 50%,rgb(168,182,193) 50%,rgb(169,184,197) 51%,rgb(211,223,232) 57%,rgb(211,223,232) 80%,rgb(211,223,232) 80%);
+        background: linear-gradient(135deg, #d8d9de 40%, hsl(223, 5%, 80%), hsl(223, 5%, 70%), hsl(223, 5%, 80%), #d8d9de 60%);
         background-size: 1200% 1200%;
-        animation: LazyLoad 1s ease;
-        animation-iteration-count: 4;
+        animation: LazyLoad 2s ease infinite;
+        // animation-iteration-count: 4;
         background-position: 100% 100%;
     }
 
     &.overlay-animation-finished::after{
         opacity: 0;
         transition: .4s;
+        visibility: hidden;
+        transition-delay: visibility .4s;
     }
 }
 

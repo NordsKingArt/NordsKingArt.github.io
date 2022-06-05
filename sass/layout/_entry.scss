@@ -18,16 +18,16 @@
         }
 
         h1{
-            font-weight: 900;
             font-size: 60px;
             min-width: 100%;
-            font-family: $fminecraft;
+            // font-family: $fminecraft;
+            font-family: $frblack;
             @include sm{font-size: 32px;}
         }
 
         &>p{
             opacity: 0.5;
-            font-size: 1.4em;
+            font-size: 1.2em;
             max-width: 700px;
             line-height: 1.2;
             font-weight: 600;

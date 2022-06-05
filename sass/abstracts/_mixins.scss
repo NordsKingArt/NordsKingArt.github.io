@@ -201,6 +201,11 @@
     top: 50%;
     transform: translate(0,-50%);
 }
+@mixin position_top_right{
+    position: absolute;
+    right: 0;
+    top: 0;
+}
 @mixin position_right_x{
     position: absolute;
     right: 0;

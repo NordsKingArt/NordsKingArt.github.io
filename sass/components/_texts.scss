@@ -1,3 +1,6 @@
+.text-grey2{
+    color: $grey2;
+}
 .text-grey3{
     color: $grey3;
 }
@@ -8,3 +11,8 @@
 
 .text-red{color: $red;}
 .text-blue{color: $blue;}
+
+
+p.paragraph{
+    line-height: 1.5;
+}
