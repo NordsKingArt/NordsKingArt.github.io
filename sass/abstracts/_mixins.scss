@@ -134,6 +134,7 @@
         background-color: shade($background, 10);
     }
 }
+
 @mixin gradient-button($padding, $background, $radius, $color: white) {
     padding: $padding;
     text-align: center;
@@ -215,6 +216,11 @@
 @mixin position_top_right{
     position: absolute;
     right: 0;
+    top: 0;
+}
+@mixin position_top_left{
+    position: absolute;
+    left: 0;
     top: 0;
 }
 

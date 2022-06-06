@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curseforge API</title>
+</head>
+<body>
+    
+</body>
+
+<script>
+const headers = {
+  'Accept':'application/json',
+  'x-api-key':'$2a$10$2bASV38fxmmqHLAOAjhASe/2YlshdR0qe6UeEbdflp6v0Os0D4Q6S'
+};
+
+fetch('https://curseforge.com/v1/mods/228756',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+</script>
+</html>
