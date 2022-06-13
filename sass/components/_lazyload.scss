@@ -16,7 +16,7 @@
 
 
 // For images
-.imgdiv.lazyload{
+.img-lazyload{
     opacity: 0.5;
     background: linear-gradient(135deg, rgba(211, 223, 232, 1) 30%, 
                                         rgba(169, 184, 197, 1) 38%, 
@@ -42,6 +42,24 @@
             opacity: 1;
             transition: 0.5s;
         }
+    }
+}
+
+.lazyload-blur{
+    filter: blur(10px);
+    transform: scale(1.2) !important;
+    transition: 0s;
+
+    &.loaded{
+        filter: none;
+    }
+}
+@keyframes removeblur{
+    0%{
+        filter: blur(10px);
+    }
+    100%{
+        filter: blur(0px);
     }
 }
 

@@ -1,43 +1,70 @@
 .dropdown{
-    position: relative;
-    cursor: pointer;
+    .dropdown-item{
+        padding: 10px 20px;
+    }
 
     ul{
-        position: relative;
-        visibility: hidden;
-        transition-delay: .2s;
-
-        @include position_center_x;
-        top: 35px;
-
-        border: 1px solid $grey5;
-        border-radius: 5px;
-
-
-        &.active{visibility: visible;}
-
-        li{
-            border-radius: 5px;
-            overflow: hidden;
-        }
-        li>a{
-            display: block;
-            padding: 10px;
-            background-color: white;
-        }
-
+        margin-top: 10px !important;
         &::after {
             content: " ";
-            @include position_center_x;
+            position: absolute;
+            left: 15px;
+            top: 0;
             transform: rotate(45deg) translate(-50%, 0);
             background-color: white;
-            top: -3px;
+            top: -2px;
 
-            width: 15px;
-            height: 15px;
+            width: 10px;
+            height: 10px;
+            border-radius: 2px;
             border-top: 1px solid $grey5;
             border-left: 1px solid $grey5;
         }
-
     }
+    // ul{
+    //     visibility: hidden;
+    //     transition-delay: .2s;
+
+    //     @include position_center_x;
+    //     top: 15px;
+
+    //     // border: 1px solid $grey5;
+    //     box-shadow: $card_shadow;
+    //     border-radius: 5px;
+
+    //     background-color: white;
+
+
+    //     &.active{visibility: visible;}
+
+    //     li{
+    //         border-radius: 5px;
+    //         overflow: hidden;
+    //     }
+    //     li>a{
+    //         display: block;
+    //         padding: 10px 20px;
+    //         background-color: white;
+    //         color: $darkblue;
+
+    //         &:hover{
+    //             background-color: darken($color: white, $amount: 5);
+    //         }
+    //     }
+
+    //     &::after {
+    //         content: " ";
+    //         @include position_center_x;
+    //         transform: rotate(45deg) translate(-50%, 0);
+    //         background-color: white;
+    //         top: -2px;
+
+    //         width: 10px;
+    //         height: 10px;
+    //         border-radius: 2px;
+    //         border-top: 1px solid $grey5;
+    //         border-left: 1px solid $grey5;
+    //     }
+
+    // }
 }

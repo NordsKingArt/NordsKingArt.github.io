@@ -7,9 +7,10 @@ $(function () {
 
 
 // Header
-$("header.header_transparent #search_btn, header.header_transparent .searchfield .close").click(() => {
-    $("header.header_transparent .searchfield").toggleApearAnimation("animate__fadeInDown", "animate__fadeOutUp", true)
-    $("header.header_transparent .searchfield input").focus()
+$("header #search_btn, header .searchfield .close").click(() => {
+    $("header .searchfield").toggleApearAnimation("animate__fadeIn", "animate__fadeOut")
+    $("header .searchfield .inner").toggleApearAnimation("animate__zoomInDown", "animate__zoomOutUp")
+    $("header .searchfield input").focus()
 })
 
 // Menu Button
@@ -46,9 +47,9 @@ if ($(".message.type2.show").exists()) {
 
 
 // Dropdowns
-$(".dropdown").click(function(event) {
-    $(this).find("ul").toggleClass("active")
-})
+// $(".dropdown").click(function(event) {
+//     $(this).find("ul").toggleClass("active")
+// })
 
 
 // General
@@ -89,8 +90,8 @@ $(".special-input input").focusout(function(){
 
 // Lazy Load
 // Lazy load of images using gradient animation
-$(".imgdiv.lazyload img").on("load",function(e){
-    $(this).parents(".imgdiv").addClass("loaded")
+$(".img-lazyload img").on("load",function(e){
+    $(this).parents(".img-lazyload").addClass("loaded")
 }).each(function() {
     if(this.complete) $(this).trigger('load');
 });
@@ -99,6 +100,10 @@ $(".imgdiv.lazyload img").on("load",function(e){
 $("img").each(function (index) {
     if($(this).data("src")){
         $(this).attr('src', $(this).data("src"));
+
+        $(this).on("load",function(e){
+            $(this).addClass("loaded")
+        })
     }
 })
 

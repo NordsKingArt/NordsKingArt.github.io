@@ -1,0 +1,2 @@
+mklink /J C:\OpenServer\domains\minecraftstorage\public\fonts C:\OpenServer\domains\minecraftstorage\public\frontend\fonts
+mklink /J C:\OpenServer\domains\minecraftstorage\public\js C:\OpenServer\domains\minecraftstorage\public\frontend\js
